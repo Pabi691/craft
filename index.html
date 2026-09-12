@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#93C572" />
+    <title>Craft &amp; Weft — Where Tradition Meets Modernity</title>
+    <meta name="description" content="Handcrafted garments, bags and lifestyle products woven by the artisans of Bengal. The commercial wing of Kolkata Craft Combine Society." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      // Paint the last-known brand colour before React boots, so a colour
+      // changed in the CRM never flashes the default green first.
+      // Written by src/lib/theme.js.
+      try {
+        var v = JSON.parse(localStorage.getItem('cw_brand_vars') || 'null');
+        if (v) for (var k in v) document.documentElement.style.setProperty(k, v[k]);
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

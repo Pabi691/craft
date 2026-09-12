@@ -1,0 +1,303 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------------------------------------------------------------ *
+ * Theme tokens
+ * Brand scale = pista green #93C572 (shade 500). src/lib/theme.js
+ * overwrites these at runtime with the colour saved in the CRM.
+ * ------------------------------------------------------------------ */
+:root {
+  --brand-50: 246 250 244;
+  --brand-100: 236 245 230;
+  --brand-200: 216 234 204;
+  --brand-300: 192 221 173;
+  --brand-400: 169 209 142;
+  --brand-500: 147 197 114;
+  --brand-600: 126 168 98;
+  --brand-700: 102 136 79;
+  --brand-800: 78 103 61;
+  --brand-900: 57 75 45;
+  --brand-950: 41 53 32;
+  --brand-on: 23 27 20;
+
+  /* The pink ampersand from the C&W logo. */
+  --accent: 224 64 140;
+  --accent-soft: 252 231 241;
+
+  --announce-h: 34px;
+  --nav-h: 64px;
+  --header-total: calc(var(--announce-h) + var(--nav-h));
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --nav-h: 80px;
+  }
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-paper font-sans text-ink-900 antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display;
+    font-optical-sizing: auto;
+  }
+  ::selection {
+    background: rgb(var(--brand-300));
+    color: rgb(var(--brand-950));
+  }
+  button {
+    -webkit-tap-highlight-color: transparent;
+  }
+  :focus-visible {
+    outline: 2px solid rgb(var(--brand-600));
+    outline-offset: 3px;
+  }
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+  }
+}
+
+/* Lenis smooth scroll */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12;
+  }
+  .eyebrow {
+    @apply inline-flex items-center gap-3 text-[11px] font-extrabold uppercase tracking-[0.24em] text-ink-500;
+  }
+  .eyebrow::before {
+    content: '';
+    @apply h-px w-7 bg-current opacity-50;
+  }
+  .h-display {
+    @apply font-display font-normal leading-[0.95] tracking-[-0.03em];
+  }
+
+  .btn {
+    @apply relative inline-flex select-none items-center justify-center gap-2 overflow-hidden whitespace-nowrap rounded-full px-6 py-3.5 text-sm font-bold transition-all duration-300 ease-silk active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply btn bg-brand-500 text-brand-on shadow-[0_14px_32px_-14px_rgb(var(--brand-700)/0.9)] hover:-translate-y-0.5 hover:bg-brand-400 hover:shadow-[0_20px_40px_-16px_rgb(var(--brand-700)/0.9)];
+  }
+  .btn-dark {
+    @apply btn bg-ink-900 text-paper hover:-translate-y-0.5 hover:bg-ink-800;
+  }
+  .btn-outline {
+    @apply btn border border-ink-900/15 bg-white/50 text-ink-900 backdrop-blur hover:border-ink-900 hover:bg-white;
+  }
+  .btn-light {
+    @apply btn bg-paper text-ink-900 hover:-translate-y-0.5 hover:bg-white;
+  }
+  .btn-sm {
+    @apply px-4 py-2.5 text-xs;
+  }
+  .icon-btn {
+    @apply relative inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-ink-800 transition-colors duration-300 hover:bg-ink-900/[0.06];
+  }
+
+  .input {
+    @apply w-full rounded-2xl border border-ink-900/10 bg-white/80 px-4 py-3.5 text-sm text-ink-900 outline-none transition duration-300 placeholder:text-ink-400 focus:border-brand-500 focus:bg-white focus:ring-4 focus:ring-brand-500/20 disabled:cursor-not-allowed disabled:bg-ink-50 disabled:text-ink-400;
+  }
+  .input-error {
+    @apply border-rose-400 bg-rose-50/60 focus:border-rose-500 focus:ring-rose-500/15;
+  }
+  .label {
+    @apply mb-1.5 block text-[11px] font-extrabold uppercase tracking-[0.14em] text-ink-500;
+  }
+  .card {
+    @apply rounded-[1.75rem] border border-ink-900/[0.06] bg-white/85 shadow-soft backdrop-blur;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[10px] font-extrabold uppercase tracking-[0.12em];
+  }
+
+  .link-underline {
+    @apply relative inline-block;
+  }
+  .link-underline::after {
+    content: '';
+    @apply absolute -bottom-0.5 left-0 h-px w-full origin-right scale-x-0 bg-current transition-transform duration-500 ease-silk;
+  }
+  .link-underline:hover::after,
+  .link-underline.active::after {
+    @apply origin-left scale-x-100;
+  }
+
+  .skeleton {
+    @apply relative overflow-hidden rounded-2xl bg-ink-900/[0.06];
+  }
+  .skeleton::after {
+    content: '';
+    @apply absolute inset-0 -translate-x-full animate-shimmer bg-gradient-to-r from-transparent via-white/60 to-transparent;
+  }
+
+  .text-outline {
+    -webkit-text-stroke: 1px currentColor;
+    color: transparent;
+  }
+
+  /* Rich text from the CRM "Pages" editor and policy defaults. */
+  .prose-craft {
+    @apply max-w-none text-[15px] leading-8 text-ink-600;
+  }
+  .prose-craft h2 {
+    @apply mb-3 mt-10 font-display text-2xl text-ink-900 md:text-3xl;
+  }
+  .prose-craft h3 {
+    @apply mb-2 mt-8 font-display text-xl text-ink-900;
+  }
+  .prose-craft p {
+    @apply mb-4;
+  }
+  .prose-craft ul {
+    @apply mb-4 list-disc space-y-1.5 pl-5 marker:text-brand-600;
+  }
+  .prose-craft ol {
+    @apply mb-4 list-decimal space-y-1.5 pl-5;
+  }
+  .prose-craft a {
+    @apply font-semibold text-ink-900 underline decoration-brand-500 decoration-2 underline-offset-4;
+  }
+  .prose-craft strong {
+    @apply text-ink-900;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+  .mask-fade-x {
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
+  }
+  .mask-fade-b {
+    -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent);
+    mask-image: linear-gradient(to bottom, #000 70%, transparent);
+  }
+  .pt-header {
+    padding-top: var(--header-total);
+  }
+}
+
+/* Film grain — gives flat colour a woven, paper-like texture. */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 95;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f3eee0;
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--brand-400));
+  border-radius: 999px;
+  border: 3px solid #f3eee0;
+}
+
+/* react-toastify */
+.Toastify__toast {
+  @apply rounded-2xl border border-ink-900/5 bg-paper-50 font-sans text-sm font-semibold text-ink-800 shadow-lift;
+}
+.Toastify__progress-bar--success,
+.Toastify__progress-bar--info {
+  background: rgb(var(--brand-500));
+}
+.Toastify__toast-icon svg {
+  fill: rgb(var(--brand-600));
+}
+.Toastify__toast--error .Toastify__toast-icon svg {
+  fill: #e11d48;
+}
+
+/* SweetAlert2 (see src/lib/swal.js) */
+.cw-swal.swal2-popup {
+  border-radius: 2rem;
+  padding: 2rem 1.75rem 1.75rem;
+  background: #fdfcf8;
+  font-family: Manrope, system-ui, sans-serif;
+}
+.cw-swal .swal2-title {
+  font-family: Fraunces, Georgia, serif;
+  font-weight: 500;
+  color: #171b14;
+  font-size: 1.65rem;
+}
+.cw-swal .swal2-html-container {
+  color: #4c5446;
+  font-size: 0.95rem;
+}
+.cw-swal .swal2-actions {
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+.cw-swal .swal2-icon.swal2-success {
+  border-color: rgb(var(--brand-500));
+  color: rgb(var(--brand-600));
+}
+.cw-swal .swal2-icon.swal2-success [class^='swal2-success-line'] {
+  background-color: rgb(var(--brand-600));
+}
+.cw-swal .swal2-icon.swal2-success .swal2-success-ring {
+  border-color: rgb(var(--brand-500) / 0.35);
+}
+.cw-swal .swal2-icon.swal2-warning {
+  border-color: rgb(var(--accent));
+  color: rgb(var(--accent));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
