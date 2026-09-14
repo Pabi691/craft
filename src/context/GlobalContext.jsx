@@ -167,6 +167,9 @@ export function GlobalProvider({ children }) {
           : Number(variation?.sale_price || product.sale_price || 0)
         : Number(variation?.sale_price || product.sale_price || 0);
 
+      // Drafts are created at ₹0 until priced in the CRM — never sell them for free.
+      if (!(price > 0)) return { ok: false, message: 'This piece is priced on request — message us on WhatsApp.' };
+
       const userTok = localStorage.getItem('userToken');
       if (userTok) {
         try {

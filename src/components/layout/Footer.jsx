@@ -1,12 +1,14 @@
 import { Link } from 'react-router-dom';
-import { FiMail, FiMapPin, FiPhone } from 'react-icons/fi';
-import { FaWhatsapp } from 'react-icons/fa';
-import Logo from '../ui/Logo';
+import { FiGlobe, FiMail, FiMapPin, FiPhone } from 'react-icons/fi';
+import { FaBloggerB, FaFacebookF, FaInstagram, FaWhatsapp } from 'react-icons/fa';
+import Logo, { CraftCombineMark } from '../ui/Logo';
 import SplitText from '../ui/SplitText';
 import WeavePattern from '../ui/WeavePattern';
 import Magnetic from '../ui/Magnetic';
 import { useGlobal } from '../../context/GlobalContext';
-import { SITE, whatsappLink } from '../../config/site';
+import { SITE, telLink, whatsappLink } from '../../config/site';
+
+const SOCIAL_ICONS = { instagram: FaInstagram, facebook: FaFacebookF, blog: FaBloggerB, website: FiGlobe };
 
 function FooterColumn({ title, links }) {
   return (
@@ -30,9 +32,11 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative overflow-hidden bg-ink-950 pb-28 pt-20 text-paper md:pb-10 lg:pt-28">
+    <footer className="relative overflow-hidden bg-ink-950 pb-28 pt-20 text-paper md:pb-28 lg:pt-28">
       <WeavePattern className="absolute inset-0 text-paper" opacity={0.035} size={28} />
       <div className="pointer-events-none absolute -left-40 top-10 h-96 w-96 rounded-full bg-brand-500/10 blur-3xl" />
+      <div className="pointer-events-none absolute -right-40 bottom-40 h-96 w-96 rounded-full bg-violet/20 blur-3xl" />
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/60 to-transparent" />
 
       <div className="container-x relative">
         <div className="grid gap-14 lg:grid-cols-12">
@@ -40,9 +44,9 @@ export default function Footer() {
             <Logo light />
             <SplitText
               as="h2"
-              text="Crafted with care, | inspired by *heritage.*"
-              className="h-display mt-10 text-[2.6rem] text-paper sm:text-5xl"
-              highlightClassName="italic text-brand-300"
+              text="From craft to cup. | From heritage to | everyday *ritual.*"
+              className="h-display mt-10 text-[2.4rem] text-paper sm:text-5xl"
+              highlightClassName="italic text-gold-light"
             />
             <p className="mt-6 max-w-md text-sm leading-7 text-paper/55">{SITE.about[0]}</p>
             <div className="mt-8 flex flex-wrap gap-3">
@@ -54,6 +58,24 @@ export default function Footer() {
               <a href={`mailto:${SITE.contact.email}`} className="btn border border-paper/15 text-paper hover:border-paper/60">
                 Email us
               </a>
+            </div>
+            <div className="mt-8 flex gap-2">
+              {SITE.socials.map(({ key, label, href }) => {
+                const Icon = SOCIAL_ICONS[key] || FiGlobe;
+                return (
+                  <a
+                    key={key}
+                    href={href}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={label}
+                    title={label}
+                    className="grid h-11 w-11 place-items-center rounded-full border border-paper/15 text-paper/75 transition-colors duration-300 hover:border-gold hover:text-gold-light"
+                  >
+                    <Icon size={16} />
+                  </a>
+                );
+              })}
             </div>
           </div>
 
@@ -69,6 +91,7 @@ export default function Footer() {
               title="The house"
               links={[
                 { label: 'Our story', to: '/about-us' },
+                { label: 'SPHOORA teas', to: '/tea' },
                 { label: 'Gallery', to: '/gallery' },
                 { label: 'Contact', to: '/contact-us' },
                 { label: 'My account', to: '/myaccount' },
@@ -90,32 +113,48 @@ export default function Footer() {
 
         <div className="mt-16 grid gap-6 border-t border-paper/10 pt-10 sm:grid-cols-3">
           <div className="flex items-start gap-3 text-sm text-paper/70">
-            <FiMapPin className="mt-0.5 shrink-0 text-brand-400" /> {SITE.contact.address}
-          </div>
-          <div className="flex items-start gap-3 text-sm text-paper/70">
-            <FiPhone className="mt-0.5 shrink-0 text-brand-400" />
+            <FiMapPin className="mt-0.5 shrink-0 text-gold" />
             <span>
-              {SITE.contact.phones.map((p, i) => (
-                <a key={p} href={`tel:${p.replace(/\s/g, '')}`} className="hover:text-paper">
-                  {p}
-                  {i < SITE.contact.phones.length - 1 ? ' / ' : ''}
-                </a>
+              {SITE.contact.addressLines.map((l) => (
+                <span key={l} className="block">
+                  {l}
+                </span>
               ))}
-              <span className="block text-xs text-paper/40">Bulk orders & WhatsApp</span>
             </span>
           </div>
-          <a href={`mailto:${SITE.contact.email}`} className="flex items-start gap-3 text-sm text-paper/70 hover:text-paper">
-            <FiMail className="mt-0.5 shrink-0 text-brand-400" /> {SITE.contact.email}
-          </a>
+          <div className="flex items-start gap-3 text-sm text-paper/70">
+            <FiPhone className="mt-0.5 shrink-0 text-gold" />
+            <span>
+              {SITE.contact.phones.map((p) => (
+                <a key={p} href={telLink(p)} className="block hover:text-paper">
+                  {p}
+                </a>
+              ))}
+            </span>
+          </div>
+          <div className="flex items-start gap-3 text-sm text-paper/70">
+            <FiMail className="mt-0.5 shrink-0 text-gold" />
+            <span className="min-w-0">
+              {SITE.contact.emails.map((e) => (
+                <a key={e} href={`mailto:${e}`} className="block break-all hover:text-paper">
+                  {e}
+                </a>
+              ))}
+            </span>
+          </div>
         </div>
 
         <p aria-hidden className="h-display mt-14 select-none whitespace-nowrap text-center text-[17vw] leading-[0.8] text-paper/[0.05] lg:text-[14.5vw]">
           Craft <span className="italic">&amp;</span> Weft
         </p>
 
-        <div className="mt-8 flex flex-col gap-3 text-xs text-paper/40 sm:flex-row sm:items-center sm:justify-between">
-          <p>© {year} Craft &amp; Weft — the commercial wing of {SITE.parent}.</p>
-          <p>Hand wash with light detergent · Dry in shade</p>
+        <div className="mt-8 flex flex-col gap-6 border-t border-paper/10 pt-8 md:flex-row md:items-center md:justify-between">
+          <CraftCombineMark light />
+          <p className="text-[11px] font-extrabold uppercase tracking-[0.22em] text-gold-light/90">{SITE.pillars.join(' • ')}</p>
+        </div>
+        <div className="mt-6 flex flex-col gap-2 text-xs text-paper/40 sm:flex-row sm:items-center sm:justify-between">
+          <p>© {year} Craft &amp; Weft — an initiative of {SITE.parent}.</p>
+          <p>{SITE.promise}</p>
         </div>
       </div>
     </footer>

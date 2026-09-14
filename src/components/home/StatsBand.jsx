@@ -10,7 +10,7 @@ export default function StatsBand() {
       <div className="pointer-events-none absolute -right-40 -top-40 h-[30rem] w-[30rem] rounded-full bg-brand-500/15 blur-3xl" />
       <div className="container-x relative">
         <Reveal as="p" className="eyebrow text-paper/50">
-          The society in numbers
+          Craft Combine in numbers
         </Reveal>
         <div className="mt-10 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           {SITE.stats.map((s, i) => (
@@ -24,6 +24,14 @@ export default function StatsBand() {
         </div>
         <Reveal as="p" delay={0.2} className="mt-16 max-w-4xl font-display text-2xl font-light italic leading-snug text-paper/85 md:text-[2rem]">
           {SITE.history}
+        </Reveal>
+        <Reveal as="p" delay={0.3} className="mt-10 flex flex-wrap items-center gap-x-4 gap-y-2 text-[11px] font-extrabold uppercase tracking-[0.24em] text-gold-light">
+          {SITE.pillars.map((p, i) => (
+            <span key={p} className="flex items-center gap-4">
+              {p}
+              {i < SITE.pillars.length - 1 && <span className="text-gold/60">•</span>}
+            </span>
+          ))}
         </Reveal>
       </div>
     </section>

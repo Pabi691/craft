@@ -15,14 +15,14 @@ import { mediaUrl } from '../../lib/media';
 
 function RotatingBadge() {
   return (
-    <div className="relative grid h-32 w-32 place-items-center rounded-full bg-ink-950 text-paper shadow-lift sm:h-36 sm:w-36">
+    <div className="relative grid h-32 w-32 place-items-center rounded-full bg-ink-950 text-paper shadow-lift ring-1 ring-gold/50 ring-offset-4 ring-offset-paper sm:h-36 sm:w-36">
       <svg viewBox="0 0 100 100" className="absolute inset-0 h-full w-full animate-spin-slow" aria-hidden>
         <defs>
           <path id="hero-badge-circle" d="M50,50 m-37,0 a37,37 0 1,1 74,0 a37,37 0 1,1 -74,0" />
         </defs>
-        <text className="fill-paper text-[7px] font-bold uppercase" style={{ fontFamily: 'Manrope, sans-serif', letterSpacing: '0.2em' }}>
+        <text className="fill-gold-light text-[7px] font-bold uppercase" style={{ fontFamily: 'Manrope, sans-serif', letterSpacing: '0.2em' }}>
           <textPath href="#hero-badge-circle" textLength="228" lengthAdjust="spacing">
-            Handmade in Bengal · Hand woven ·
+            Made in India · Rooted in people ·
           </textPath>
         </text>
       </svg>
@@ -53,9 +53,12 @@ export default function Hero() {
 
   const current = images.length ? images[slide % images.length] : null;
   const secondary = images.length > 1 ? images[(slide + 1) % images.length] : null;
-  // The priciest piece doubles as the "signature" card.
+  // The priciest piece doubles as the "signature" card (unpriced drafts never qualify).
   const signature = useMemo(
-    () => products.reduce((best, p) => (!best || Number(p.sale_price) > Number(best.sale_price) ? p : best), null),
+    () =>
+      products
+        .filter((p) => Number(p.sale_price) > 0)
+        .reduce((best, p) => (!best || Number(p.sale_price) > Number(best.sale_price) ? p : best), null),
     [products]
   );
 
@@ -70,20 +73,29 @@ export default function Hero() {
       <div className="container-x relative grid min-h-[calc(100svh-var(--header-total))] items-center gap-14 pb-16 pt-8 lg:grid-cols-12 lg:gap-8 lg:py-16">
         <motion.div style={{ y: yText, opacity: fade }} className="relative z-10 lg:col-span-6">
           <motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25, duration: 0.8, ease: EASE }} className="eyebrow">
-            {SITE.parent}
+            An initiative of {SITE.parent}
           </motion.p>
           <SplitText
             as="h1"
             inView={false}
             delay={0.3}
-            text="Where *Tradition* | Meets Modernity."
-            className="h-display mt-6 text-[3.2rem] leading-[0.92] text-ink-900 sm:text-7xl xl:text-[6.4rem]"
+            text="From Craft | to *Cup.*"
+            className="h-display mt-6 text-[3.4rem] leading-[0.92] text-ink-900 sm:text-7xl xl:text-[6.8rem]"
           />
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.75, duration: 0.8, ease: EASE }}
+            className="mt-5 flex items-center gap-3 font-display text-xl italic text-ink-700 md:text-2xl"
+          >
+            <span className="h-px w-10 bg-gold" aria-hidden />
+            {SITE.subTagline}
+          </motion.p>
           <motion.p
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.9, duration: 0.9, ease: EASE }}
-            className="mt-8 max-w-lg text-base leading-8 text-ink-600 md:text-lg"
+            className="mt-6 max-w-lg text-base leading-8 text-ink-600 md:text-lg"
           >
             {SITE.heroCopy}
           </motion.p>
@@ -98,8 +110,8 @@ export default function Hero() {
                 Shop the collection <FiArrowRight />
               </Link>
             </Magnetic>
-            <Link to="/about-us" className="btn-outline px-8 py-4 text-[15px]">
-              Our story
+            <Link to="/tea" className="btn-outline px-8 py-4 text-[15px]">
+              Discover SPHOORA teas
             </Link>
           </motion.div>
           <motion.dl
@@ -123,7 +135,7 @@ export default function Hero() {
                   <img key={img.id} src={mediaUrl(img.image_path)} alt="" className="h-10 w-10 rounded-full border-2 border-paper object-cover" />
                 ))}
               </div>
-              <span className="max-w-[9rem] text-xs font-semibold leading-snug text-ink-500">Made by hand, one loom at a time</span>
+              <span className="max-w-[10rem] text-xs font-semibold leading-snug text-ink-500">Every order hugs an artisan’s family</span>
             </div>
           </motion.dl>
         </motion.div>
@@ -195,7 +207,7 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.95, duration: 1.1, ease: EASE }}
-                className="absolute -bottom-6 -left-6 hidden h-44 w-32 overflow-hidden rounded-arch border-[5px] border-paper shadow-lift sm:block lg:-left-16"
+                className="absolute -right-5 -top-10 hidden h-44 w-32 overflow-hidden rounded-arch border-[5px] border-paper shadow-lift sm:block lg:-right-12"
               >
                 <img src={mediaUrl(secondary.image_path)} alt="" className="h-full w-full object-cover" />
               </motion.div>

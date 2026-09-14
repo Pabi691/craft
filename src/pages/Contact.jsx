@@ -1,15 +1,17 @@
 import { useState } from 'react';
-import { FiMail, FiMapPin, FiPhone, FiSend } from 'react-icons/fi';
-import { FaWhatsapp } from 'react-icons/fa';
-import { SITE, whatsappLink } from '../config/site';
-import { inr } from '../lib/format';
+import { FiGlobe, FiMail, FiMapPin, FiPhone, FiSend } from 'react-icons/fi';
+import { FaBloggerB, FaFacebookF, FaInstagram, FaWhatsapp } from 'react-icons/fa';
+import { SITE, telLink, whatsappLink } from '../config/site';
+import { CONTACT_FAQ_IDS, FAQS } from '../content/faqs';
 import Seo from '../components/Seo';
 import SplitText from '../components/ui/SplitText';
 import Reveal from '../components/ui/Reveal';
 import Accordion from '../components/ui/Accordion';
 import Magnetic from '../components/ui/Magnetic';
 
-const TOPICS = ['Order help', 'Bulk / corporate order', 'Collaboration', 'Something else'];
+const TOPICS = ['Order help', 'SPHOORA teas', 'Bulk / corporate gifting', 'Collaboration', 'Something else'];
+const SOCIAL_ICONS = { instagram: FaInstagram, facebook: FaFacebookF, blog: FaBloggerB, website: FiGlobe };
+const WHATSAPP_DISPLAY = `+91 ${SITE.contact.whatsapp.slice(2, 7)} ${SITE.contact.whatsapp.slice(7)}`;
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', phone: '', topic: TOPICS[0], message: '' });
@@ -23,37 +25,30 @@ export default function Contact() {
     {
       icon: FiMapPin,
       title: 'Visit us',
-      lines: [SITE.contact.address],
+      lines: SITE.contact.addressLines,
       action: { label: 'Get directions', href: `https://maps.google.com/?q=${encodeURIComponent(SITE.contact.mapQuery)}` },
     },
     {
       icon: FiPhone,
       title: 'Call us',
       lines: SITE.contact.phones,
-      action: { label: 'Call now', href: `tel:${SITE.contact.phones[0].replace(/\s/g, '')}` },
+      action: { label: 'Call now', href: telLink(SITE.contact.phones[0]) },
     },
     {
       icon: FaWhatsapp,
       title: 'WhatsApp',
-      lines: SITE.contact.phones,
+      lines: [WHATSAPP_DISPLAY, 'Orders, prices & bulk enquiries'],
       action: { label: 'Start a chat', href: whatsappLink('Hello Craft & Weft, ') },
     },
     {
       icon: FiMail,
       title: 'Email',
-      lines: [SITE.contact.email],
+      lines: SITE.contact.emails,
       action: { label: 'Write to us', href: `mailto:${SITE.contact.email}` },
     },
   ];
 
-  const faqs = [
-    { title: 'How long does delivery take?', content: 'Orders are usually dispatched in 2–3 working days and delivered across India within 3–5 days after that. Shipping is free.' },
-    { title: 'Do you offer cash on delivery?', content: `Yes, on most products. A ${inr(20)} collection charge applies to COD orders, and a few items are prepaid-only — the product page always says which.` },
-    { title: 'How do returns work?', content: 'Once an order is delivered, open My Orders and tap Return against it. For a damaged piece please attach a short video so we can sort it out quickly.' },
-    { title: 'How should I care for my piece?', content: SITE.care },
-    { title: 'Can I order in bulk?', content: `Yes — festive hampers, corporate gifting and boutique stock are welcome. Call or WhatsApp ${SITE.contact.phones.join(' / ')} and we will plan a run with our artisan clusters.` },
-    { title: 'Why does my piece look slightly different?', content: 'Everything is handwoven and hand-finished, so slight variations in weave, shade and size are natural — they are the signature of a handmade product.' },
-  ];
+  const faqs = CONTACT_FAQ_IDS.map((id) => FAQS.find((f) => f.id === id));
 
   return (
     <>
@@ -61,10 +56,26 @@ export default function Contact() {
 
       <section className="container-x pb-14 pt-10 md:pt-14">
         <p className="eyebrow">Say hello</p>
-        <SplitText as="h1" inView={false} text="Let's talk *craft*" className="h-display mt-5 text-[3rem] text-ink-900 sm:text-7xl lg:text-8xl" />
+        <SplitText as="h1" inView={false} text="Let's talk craft | over *tea.*" className="h-display mt-5 text-[3rem] text-ink-900 sm:text-7xl lg:text-8xl" />
         <p className="mt-6 max-w-2xl text-[15px] leading-8 text-ink-500">
-          Questions about an order, a bulk enquiry, or an idea you would like woven — we would love to hear from you.
+          Questions about an order, a tea you would like to try, bulk gifting, or an idea to co-create — we would love to hear from you.
         </p>
+        <div className="mt-8 flex flex-wrap items-center gap-2">
+          {SITE.socials.map(({ key, label, href }) => {
+            const Icon = SOCIAL_ICONS[key] || FiGlobe;
+            return (
+              <a
+                key={key}
+                href={href}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-ink-900/10 bg-white/70 px-4 py-2 text-xs font-bold text-ink-700 transition-colors duration-300 hover:border-gold hover:text-ink-900"
+              >
+                <Icon size={13} /> {label}
+              </a>
+            );
+          })}
+        </div>
       </section>
 
       <section className="container-x pb-16">
@@ -77,7 +88,7 @@ export default function Contact() {
                   <Icon size={20} />
                 </span>
                 <h2 className="mt-5 font-display text-xl text-ink-900">{card.title}</h2>
-                <div className="mt-2 space-y-0.5 text-sm leading-6 text-ink-500">
+                <div className="mt-2 space-y-0.5 break-words text-sm leading-6 text-ink-500">
                   {card.lines.map((line) => (
                     <p key={line}>{line}</p>
                   ))}

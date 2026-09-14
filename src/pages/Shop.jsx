@@ -18,6 +18,8 @@ import EmptyState from '../components/ui/EmptyState';
 import SmartImage from '../components/ui/SmartImage';
 import ProductCard, { ProductCardSkeleton } from '../components/product/ProductCard';
 
+const TEA_SLUGS = ['tea', 'connoisseurs-choice', 'signature-blends'];
+
 const SORTS = [
   { value: 'popularity', label: 'Popularity' },
   { value: 'newArrival', label: 'New arrivals' },
@@ -239,7 +241,7 @@ export default function Shop({ showAll = false }) {
 
   const title = showAll ? 'The *Collection*' : meta?.name || '';
   const description = showAll
-    ? 'Handcrafted garments, bags and lifestyle products — every piece made by artisans of Bengal.'
+    ? 'Sarees, jackets, fabric accessories, home décor and SPHOORA teas — crafted with wisdom, sourced with care, made in India.'
     : meta?.desc || '';
 
   return (
@@ -406,6 +408,22 @@ export default function Shop({ showAll = false }) {
                   </div>
                 )}
               </>
+            ) : source.length === 0 && TEA_SLUGS.includes(categorySlug) ? (
+              <EmptyState
+                icon={FiFeather}
+                title="These teas are steeping."
+                text="SPHOORA teas are being packed in 50 g, 100 g and 200 g right now. Meet the blends, or message us to order ahead."
+                action={
+                  <>
+                    <Link to="/tea" className="btn-primary">
+                      Meet the teas
+                    </Link>
+                    <a href={whatsappLink(`Hello Craft & Weft, I'm interested in SPHOORA ${meta?.name || 'teas'}.`)} target="_blank" rel="noreferrer" className="btn-outline">
+                      <FaWhatsapp /> Ask on WhatsApp
+                    </a>
+                  </>
+                }
+              />
             ) : source.length === 0 ? (
               <EmptyState
                 icon={FiFeather}

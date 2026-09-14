@@ -10,6 +10,7 @@ import WhyUs from '../components/home/WhyUs';
 import Testimonials from '../components/home/Testimonials';
 import GalleryTeaser from '../components/home/GalleryTeaser';
 import CareCTA from '../components/home/CareCTA';
+import TeaSection from '../components/home/TeaSection';
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
       <CraftMarquee />
       <CategoryShowcase />
       <FeaturedScroll />
+      <TeaSection />
       <StorySection />
       <StatsBand />
       <ProcessSection />

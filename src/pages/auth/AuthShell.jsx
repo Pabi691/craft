@@ -35,7 +35,7 @@ export default function AuthShell({ eyebrow, title, subtitle, children, footer }
                 {SITE.subTagline}
               </motion.p>
               <p className="mt-4 max-w-sm text-sm leading-7 text-paper/60">{SITE.mission}</p>
-              <p className="mt-8 text-[11px] font-extrabold uppercase tracking-[0.28em] text-paper/40">{SITE.parent}</p>
+              <p className="mt-8 text-[11px] font-extrabold uppercase tracking-[0.28em] text-paper/40">An initiative of {SITE.parent}</p>
             </div>
           </div>
         </div>

@@ -12,15 +12,17 @@ import { mediaUrl } from '../../lib/media';
 export default function ProcessSection() {
   const { images } = useImages({ image_type: 'gallery' });
   const [active, setActive] = useState(0);
-  const imageFor = (file) => images.find((i) => i.image_path?.endsWith(`/${file}`))?.image_path || `${ENV.API_URL}/page-images/gallery/${file}`;
+  // Gallery file names resolve against the CMS gallery; root paths ("/product-images/…") pass straight through.
+  const imageFor = (file) =>
+    file.startsWith('/') ? file : images.find((i) => i.image_path?.endsWith(`/${file}`))?.image_path || `${ENV.API_URL}/page-images/gallery/${file}`;
 
   return (
     <section className="py-24 md:py-32">
       <div className="container-x">
         <SectionHeading
-          eyebrow="The process"
-          title="From fibre to *finish.*"
-          text="Every Craft & Weft piece passes through many skilled hands — spinners, weavers, designers and tailors — before it reaches yours."
+          eyebrow="How it comes together"
+          title="From the loom | to your *cup.*"
+          text="Heritage weaves revived with artisans, shaped by designers and makers — and the same care carried from craft to cup."
         />
 
         <div className="mt-14 hidden h-[34rem] gap-4 lg:flex">

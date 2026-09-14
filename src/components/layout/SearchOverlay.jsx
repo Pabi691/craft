@@ -6,7 +6,7 @@ import SmartImage from '../ui/SmartImage';
 import { useGlobal } from '../../context/GlobalContext';
 import { useLenis } from '../motion/SmoothScroll';
 import { POPULAR_SEARCHES, searchProducts } from '../../lib/search';
-import { inr } from '../../lib/format';
+import { priceLabel } from '../../lib/format';
 import { EASE } from '../../lib/motion';
 
 export default function SearchOverlay({ open, onClose }) {
@@ -98,7 +98,7 @@ export default function SearchOverlay({ open, onClose }) {
                           <Link to={`/p/${p.slug}`} onClick={onClose} className="group block">
                             <SmartImage src={p.primary_img} alt={p.prod_name} className="aspect-square rounded-2xl" imgClassName="duration-700 group-hover:scale-105" />
                             <p className="mt-2 truncate text-sm font-bold text-ink-900">{p.prod_name}</p>
-                            <p className="text-xs font-semibold text-ink-500">{inr(p.sale_price)}</p>
+                            <p className="text-xs font-semibold text-ink-500">{priceLabel(p)}</p>
                           </Link>
                         </motion.div>
                       ))}

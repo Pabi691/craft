@@ -4,26 +4,26 @@
 
 /* ------------------------------------------------------------------ *
  * Theme tokens
- * Brand scale = pista green #93C572 (shade 500). src/lib/theme.js
+ * Brand scale = sage leaf #87A96B (shade 500). src/lib/theme.js
  * overwrites these at runtime with the colour saved in the CRM.
  * ------------------------------------------------------------------ */
 :root {
-  --brand-50: 246 250 244;
-  --brand-100: 236 245 230;
-  --brand-200: 216 234 204;
-  --brand-300: 192 221 173;
-  --brand-400: 169 209 142;
-  --brand-500: 147 197 114;
-  --brand-600: 126 168 98;
-  --brand-700: 102 136 79;
-  --brand-800: 78 103 61;
-  --brand-900: 57 75 45;
-  --brand-950: 41 53 32;
-  --brand-on: 23 27 20;
+  --brand-50: 245 248 243;
+  --brand-100: 233 240 228;
+  --brand-200: 212 224 202;
+  --brand-300: 185 205 169;
+  --brand-400: 159 186 137;
+  --brand-500: 135 169 107;
+  --brand-600: 117 145 92;
+  --brand-700: 97 117 75;
+  --brand-800: 77 90 58;
+  --brand-900: 60 66 42;
+  --brand-950: 46 47 31;
+  --brand-on: 38 27 20;
 
-  /* The pink ampersand from the C&W logo. */
-  --accent: 224 64 140;
-  --accent-soft: 252 231 241;
+  /* The pink from the C&W logo. */
+  --accent: 219 75 118;
+  --accent-soft: 251 227 234;
 
   --announce-h: 34px;
   --nav-h: 64px;
@@ -92,7 +92,16 @@ html.lenis body {
   }
   .eyebrow::before {
     content: '';
-    @apply h-px w-7 bg-current opacity-50;
+    @apply h-px w-7 bg-gold;
+  }
+  /* Thin gold rule with a leaf-diamond centre — section dividers. */
+  .rule-gold {
+    @apply relative mx-auto flex max-w-xs items-center gap-3 text-gold;
+  }
+  .rule-gold::before,
+  .rule-gold::after {
+    content: '';
+    @apply h-px flex-1 bg-gradient-to-r from-transparent via-gold/70 to-transparent;
   }
   .h-display {
     @apply font-display font-normal leading-[0.95] tracking-[-0.03em];
@@ -232,12 +241,12 @@ body::after {
   height: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #f3eee0;
+  background: #eee3d2;
 }
 ::-webkit-scrollbar-thumb {
   background: rgb(var(--brand-400));
   border-radius: 999px;
-  border: 3px solid #f3eee0;
+  border: 3px solid #eee3d2;
 }
 
 /* react-toastify */
@@ -259,17 +268,17 @@ body::after {
 .cw-swal.swal2-popup {
   border-radius: 2rem;
   padding: 2rem 1.75rem 1.75rem;
-  background: #fdfcf8;
+  background: #fbf7f1;
   font-family: Manrope, system-ui, sans-serif;
 }
 .cw-swal .swal2-title {
   font-family: Fraunces, Georgia, serif;
   font-weight: 500;
-  color: #171b14;
+  color: #261b14;
   font-size: 1.65rem;
 }
 .cw-swal .swal2-html-container {
-  color: #4c5446;
+  color: #624b3b;
   font-size: 0.95rem;
 }
 .cw-swal .swal2-actions {

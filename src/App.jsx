@@ -13,6 +13,7 @@ import PageLoader from './components/ui/PageLoader';
 import Preloader from './components/ui/Preloader';
 import Cursor from './components/ui/Cursor';
 import ScrollProgress from './components/ui/ScrollProgress';
+import HelpDeskBot from './components/helpdesk/HelpDeskBot';
 
 const Home = lazy(() => import('./pages/Home'));
 const Shop = lazy(() => import('./pages/Shop'));
@@ -36,6 +37,7 @@ const Gallery = lazy(() => import('./pages/Gallery'));
 const Contact = lazy(() => import('./pages/Contact'));
 const InfoPage = lazy(() => import('./pages/InfoPage'));
 const NotFound = lazy(() => import('./pages/NotFound'));
+const Tea = lazy(() => import('./pages/Tea'));
 
 const page = (element) => (
   <PageTransition>
@@ -97,6 +99,7 @@ function Shell() {
           <Route path="/myaccount/*" element={<Navigate to="/404" replace />} />
 
           <Route path="/about-us" element={page(<About />)} />
+          <Route path="/tea" element={page(<Tea />)} />
           <Route path="/gallery" element={page(<Gallery />)} />
           <Route path="/contact-us" element={page(<Contact />)} />
           <Route path="/privacy-policy" element={page(<InfoPage slug="privacy-policy" />)} />
@@ -112,6 +115,7 @@ function Shell() {
 
       <Footer />
       <MobileTabBar />
+      <HelpDeskBot />
       <ToastContainer
         position="bottom-center"
         autoClose={2600}

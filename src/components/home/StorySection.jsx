@@ -38,12 +38,12 @@ export default function StorySection() {
         </div>
 
         <div className="lg:col-span-5 lg:col-start-8">
-          <SectionHeading eyebrow="Our story" title="Reviving the *forgotten* looms of Bengal." size="md" />
+          <SectionHeading eyebrow="Who we are" title="Where heritage meets | everyday *ritual.*" size="md" />
           <Reveal as="p" delay={0.1} className="mt-8 text-base leading-8 text-ink-600">
-            {SITE.about[1]}
+            {SITE.about[0]} {SITE.about[1]}
           </Reveal>
-          <Reveal as="blockquote" delay={0.2} className="mt-8 border-l-2 border-brand-500 pl-6 font-display text-2xl italic leading-snug text-ink-800">
-            “{SITE.mission}”
+          <Reveal as="blockquote" delay={0.2} className="mt-8 border-l-2 border-gold pl-6 font-display text-2xl italic leading-snug text-ink-800">
+            {SITE.promise}
           </Reveal>
           <Reveal delay={0.3} className="mt-10 flex flex-wrap gap-3">
             <Link to="/about-us" className="btn-dark">

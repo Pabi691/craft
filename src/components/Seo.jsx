@@ -1,5 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { SITE } from '../config/site';
+import { mediaUrl } from '../lib/media';
 
 const filled = (v) => (v && v !== 'null' ? v : '');
 
@@ -8,7 +9,7 @@ const filled = (v) => (v && v !== 'null' ? v : '');
 export default function Seo({ title, description, image, seo, type = 'website' }) {
   const metaTitle = filled(seo?.meta_title) || (title ? `${title} — ${SITE.name}` : `${SITE.name} — ${SITE.tagline}`);
   const metaDesc = filled(seo?.meta_description) || description || SITE.heroCopy;
-  const ogImage = filled(seo?.og_image) || image;
+  const ogImage = mediaUrl(filled(seo?.og_image) || image);
   return (
     <Helmet>
       <title>{metaTitle}</title>

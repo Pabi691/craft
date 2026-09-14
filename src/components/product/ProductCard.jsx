@@ -2,13 +2,15 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FiCheck, FiPlus, FiShoppingBag } from 'react-icons/fi';
+import { FaWhatsapp } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 import SmartImage from '../ui/SmartImage';
 import Stars from '../ui/Stars';
 import Spinner from '../ui/Spinner';
 import WishlistButton from './WishlistButton';
 import { useGlobal } from '../../context/GlobalContext';
-import { cleanTag, discountPercent, inr } from '../../lib/format';
+import { cleanTag, discountPercent, inr, isPriced, priceLabel } from '../../lib/format';
+import { whatsappLink } from '../../config/site';
 import { isDistributor } from '../../lib/userRole';
 import { productPackInfo } from '../../lib/cart';
 import { EASE } from '../../lib/motion';
@@ -31,6 +33,9 @@ export default function ProductCard({ product, index = 0, className = '' }) {
   const soldOut = !variations.length && Number(product.stock_qty) <= 0;
   const distributor = isDistributor();
   const { packPrice, packQty } = productPackInfo(product);
+  // Unpriced pieces can be browsed and enquired about, never bought.
+  const priced = isPriced(product);
+  const canBuy = !distributor && !soldOut && priced;
 
   const quickAdd = async (e) => {
     e.preventDefault();
@@ -79,7 +84,7 @@ export default function ProductCard({ product, index = 0, className = '' }) {
           <WishlistButton product={product} />
         </div>
 
-        {!distributor && !soldOut && (
+        {canBuy && (
           <button
             type="button"
             onClick={quickAdd}
@@ -100,7 +105,7 @@ export default function ProductCard({ product, index = 0, className = '' }) {
               <h3 className="line-clamp-2 font-display text-lg leading-snug text-ink-900 transition-colors duration-300 group-hover:text-brand-800">{product.prod_name}</h3>
             </Link>
           </div>
-          {!distributor && !soldOut && (
+          {canBuy && (
             <button
               type="button"
               onClick={quickAdd}
@@ -120,10 +125,22 @@ export default function ProductCard({ product, index = 0, className = '' }) {
               <span className="ml-2 text-xs font-semibold text-ink-500">Pack of {packQty}</span>
             </p>
           ) : null
-        ) : (
+        ) : priced ? (
           <div className="mt-2 flex flex-wrap items-baseline gap-2">
-            <span className="text-[15px] font-extrabold text-ink-900">{inr(product.sale_price || product.regular_price)}</span>
+            <span className="text-[15px] font-extrabold text-ink-900">{priceLabel(product)}</span>
             {off > 0 && <span className="text-xs font-semibold text-ink-400 line-through">{inr(product.regular_price)}</span>}
+          </div>
+        ) : (
+          <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1">
+            <span className="text-sm font-bold italic text-ink-600">Price on request</span>
+            <a
+              href={whatsappLink(`Hello Craft & Weft, I'd like to know the price of ${product.prod_name}.`)}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1 text-xs font-extrabold text-brand-800 hover:text-ink-900"
+            >
+              <FaWhatsapp size={13} /> Enquire
+            </a>
           </div>
         )}
 

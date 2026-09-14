@@ -23,7 +23,7 @@ import { useGlobal } from '../context/GlobalContext';
 import { recentlyViewed } from '../lib/cache';
 import { isDistributor } from '../lib/userRole';
 import { getDefaultVariationId } from '../lib/cart';
-import { cleanTag, discountPercent, inr } from '../lib/format';
+import { cleanTag, discountPercent, inr, isPriced, priceLabel } from '../lib/format';
 import { getBrandColor } from '../lib/theme';
 import { SITE, whatsappLink } from '../config/site';
 import { EASE } from '../lib/motion';
@@ -172,6 +172,9 @@ function Gallery({ images, name }) {
   );
 }
 
+
+const TEA_SLUGS = ['tea', 'connoisseurs-choice', 'signature-blends'];
+
 export default function ProductDetails() {
   const { slug } = useParams();
   const navigate = useNavigate();
@@ -265,6 +268,9 @@ export default function ProductDetails() {
   const off = discountPercent(regular, price);
   const stock = selectedVariation ? Number(selectedVariation.stock_qty) : Number(product?.stock_qty ?? 0);
   const soldOut = !variations.length && Number(product?.stock_qty) <= 0;
+  // Drafts sit at ₹0 until priced in the CRM: browsable, enquire-only.
+  const priced = isPriced(product);
+  const priceText = price > 0 ? inr(price) : priceLabel(product);
   const maxQty = Math.max(1, Math.min(10, stock > 0 ? stock : 10));
 
   const images = useMemo(() => {
@@ -278,6 +284,7 @@ export default function ProductDetails() {
   const cats = product?.product_categories || [];
   const category = cats[cats.length - 1];
   const highlights = product?.product_key_highlights || [];
+  const isTea = cats.some((c) => TEA_SLUGS.includes(c.slug));
 
   const related = useMemo(() => {
     if (!product) return [];
@@ -290,7 +297,7 @@ export default function ProductDetails() {
   const recent = recentlyViewed.list().filter((p) => p.slug !== slug).slice(0, 8);
 
   const celebrate = () =>
-    confetti({ particleCount: 90, spread: 72, origin: { y: 0.62 }, scalar: 0.9, colors: [getBrandColor(), '#E0408C', '#FAF7EF', '#171B14'] });
+    confetti({ particleCount: 90, spread: 72, origin: { y: 0.62 }, scalar: 0.9, colors: [getBrandColor(), '#DB4B76', '#C69C4B', '#8F1265'] });
 
   const handleAdd = async () => {
     const needsSelection = (!distributor && hasSizes) || (distributor && packVariations.length > 0);
@@ -384,7 +391,7 @@ export default function ProductDetails() {
 
           {!distributor ? (
             <div className="mt-6 flex flex-wrap items-end gap-3">
-              <span className="font-display text-4xl text-ink-900">{inr(price)}</span>
+              <span className={`font-display text-4xl text-ink-900 ${priced ? '' : 'italic'}`}>{priceText}</span>
               {off > 0 && (
                 <>
                   <span className="text-lg text-ink-400 line-through">{inr(regular)}</span>
@@ -415,10 +422,12 @@ export default function ProductDetails() {
               )}
             </div>
           ) : (
-            <p className="mt-6 font-display text-4xl text-ink-900">{inr(price)}</p>
+            <p className="mt-6 font-display text-4xl text-ink-900">{priceText}</p>
           )}
 
-          <p className="mt-2 text-xs font-semibold text-ink-400">Inclusive of all taxes</p>
+          <p className="mt-2 text-xs font-semibold text-ink-400">
+            {priced ? 'Inclusive of all taxes' : 'Message us on WhatsApp for the price and availability'}
+          </p>
 
           {(cleanTag(product.product_tag) || cleanTag(product.product_quality)) && (
             <div className="mt-5 flex flex-wrap gap-2">
@@ -527,7 +536,7 @@ export default function ProductDetails() {
             </div>
           )}
 
-          {!distributor && !soldOut && (
+          {!distributor && !soldOut && priced && (
             <div className="mt-8 flex items-center gap-4 border-t border-ink-900/10 pt-6">
               <span className="label mb-0">Quantity</span>
               <QuantityStepper value={qty} onChange={setQty} min={1} max={maxQty} />
@@ -536,7 +545,16 @@ export default function ProductDetails() {
           )}
 
           <div ref={actionsRef} className="mt-8 flex flex-wrap items-center gap-3">
-            {soldOut ? (
+            {!priced ? (
+              <a
+                href={whatsappLink(`Hello Craft & Weft, I'd like to know the price of "${product.prod_name}"${selectedVariation?.size ? ` (${selectedVariation.size})` : ''}.`)}
+                target="_blank"
+                rel="noreferrer"
+                className="btn-primary flex-1 px-6 py-4"
+              >
+                <FaWhatsapp size={18} /> Ask for the price
+              </a>
+            ) : soldOut ? (
               <>
                 <button disabled className="btn-dark flex-1 opacity-60">
                   Sold out
@@ -606,7 +624,7 @@ export default function ProductDetails() {
               <FiTruck className="text-brand-700" /> Free shipping in India
             </span>
             <span className="flex items-center gap-2.5 text-sm font-semibold text-ink-700">
-              <FiFeather className="text-brand-700" /> Handmade in Bengal
+              <FiFeather className="text-brand-700" /> {isTea ? 'Sourced close to small growers' : 'Made in India, with artisans'}
             </span>
           </div>
 
@@ -619,7 +637,7 @@ export default function ProductDetails() {
             items={[
               {
                 title: 'Description',
-                content: <p className="whitespace-pre-line">{product.prod_desc || 'A handcrafted piece from our artisan clusters in Bengal.'}</p>,
+                content: <p className="whitespace-pre-line">{product.prod_desc || 'Crafted with wisdom, sourced with care, made in India.'}</p>,
               },
               ...(highlights.length
                 ? [
@@ -638,7 +656,9 @@ export default function ProductDetails() {
                     },
                   ]
                 : []),
-              { title: 'Care', content: <p>{SITE.care}</p> },
+              isTea
+                ? { title: 'Storage', content: <p>Store in an airtight container, away from light, moisture and strong aromas. Use a dry spoon.</p> }
+                : { title: 'Care', content: <p>{SITE.care}</p> },
               {
                 title: 'Shipping & returns',
                 content: (
@@ -668,7 +688,7 @@ export default function ProductDetails() {
       </Modal>
 
       <AnimatePresence>
-        {!actionsInView && !soldOut && (
+        {!actionsInView && !soldOut && priced && (
           <motion.div
             initial={{ y: 120, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -678,7 +698,7 @@ export default function ProductDetails() {
           >
             <div className="min-w-0 flex-1 pl-2">
               <p className="truncate text-xs font-bold text-ink-500">{product.prod_name}</p>
-              <p className="font-display text-xl text-ink-900">{distributor && showPackControls ? inr(packTotal) : inr(price)}</p>
+              <p className="font-display text-xl text-ink-900">{distributor && showPackControls ? inr(packTotal) : priceText}</p>
             </div>
             <button
               onClick={async () => {

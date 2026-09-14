@@ -37,3 +37,23 @@ export const formatDateTime = (value) => {
 };
 
 export const cleanTag = (v) => (v && v !== 'null' && v !== 'undefined' ? v : '');
+
+// Lowest real price across a product and its variations — 0 means the piece
+// has not been priced yet (drafts are created at ₹0 until the client sets one).
+export const productPrice = (product) => {
+  if (!product) return 0;
+  const prices = [product.sale_price || product.regular_price, ...(product.product_variations || []).map((v) => v.sale_price || v.regular_price)]
+    .map(toNumber)
+    .filter((n) => n > 0);
+  return prices.length ? Math.min(...prices) : 0;
+};
+
+export const isPriced = (product) => productPrice(product) > 0;
+
+// "₹1,299", "From ₹249" when pack sizes differ, or "Price on request".
+export const priceLabel = (product) => {
+  const min = productPrice(product);
+  if (!min) return 'Price on request';
+  const variationPrices = new Set((product.product_variations || []).map((v) => toNumber(v.sale_price || v.regular_price)).filter((n) => n > 0));
+  return variationPrices.size > 1 ? `From ${inr(min)}` : inr(min);
+};

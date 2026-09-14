@@ -11,14 +11,15 @@ import { useGlobal } from '../../context/GlobalContext';
 import { useAuth } from '../../context/AuthContext';
 import { NAV } from '../../config/site';
 import { EASE } from '../../lib/motion';
-import { inr } from '../../lib/format';
+import { priceLabel } from '../../lib/format';
 
 const ANNOUNCEMENTS = [
-  'Handmade by the artisans of Bengal',
-  'Free shipping across India',
+  'From craft to cup — SPHOORA fine Indian teas',
+  'Made in India · Rooted in people · Crafted differently',
   'Cash on delivery available',
-  'Bulk orders — +91 90516 26156',
-  'Khesh · Muslin · Tussar · Khadi',
+  'Orders & enquiries — +91 98306 40086',
+  'Muslin · Silk · Baluchari · Tasar · Khesh',
+  'Every order hugs a small farmer or an artisan’s family',
 ];
 
 function CountBadge({ count, pulse = 0 }) {
@@ -111,14 +112,16 @@ function MegaMenu({ open, tree, products, onClose }) {
                         <Link key={p.id} to={`/p/${p.slug}`} onClick={onClose} className="group">
                           <SmartImage src={p.primary_img} alt={p.prod_name} className="aspect-[4/5] rounded-2xl" imgClassName="duration-1000 group-hover:scale-105" />
                           <p className="mt-3 truncate text-sm font-bold text-ink-900">{p.prod_name}</p>
-                          <p className="text-xs font-semibold text-ink-500">{inr(p.sale_price)}</p>
+                          <p className="text-xs font-semibold text-ink-500">{priceLabel(p)}</p>
                         </Link>
                       ))
                     ) : (
                       <div className="relative col-span-2 overflow-hidden rounded-2xl">
                         <SmartImage src={current?.cat_img} alt={current?.category_name} className="aspect-[16/10]" />
                         <div className="absolute inset-0 bg-gradient-to-t from-ink-950/75 to-transparent" />
-                        <p className="absolute bottom-5 left-5 right-5 font-display text-2xl text-paper">New pieces are on the loom — arriving soon.</p>
+                        <p className="absolute bottom-5 left-5 right-5 font-display text-2xl text-paper">
+                          {current?.slug === 'tea' ? 'SPHOORA teas are steeping — arriving soon.' : 'New pieces are on the loom — arriving soon.'}
+                        </p>
                       </div>
                     )}
                   </motion.div>
