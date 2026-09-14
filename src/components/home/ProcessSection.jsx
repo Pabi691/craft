@@ -7,6 +7,7 @@ import { useImages } from '../../hooks/useImages';
 import { SITE } from '../../config/site';
 import { ENV } from '../../config/env';
 import { EASE } from '../../lib/motion';
+import { mediaUrl } from '../../lib/media';
 
 export default function ProcessSection() {
   const { images } = useImages({ image_type: 'gallery' });
@@ -38,7 +39,7 @@ export default function ProcessSection() {
                 className="relative overflow-hidden rounded-[2rem] text-left"
               >
                 <img
-                  src={imageFor(s.image)}
+                  src={mediaUrl(imageFor(s.image))}
                   alt=""
                   loading="lazy"
                   className={`absolute inset-0 h-full w-full object-cover transition-transform duration-[1400ms] ease-silk ${open ? 'scale-100' : 'scale-110'}`}

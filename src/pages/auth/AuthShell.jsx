@@ -5,6 +5,7 @@ import { SITE } from '../../config/site';
 import { EASE } from '../../lib/motion';
 import Logo from '../../components/ui/Logo';
 import WeavePattern from '../../components/ui/WeavePattern';
+import { mediaUrl } from '../../lib/media';
 
 // Shared split layout for login / register / reset screens.
 export default function AuthShell({ eyebrow, title, subtitle, children, footer }) {
@@ -16,7 +17,7 @@ export default function AuthShell({ eyebrow, title, subtitle, children, footer }
       <div className="grid overflow-hidden rounded-[2rem] border border-ink-900/5 bg-white/70 shadow-soft lg:grid-cols-2">
         <div className="relative hidden lg:block">
           {image ? (
-            <img src={image.image_path} alt={image.name || ''} className="absolute inset-0 h-full w-full object-cover" />
+            <img src={mediaUrl(image.image_path)} alt={image.name || ''} className="absolute inset-0 h-full w-full object-cover" />
           ) : (
             <div className="absolute inset-0 bg-ink-900" />
           )}

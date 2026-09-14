@@ -42,6 +42,7 @@ import WishlistButton from '../components/product/WishlistButton';
 import DeliveryEstimate from '../components/product/DeliveryEstimate';
 import ReviewsBlock from '../components/product/ReviewsBlock';
 import ProductRail from '../components/product/ProductRail';
+import { mediaUrl } from '../lib/media';
 
 function Gallery({ images, name }) {
   const [index, setIndex] = useState(0);
@@ -269,7 +270,7 @@ export default function ProductDetails() {
   const images = useMemo(() => {
     if (!product) return [];
     const list = [product.primary_img, product.secondary_img, ...(product.product_image_list || []).map((i) => i.prod_img_url)];
-    return [...new Set(list.filter((x) => x && x !== 'null'))];
+    return [...new Set(list.filter((x) => x && x !== 'null').map(mediaUrl))];
   }, [product]);
 
   const reviews = product?.product_ratings || [];
@@ -663,7 +664,7 @@ export default function ProductDetails() {
       {recent.length > 0 && <ProductRail eyebrow="Recently viewed" title="Back to what caught *your eye*" products={recent} className="pb-20" />}
 
       <Modal open={sizeChartOpen} onClose={() => setSizeChartOpen(false)} title="Size guide" size="lg">
-        <img src={product.size_chart_details?.chart_image} alt="Size chart" className="w-full rounded-2xl" />
+        <img src={mediaUrl(product.size_chart_details?.chart_image)} alt="Size chart" className="w-full rounded-2xl" />
       </Modal>
 
       <AnimatePresence>

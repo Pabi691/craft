@@ -1,9 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
 import WeavePattern from './WeavePattern';
+import { mediaUrl } from '../../lib/media';
 
 // Image with a shimmer placeholder, blur-up fade-in, and a woven fallback
 // when the file is missing.
-export default function SmartImage({ src, alt = '', className = '', imgClassName = '', loading = 'lazy', ...rest }) {
+export default function SmartImage({ src: rawSrc, alt = '', className = '', imgClassName = '', loading = 'lazy', ...rest }) {
+  const src = mediaUrl(rawSrc);
   const ref = useRef(null);
   const [loaded, setLoaded] = useState(false);
   const [failed, setFailed] = useState(!src);

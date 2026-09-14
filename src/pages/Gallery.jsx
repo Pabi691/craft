@@ -9,6 +9,7 @@ import SplitText from '../components/ui/SplitText';
 import SmartImage from '../components/ui/SmartImage';
 import EmptyState from '../components/ui/EmptyState';
 import Modal from '../components/ui/Modal';
+import { mediaUrl } from '../lib/media';
 
 export default function Gallery() {
   const { images, loading } = useImages({ image_type: 'gallery' });
@@ -94,7 +95,7 @@ export default function Gallery() {
         {current && (
           <AnimatePresence mode="wait">
             <motion.figure key={current.id} initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.4, ease: EASE }}>
-              <img src={current.image_path} alt={current.name || ''} className="max-h-[70vh] w-full rounded-2xl object-contain" />
+              <img src={mediaUrl(current.image_path)} alt={current.name || ''} className="max-h-[70vh] w-full rounded-2xl object-contain" />
               <figcaption className="mt-5 text-center text-sm leading-7 text-ink-600">{current.name}</figcaption>
             </motion.figure>
           </AnimatePresence>

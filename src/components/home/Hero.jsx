@@ -11,6 +11,7 @@ import { useGlobal } from '../../context/GlobalContext';
 import { SITE } from '../../config/site';
 import { inr } from '../../lib/format';
 import { EASE } from '../../lib/motion';
+import { mediaUrl } from '../../lib/media';
 
 function RotatingBadge() {
   return (
@@ -119,7 +120,7 @@ export default function Hero() {
             <div className="flex items-center gap-3">
               <div className="flex -space-x-3">
                 {images.slice(0, 3).map((img) => (
-                  <img key={img.id} src={img.image_path} alt="" className="h-10 w-10 rounded-full border-2 border-paper object-cover" />
+                  <img key={img.id} src={mediaUrl(img.image_path)} alt="" className="h-10 w-10 rounded-full border-2 border-paper object-cover" />
                 ))}
               </div>
               <span className="max-w-[9rem] text-xs font-semibold leading-snug text-ink-500">Made by hand, one loom at a time</span>
@@ -140,7 +141,7 @@ export default function Hero() {
                 {current && (
                   <motion.img
                     key={current.id}
-                    src={current.image_path}
+                    src={mediaUrl(current.image_path)}
                     alt={current.name || ''}
                     initial={{ opacity: 0, scale: 1.14 }}
                     animate={{ opacity: 1, scale: 1 }}
@@ -196,7 +197,7 @@ export default function Hero() {
                 transition={{ delay: 0.95, duration: 1.1, ease: EASE }}
                 className="absolute -bottom-6 -left-6 hidden h-44 w-32 overflow-hidden rounded-arch border-[5px] border-paper shadow-lift sm:block lg:-left-16"
               >
-                <img src={secondary.image_path} alt="" className="h-full w-full object-cover" />
+                <img src={mediaUrl(secondary.image_path)} alt="" className="h-full w-full object-cover" />
               </motion.div>
             )}
 

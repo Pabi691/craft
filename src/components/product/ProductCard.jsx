@@ -12,6 +12,7 @@ import { cleanTag, discountPercent, inr } from '../../lib/format';
 import { isDistributor } from '../../lib/userRole';
 import { productPackInfo } from '../../lib/cart';
 import { EASE } from '../../lib/motion';
+import { mediaUrl } from '../../lib/media';
 
 export default function ProductCard({ product, index = 0, className = '' }) {
   const { addToCart } = useGlobal();
@@ -62,7 +63,7 @@ export default function ProductCard({ product, index = 0, className = '' }) {
         <Link to={`/p/${product.slug}`} data-cursor="View" className="block" aria-label={product.prod_name}>
           <SmartImage src={product.primary_img} alt={product.prod_name} className="aspect-[4/5]" imgClassName="duration-[1300ms] group-hover:scale-[1.07]" />
           {product.secondary_img ? (
-            <img src={product.secondary_img} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
+            <img src={mediaUrl(product.secondary_img)} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
           ) : null}
           <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink-950/30 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
         </Link>
