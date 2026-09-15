@@ -152,9 +152,20 @@ export default function Footer() {
           <CraftCombineMark light />
           <p className="text-[11px] font-extrabold uppercase tracking-[0.22em] text-gold-light/90">{SITE.pillars.join(' • ')}</p>
         </div>
-        <div className="mt-6 flex flex-col gap-2 text-xs text-paper/40 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-6 flex flex-col gap-2 text-xs text-paper/40 md:flex-row md:items-center md:justify-between">
           <p>© {year} Craft &amp; Weft — an initiative of {SITE.parent}.</p>
-          <p>{SITE.promise}</p>
+          <p className="hidden lg:block">{SITE.promise}</p>
+          <p>
+            Designed &amp; developed by{' '}
+            <a
+              href="https://kyleinfotech.co.in/"
+              target="_blank"
+              rel="noopener"
+              className="font-bold text-paper/70 underline decoration-gold/50 underline-offset-4 transition-colors hover:text-gold-light"
+            >
+              Kyle Infotech
+            </a>
+          </p>
         </div>
       </div>
     </footer>
