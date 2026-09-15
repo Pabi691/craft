@@ -337,7 +337,7 @@ export default function HelpDeskBot() {
               <div className="pointer-events-none absolute -right-10 -top-16 h-40 w-40 rounded-full bg-violet/40 blur-3xl" />
               <div className="relative flex items-center gap-3">
                 <span className="grid h-11 w-11 shrink-0 place-items-center whitespace-nowrap rounded-full bg-paper font-display text-[13px] font-semibold tracking-tight text-ink-900 ring-2 ring-gold/70">
-                  C<span className="italic text-accent">&amp;</span>W
+                  C<span className="text-accent">&amp;</span>W
                 </span>
                 <div className="min-w-0 flex-1">
                   <p className="font-display text-lg leading-tight">Help desk</p>

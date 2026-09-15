@@ -6,7 +6,7 @@ import { FaWhatsapp } from 'react-icons/fa';
 import Reveal from '../ui/Reveal';
 import SplitText from '../ui/SplitText';
 import SmartImage from '../ui/SmartImage';
-import WeavePattern from '../ui/WeavePattern';
+import LeafPattern from '../ui/LeafPattern';
 import Magnetic from '../ui/Magnetic';
 import { SITE, whatsappLink } from '../../config/site';
 import { EASE } from '../../lib/motion';
@@ -23,10 +23,18 @@ export default function TeaSection() {
   const yMain = useTransform(scrollYProgress, [0, 1], ['6%', '-8%']);
   const yTop = useTransform(scrollYProgress, [0, 1], ['-10%', '14%']);
   const yLow = useTransform(scrollYProgress, [0, 1], ['18%', '-12%']);
+  const yLeaves = useTransform(scrollYProgress, [0, 1], ['-48px', '48px']);
 
   return (
     <section ref={ref} id="sphoora" className="relative overflow-hidden bg-ink-950 py-24 text-paper md:py-36">
-      <WeavePattern className="absolute inset-0 text-gold" opacity={0.045} size={30} />
+      {/* Tea-leaf texture, drifting gently against the scroll; lighter behind the copy. */}
+      <motion.div
+        aria-hidden
+        style={{ y: yLeaves }}
+        className="mask-soft-left pointer-events-none absolute inset-x-0 -inset-y-16"
+      >
+        <LeafPattern className="h-full w-full text-gold" opacity={0.11} size={150} />
+      </motion.div>
       <div className="pointer-events-none absolute -left-40 top-20 h-[30rem] w-[30rem] rounded-full bg-brand-500/15 blur-[130px]" />
       <div className="pointer-events-none absolute -right-32 bottom-10 h-96 w-96 rounded-full bg-violet/25 blur-[120px]" />
 

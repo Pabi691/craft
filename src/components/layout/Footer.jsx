@@ -145,7 +145,7 @@ export default function Footer() {
         </div>
 
         <p aria-hidden className="h-display mt-14 select-none whitespace-nowrap text-center text-[17vw] leading-[0.8] text-paper/[0.05] lg:text-[14.5vw]">
-          Craft <span className="italic">&amp;</span> Weft
+          Craft <span>&amp;</span> Weft
         </p>
 
         <div className="mt-8 flex flex-col gap-6 border-t border-paper/10 pt-8 md:flex-row md:items-center md:justify-between">

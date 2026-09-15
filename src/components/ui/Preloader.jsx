@@ -78,7 +78,7 @@ export default function Preloader() {
               transition={{ duration: 1.1, ease: EASE, delay: 0.2 }}
               className="text-center font-display text-5xl font-light tracking-tight sm:text-7xl md:text-8xl"
             >
-              Craft <span className="italic text-accent">&amp;</span> Weft
+              Craft <span className="text-accent">&amp;</span> Weft
             </motion.h1>
           </div>
           <motion.p

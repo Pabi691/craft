@@ -13,6 +13,7 @@ import SectionHeading from '../components/ui/SectionHeading';
 import Reveal from '../components/ui/Reveal';
 import SmartImage from '../components/ui/SmartImage';
 import WeavePattern from '../components/ui/WeavePattern';
+import LeafPattern from '../components/ui/LeafPattern';
 import Magnetic from '../components/ui/Magnetic';
 
 const TEA = SITE.tea;
@@ -106,7 +107,7 @@ export default function Tea() {
 
       {/* Hero */}
       <section ref={heroRef} className="relative overflow-hidden bg-ink-950 pb-20 pt-12 text-paper md:pb-28 md:pt-16">
-        <WeavePattern className="absolute inset-0 text-gold" opacity={0.045} size={30} />
+        <LeafPattern className="mask-soft-left pointer-events-none absolute inset-0 text-gold" opacity={0.11} size={150} />
         <div className="pointer-events-none absolute -left-40 top-10 h-[30rem] w-[30rem] rounded-full bg-brand-500/15 blur-[130px]" />
         <div className="pointer-events-none absolute -right-32 bottom-0 h-96 w-96 rounded-full bg-violet/25 blur-[120px]" />
 

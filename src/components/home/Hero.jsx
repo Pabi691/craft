@@ -27,7 +27,7 @@ function RotatingBadge() {
         </text>
       </svg>
       <span className="font-display text-2xl">
-        C<span className="italic text-accent">&amp;</span>W
+        C<span className="text-accent">&amp;</span>W
       </span>
     </div>
   );
