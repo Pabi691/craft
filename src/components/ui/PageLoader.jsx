@@ -9,7 +9,7 @@ export default function PageLoader() {
         </span>
         <span className="relative block h-px w-28 overflow-hidden bg-ink-900/10">
           <motion.span
-            className="absolute inset-y-0 left-0 w-1/2 bg-brand-500"
+            className="absolute inset-y-0 left-0 w-1/2 bg-gold"
             animate={{ x: ['-100%', '220%'] }}
             transition={{ duration: 1.1, repeat: Infinity, ease: 'easeInOut' }}
           />

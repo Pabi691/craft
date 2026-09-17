@@ -98,7 +98,7 @@ export default function ThankYou() {
           </motion.p>
           <SplitText as="h1" inView={false} delay={0.25} text="Thank you for | choosing *us.*" className="h-display mt-3 text-4xl text-ink-900 md:text-6xl" />
           <motion.p {...fade(0.7)} className="mt-5 flex items-center justify-center gap-3 text-sm font-extrabold uppercase tracking-[0.22em] text-brand-800">
-            <span className="h-px w-8 bg-lime" aria-hidden /> {MSG.status} <span className="h-px w-8 bg-lime" aria-hidden />
+            <span className="h-px w-8 bg-gold" aria-hidden /> {MSG.status} <span className="h-px w-8 bg-gold" aria-hidden />
           </motion.p>
 
           <motion.div
@@ -106,7 +106,7 @@ export default function ThankYou() {
             className="mx-auto mt-10 max-w-lg overflow-hidden rounded-[1.75rem] border border-ink-900/5 bg-white/85 text-left shadow-soft"
           >
             <div className="flex items-center justify-between gap-4 border-b border-ink-900/5 px-6 py-4">
-              <p className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-lime-dark">Order details</p>
+              <p className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-gold-dark">Order details</p>
               <p className="font-display text-lg text-ink-900">{orderId ? `#CW${orderId}` : '—'}</p>
             </div>
 
@@ -131,7 +131,7 @@ export default function ThankYou() {
             </ul>
 
             <div className="flex items-center justify-between gap-4 bg-ink-900 px-6 py-4 text-paper">
-              <span className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-lime-light">Amount</span>
+              <span className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-gold-light">Amount</span>
               <span className="font-display text-2xl">{order ? inr(order.pay_amt) : '—'}</span>
             </div>
             <p className="flex items-center gap-2 px-6 py-3 text-xs font-semibold text-ink-500">

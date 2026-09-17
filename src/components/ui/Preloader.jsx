@@ -54,11 +54,13 @@ export default function Preloader() {
       {show && (
         <motion.div
           key="preloader"
-          className="fixed inset-0 z-[140] flex flex-col items-center justify-center overflow-hidden bg-ink-950 px-6 text-paper"
+          className="fixed inset-0 z-[140] flex flex-col items-center justify-center overflow-hidden bg-ink-700 px-6 text-paper"
           initial={{ clipPath: 'inset(0% 0% 0% 0%)' }}
           exit={{ clipPath: 'inset(0% 0% 100% 0%)', transition: { duration: 1.05, ease: EASE } }}
         >
-          <svg className="absolute inset-x-0 top-1/2 h-40 w-full -translate-y-1/2 text-brand-500" viewBox="0 0 1440 200" preserveAspectRatio="none" aria-hidden>
+          {/* Warm light in the middle, deeper cocoa at the edges. */}
+          <div aria-hidden className="absolute inset-0 bg-[radial-gradient(120%_90%_at_50%_45%,#6E4725_0%,#603814_45%,#3E250F_100%)]" />
+          <svg className="absolute inset-x-0 top-1/2 h-40 w-full -translate-y-1/2 text-gold" viewBox="0 0 1440 200" preserveAspectRatio="none" aria-hidden>
             <motion.path
               d="M0 120 C 220 30, 460 190, 720 100 S 1180 20, 1440 110"
               fill="none"
@@ -71,7 +73,7 @@ export default function Preloader() {
             <motion.path
               d="M0 80 C 260 170, 520 10, 760 110 S 1220 170, 1440 70"
               fill="none"
-              stroke="rgb(var(--accent))"
+              stroke="rgb(var(--brand-300))"
               strokeWidth="1"
               initial={{ pathLength: 0, opacity: 0 }}
               animate={{ pathLength: 1, opacity: 0.55 }}
@@ -86,21 +88,21 @@ export default function Preloader() {
               transition={{ duration: 1.1, ease: EASE, delay: 0.2 }}
               className="text-center font-display text-5xl font-light tracking-tight sm:text-7xl md:text-8xl"
             >
-              Craft <span className="text-accent">&amp;</span> Weft
+              Craft <span className="text-gold-light">&amp;</span> Weft
             </motion.h1>
           </div>
           <motion.p
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.85, duration: 0.8, ease: EASE }}
-            className="relative mt-5 text-center text-[10px] font-extrabold uppercase tracking-[0.42em] text-paper/60 sm:text-[11px]"
+            className="relative mt-5 text-center text-[10px] font-extrabold uppercase tracking-[0.42em] text-gold-light/85 sm:text-[11px]"
           >
             {SITE.tagline}
           </motion.p>
 
-          <span className="absolute bottom-12 left-1/2 block h-px w-44 -translate-x-1/2 overflow-hidden bg-paper/15">
+          <span className="absolute bottom-12 left-1/2 block h-px w-44 -translate-x-1/2 overflow-hidden bg-paper/20">
             <motion.span
-              className="block h-full origin-left bg-brand-500"
+              className="block h-full origin-left bg-gold"
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
               transition={{ duration: 2.2, ease: 'easeInOut' }}

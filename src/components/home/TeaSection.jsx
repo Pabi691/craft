@@ -70,7 +70,7 @@ export default function TeaSection() {
                 href={whatsappLink('Hello Craft & Weft, I would like to know more about SPHOORA teas and pack sizes.')}
                 target="_blank"
                 rel="noreferrer"
-                className="btn border border-paper/20 text-paper hover:border-lime"
+                className="btn border border-paper/20 text-paper hover:border-gold"
               >
                 <FaWhatsapp size={16} /> Ask about packs
               </a>
@@ -91,7 +91,7 @@ export default function TeaSection() {
                 <motion.div
                   variants={{ hidden: { clipPath: 'inset(0% 100% 0% 0%)' }, shown: { clipPath: 'inset(0% 0% 0% 0%)' } }}
                   transition={{ duration: 1.3, ease: EASE }}
-                  className="overflow-hidden rounded-[1.75rem] shadow-lift ring-1 ring-lime/30"
+                  className="overflow-hidden rounded-[1.75rem] shadow-lift ring-1 ring-gold/40"
                 >
                   <SmartImage src="/product-images/sphoora-udaya.jpg" alt="SPHOORA Udaya tea" className="aspect-[3/2]" />
                 </motion.div>
@@ -109,7 +109,7 @@ export default function TeaSection() {
                 <SmartImage src="/product-images/sphoora-prabha.jpg" alt="SPHOORA Prabha tea" className="aspect-[3/2]" />
               </motion.div>
               <Reveal delay={0.4} className="absolute bottom-[6%] left-0 rounded-2xl bg-paper px-5 py-4 text-ink-900 shadow-lift">
-                <p className="text-[10px] font-extrabold uppercase tracking-[0.22em] text-lime-dark">Pack sizes</p>
+                <p className="text-[10px] font-extrabold uppercase tracking-[0.22em] text-gold-dark">Pack sizes</p>
                 <p className="mt-1 font-display text-xl">{TEA.packs.join(' · ')}</p>
               </Reveal>
             </div>
@@ -138,21 +138,21 @@ export default function TeaSection() {
                 transition={{ duration: 0.7, delay: (i % 4) * 0.07, ease: EASE }}
                 className="group relative bg-ink-950 p-6 transition-colors duration-500 hover:bg-ink-900 md:p-7"
               >
-                <span className="text-[11px] font-extrabold tracking-[0.2em] text-lime/70">{String(i + 1).padStart(2, '0')}</span>
+                <span className="text-[11px] font-extrabold tracking-[0.2em] text-gold/80">{String(i + 1).padStart(2, '0')}</span>
                 <h3 className="mt-3 font-display text-3xl text-paper transition-colors duration-500 group-hover:text-lime-light">{b.name}</h3>
                 <p className="mt-2 font-display text-[15px] italic text-paper/70">{b.notes}</p>
                 {b.origin && <p className="mt-4 text-xs font-semibold text-paper/45">{b.origin}</p>}
-                <span className="absolute inset-x-6 bottom-0 h-px origin-left scale-x-0 bg-lime transition-transform duration-700 ease-silk group-hover:scale-x-100" />
+                <span className="absolute inset-x-6 bottom-0 h-px origin-left scale-x-0 bg-gold transition-transform duration-700 ease-silk group-hover:scale-x-100" />
               </motion.li>
             ))}
           </ul>
 
           <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3">
-            <span className="text-[10px] font-extrabold uppercase tracking-[0.24em] text-lime-light">{choice.name}</span>
+            <span className="text-[10px] font-extrabold uppercase tracking-[0.24em] text-gold-light">{choice.name}</span>
             {choice.items.map((c, i) => (
               <span key={c.slug} className="flex items-center gap-6 font-display text-lg text-paper/80">
                 {c.name}
-                {i < choice.items.length - 1 && <span className="text-lime/60">✦</span>}
+                {i < choice.items.length - 1 && <span className="text-gold/70">✦</span>}
               </span>
             ))}
           </div>

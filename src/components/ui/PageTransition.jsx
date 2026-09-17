@@ -28,7 +28,7 @@ export default function PageTransition({ children }) {
 
       <motion.div
         aria-hidden
-        className="pointer-events-none fixed inset-0 z-[110] bg-ink-950"
+        className="pointer-events-none fixed inset-0 z-[110] bg-ink-700"
         style={{ originY: 0 }}
         initial={{ scaleY: skipCurtain ? 0 : 1 }}
         animate={{ scaleY: 0, transition: { duration: 0.7, ease: EASE, delay: 0.06 } }}
@@ -36,7 +36,7 @@ export default function PageTransition({ children }) {
       />
       <motion.div
         aria-hidden
-        className="pointer-events-none fixed inset-0 z-[110] bg-ink-950"
+        className="pointer-events-none fixed inset-0 z-[110] bg-ink-700"
         style={{ originY: 1 }}
         initial={{ scaleY: 0 }}
         animate={{ scaleY: 0 }}

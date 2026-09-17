@@ -39,7 +39,7 @@ function TeaCard({ item, range, product, index }) {
         <span className="pointer-events-none absolute left-3 top-3 chip bg-paper/90 text-ink-800 backdrop-blur">{TEA.packs.join(' · ')}</span>
       </div>
       <div className="px-1 pt-4">
-        <p className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-lime-dark">{range.name}</p>
+        <p className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-gold-dark">{range.name}</p>
         <h3 className="mt-1 font-display text-2xl leading-tight text-ink-900">{name}</h3>
         {item.notes && <p className="mt-1 font-display text-[15px] italic text-ink-600">{item.notes}</p>}
         {item.origin && <p className="mt-2 text-xs font-semibold text-ink-400">{item.origin}</p>}
@@ -175,7 +175,7 @@ export default function Tea() {
                 href={whatsappLink('Hello Craft & Weft, I would like to order SPHOORA tea.')}
                 target="_blank"
                 rel="noreferrer"
-                className="btn border border-paper/20 text-paper hover:border-lime"
+                className="btn border border-paper/20 text-paper hover:border-gold"
               >
                 <FaWhatsapp size={16} /> Order on WhatsApp
               </a>
@@ -189,7 +189,7 @@ export default function Tea() {
                 initial={{ clipPath: 'inset(100% 0% 0% 0%)' }}
                 animate={{ clipPath: 'inset(0% 0% 0% 0%)' }}
                 transition={{ duration: 1.3, ease: EASE, delay: 0.2 }}
-                className="absolute left-0 top-[8%] w-[78%] overflow-hidden rounded-[2rem] shadow-lift ring-1 ring-lime/30"
+                className="absolute left-0 top-[8%] w-[78%] overflow-hidden rounded-[2rem] shadow-lift ring-1 ring-gold/40"
               >
                 <SmartImage src="/product-images/sphoora-prabha.jpg" alt="SPHOORA Prabha tea" className="aspect-[3/2]" loading="eager" />
               </motion.div>
@@ -265,15 +265,15 @@ export default function Tea() {
                     <h3 className="font-display text-xl text-ink-900">{b.name}</h3>
                     <dl className="mt-5 space-y-3 text-sm text-ink-700">
                       <div className="flex items-center gap-3">
-                        <FiDroplet className="text-lime-dark" /> <dt className="sr-only">Leaf</dt>
+                        <FiDroplet className="text-gold-dark" /> <dt className="sr-only">Leaf</dt>
                         <dd>{b.grams} leaf</dd>
                       </div>
                       <div className="flex items-center gap-3">
-                        <FiThermometer className="text-lime-dark" /> <dt className="sr-only">Water</dt>
+                        <FiThermometer className="text-gold-dark" /> <dt className="sr-only">Water</dt>
                         <dd>{b.temp}</dd>
                       </div>
                       <div className="flex items-center gap-3">
-                        <FiClock className="text-lime-dark" /> <dt className="sr-only">Steep</dt>
+                        <FiClock className="text-gold-dark" /> <dt className="sr-only">Steep</dt>
                         <dd>{b.time}</dd>
                       </div>
                     </dl>
@@ -288,7 +288,7 @@ export default function Tea() {
       {/* Invite */}
       <section className="pb-24 text-center md:pb-32">
         <div className="container-x max-w-3xl">
-          <p className="text-[11px] font-extrabold uppercase tracking-[0.24em] text-lime-dark">{SITE.pillars.join(' • ')}</p>
+          <p className="text-[11px] font-extrabold uppercase tracking-[0.24em] text-gold-dark">{SITE.pillars.join(' • ')}</p>
           <SplitText as="h2" text="Join us. Sip with us. | *Co-create* with us." className="h-display mt-6 text-4xl text-ink-900 md:text-6xl" />
           <p className="mx-auto mt-6 max-w-xl text-[15px] leading-8 text-ink-500">{SITE.story[SITE.story.length - 1].paragraphs[0]}</p>
         </div>

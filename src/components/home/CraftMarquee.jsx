@@ -10,7 +10,7 @@ export default function CraftMarquee({ items = SITE.crafts, label = 'Our crafts'
         items={items}
         itemClassName="font-display text-5xl font-light italic text-ink-900 md:text-7xl"
         separator="✺"
-        separatorClassName="text-2xl text-lime md:text-4xl"
+        separatorClassName="text-2xl text-gold md:text-4xl"
       />
       <Marquee
         reverse

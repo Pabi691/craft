@@ -178,12 +178,12 @@ export default function Header() {
           initial={false}
           animate={{ height: scrolled ? 0 : 34, opacity: scrolled ? 0 : 1 }}
           transition={{ duration: 0.4, ease: EASE }}
-          className="overflow-hidden bg-ink-950 text-paper"
+          className="overflow-hidden bg-ink-700 text-paper shadow-[inset_0_-1px_0_rgb(212_175_90/0.45)]"
         >
           <Marquee
             items={ANNOUNCEMENTS}
-            className="h-[34px] items-center text-[10.5px] font-bold uppercase tracking-[0.2em] text-paper/80"
-            separatorClassName="text-brand-400"
+            className="h-[34px] items-center text-[10.5px] font-bold uppercase tracking-[0.2em] text-paper/90"
+            separatorClassName="text-gold-light"
           />
         </motion.div>
 

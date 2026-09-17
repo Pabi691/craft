@@ -92,16 +92,16 @@ html.lenis body {
   }
   .eyebrow::before {
     content: '';
-    @apply h-px w-7 bg-lime;
+    @apply h-px w-7 bg-gold;
   }
-  /* Thin lime rule with a leaf-diamond centre — section dividers. */
-  .rule-lime {
-    @apply relative mx-auto flex max-w-xs items-center gap-3 text-lime;
+  /* Thin gold rule with a leaf-diamond centre — section dividers. */
+  .rule-gold {
+    @apply relative mx-auto flex max-w-xs items-center gap-3 text-gold;
   }
-  .rule-lime::before,
-  .rule-lime::after {
+  .rule-gold::before,
+  .rule-gold::after {
     content: '';
-    @apply h-px flex-1 bg-gradient-to-r from-transparent via-lime/70 to-transparent;
+    @apply h-px flex-1 bg-gradient-to-r from-transparent via-gold/70 to-transparent;
   }
   .h-display {
     @apply font-display font-normal leading-[0.95] tracking-[-0.03em];

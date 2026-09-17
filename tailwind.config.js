@@ -60,6 +60,13 @@ export default {
           light: '#B6DC8C',
           dark: '#3B7320',
         },
+        // Antique gold — the premium touch: hairlines, rules, separators,
+        // numbering, stars. light = on dark/brown grounds, dark = text on cream.
+        gold: {
+          DEFAULT: '#D4AF5A',
+          light: '#EBD49A',
+          dark: '#7E5B1C',
+        },
         // SPHOORA leaf greens (the logo's cup).
         leaf: {
           DEFAULT: '#017D3E',

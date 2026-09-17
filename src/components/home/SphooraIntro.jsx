@@ -45,7 +45,7 @@ export default function SphooraIntro() {
             className="h-display mt-4 text-balance text-[2.4rem] text-ink-900 sm:text-5xl lg:text-[3.6rem]"
             highlightClassName="italic text-leaf"
           />
-          <Reveal as="p" delay={0.1} className="mt-6 font-display text-xl italic text-lime-dark">
+          <Reveal as="p" delay={0.1} className="mt-6 font-display text-xl italic text-gold-dark">
             {LAUNCH.kicker}
           </Reveal>
           <Reveal as="p" delay={0.15} className="mt-4 max-w-xl text-base leading-8 text-ink-600">

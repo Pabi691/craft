@@ -52,12 +52,12 @@ export default function About() {
           />
         </Reveal>
         <div className={`lg:col-span-6 ${flip ? 'lg:order-1 lg:col-start-1' : 'lg:col-start-7'}`}>
-          <Reveal as="p" y={14} className="font-display text-sm italic text-lime-dark">
+          <Reveal as="p" y={14} className="font-display text-sm italic text-gold-dark">
             {String(i + 2).padStart(2, '0')}
           </Reveal>
           <SplitText as="h2" text={chapter.title} className="h-display mt-3 text-4xl text-ink-900 md:text-5xl" />
           {chapter.quote && (
-            <Reveal as="blockquote" delay={0.05} className="mt-7 border-l-2 border-lime pl-5 font-display text-2xl italic leading-snug text-ink-800 md:text-[1.75rem]">
+            <Reveal as="blockquote" delay={0.05} className="mt-7 border-l-2 border-gold pl-5 font-display text-2xl italic leading-snug text-ink-800 md:text-[1.75rem]">
               {chapter.quote}
             </Reveal>
           )}
@@ -144,7 +144,7 @@ export default function About() {
             <div className="lg:col-span-7">
               <motion.div style={{ y: yImage }} className="relative">
                 <SmartImage src={imageFor('training-given.jpg')} alt="Weaving training with artisans" className="aspect-[16/11] rounded-[2.5rem] shadow-lift" />
-                <Reveal delay={0.3} className="absolute -bottom-6 -left-4 max-w-[17rem] rounded-[1.5rem] bg-ink-950 p-6 text-paper shadow-lift ring-1 ring-lime/40 sm:-left-8">
+                <Reveal delay={0.3} className="absolute -bottom-6 -left-4 max-w-[17rem] rounded-[1.5rem] bg-ink-950 p-6 text-paper shadow-lift ring-1 ring-gold/50 sm:-left-8">
                   <p className="font-display text-2xl italic leading-snug">{SITE.promise}</p>
                 </Reveal>
               </motion.div>
@@ -166,10 +166,10 @@ export default function About() {
 
       {/* Numbers */}
       <section className="relative overflow-hidden bg-ink-950 py-20 text-paper md:py-28">
-        <WeavePattern className="absolute inset-0 text-lime" opacity={0.045} />
+        <WeavePattern className="absolute inset-0 text-gold" opacity={0.05} />
         <div className="container-x relative grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           {SITE.stats.map((s, i) => (
-            <Reveal key={s.label} delay={i * 0.1} className="border-t border-lime/30 pt-6">
+            <Reveal key={s.label} delay={i * 0.1} className="border-t border-gold/40 pt-6">
               <p className="font-display text-6xl font-light md:text-7xl">
                 <Counter value={s.value} suffix={s.suffix} />
               </p>
@@ -201,12 +201,12 @@ export default function About() {
               <Reveal as="p" delay={0.1} className="mt-8 max-w-xl text-base leading-8 text-paper/70 md:text-lg">
                 {SPHOORA.lead}
               </Reveal>
-              <Reveal as="blockquote" delay={0.2} className="mt-10 border-l-2 border-lime pl-6 font-display text-3xl italic leading-snug text-lime-light md:text-4xl">
+              <Reveal as="blockquote" delay={0.2} className="mt-10 border-l-2 border-gold pl-6 font-display text-3xl italic leading-snug text-lime-light md:text-4xl">
                 {SPHOORA.quote}
               </Reveal>
             </div>
             <Reveal x={40} y={0} className="lg:col-span-5">
-              <SmartImage src="/product-images/sphoora-prabha.jpg" alt="SPHOORA Prabha tea" className="aspect-[3/2] rounded-[2rem] shadow-lift ring-1 ring-lime/30" />
+              <SmartImage src="/product-images/sphoora-prabha.jpg" alt="SPHOORA Prabha tea" className="aspect-[3/2] rounded-[2rem] shadow-lift ring-1 ring-gold/40" />
             </Reveal>
           </div>
 
@@ -219,7 +219,7 @@ export default function About() {
           <div className="isolate mt-16 grid gap-px overflow-hidden rounded-[1.75rem] bg-paper/10 md:mt-24 md:grid-cols-3">
             {SPHOORA.points.map((pt, i) => (
               <Reveal key={pt.title} delay={i * 0.08} className="bg-ink-950 p-7 md:p-8">
-                <span className="text-[11px] font-extrabold tracking-[0.2em] text-lime/70">{String(i + 1).padStart(2, '0')}</span>
+                <span className="text-[11px] font-extrabold tracking-[0.2em] text-gold/80">{String(i + 1).padStart(2, '0')}</span>
                 <h3 className="mt-3 font-display text-2xl text-paper">{pt.title}</h3>
                 <p className="mt-3 text-sm leading-7 text-paper/60">{pt.text}</p>
               </Reveal>
@@ -228,7 +228,7 @@ export default function About() {
 
           <Reveal className="mt-14 flex flex-col items-start justify-between gap-3 border-t border-paper/10 pt-10 md:flex-row md:items-center">
             <p className="font-display text-2xl font-light italic text-paper/85 md:text-3xl">{SPHOORA.closing}</p>
-            <p className="font-display text-2xl text-lime-light md:text-3xl">{SPHOORA.signOff}</p>
+            <p className="font-display text-2xl text-gold-light md:text-3xl">{SPHOORA.signOff}</p>
           </Reveal>
         </div>
       </section>
@@ -239,7 +239,7 @@ export default function About() {
       </section>
 
       <section className="border-y border-ink-900/10 bg-paper-200/60 py-8">
-        <Marquee items={SITE.crafts} itemClassName="font-display text-4xl italic text-ink-900 md:text-6xl" separator="✦" separatorClassName="text-lime" />
+        <Marquee items={SITE.crafts} itemClassName="font-display text-4xl italic text-ink-900 md:text-6xl" separator="✦" separatorClassName="text-gold" />
       </section>
 
       {/* Textiles */}
@@ -249,7 +249,7 @@ export default function About() {
           <div className="mt-14 grid gap-px overflow-hidden rounded-[2rem] bg-ink-900/10 sm:grid-cols-2 lg:grid-cols-3">
             {SITE.techniques.map((t, i) => (
               <Reveal key={t.name} delay={(i % 3) * 0.08} className="bg-paper-50 p-8">
-                <span className="font-display text-sm italic text-lime-dark">0{i + 1}</span>
+                <span className="font-display text-sm italic text-gold-dark">0{i + 1}</span>
                 <h3 className="mt-4 font-display text-3xl text-ink-900">{t.name}</h3>
                 <p className="mt-3 text-sm leading-7 text-ink-500">{t.text}</p>
               </Reveal>
@@ -275,7 +275,7 @@ export default function About() {
                   <SmartImage src={imageFor(step.image)} alt={step.title} className="aspect-[4/3] rounded-[1.5rem]" />
                 </div>
                 <div className="md:col-span-8 md:pl-4">
-                  <span className="font-display text-sm italic text-lime-dark">{step.step}</span>
+                  <span className="font-display text-sm italic text-gold-dark">{step.step}</span>
                   <h3 className="mt-1 font-display text-3xl text-ink-900 md:text-4xl">{step.title}</h3>
                   <p className="mt-3 max-w-xl text-[15px] leading-8 text-ink-500">{step.text}</p>
                 </div>
@@ -287,17 +287,17 @@ export default function About() {
 
       {/* Values + closing */}
       <section className="relative overflow-hidden bg-ink-950 py-24 text-paper md:py-32">
-        <WeavePattern className="absolute inset-0 text-lime" opacity={0.04} size={30} />
+        <WeavePattern className="absolute inset-0 text-gold" opacity={0.045} size={30} />
         <div className="pointer-events-none absolute -left-32 bottom-0 h-96 w-96 rounded-full bg-leaf/25 blur-[120px]" />
         <div className="container-x relative">
-          <Reveal as="p" className="eyebrow text-lime-light">
+          <Reveal as="p" className="eyebrow text-gold-light">
             What has always defined us
           </Reveal>
           <div className="mt-8 flex flex-wrap items-baseline gap-x-6 gap-y-2">
             {SITE.values.map((v, i) => (
               <Reveal key={v} as="span" delay={i * 0.08} className="flex items-baseline gap-6 font-display text-4xl font-light text-paper md:text-6xl">
                 <span className={i % 2 ? 'italic text-lime-light' : ''}>{v}</span>
-                {i < SITE.values.length - 1 && <span className="text-2xl text-lime/60">✦</span>}
+                {i < SITE.values.length - 1 && <span className="text-2xl text-gold/70">✦</span>}
               </Reveal>
             ))}
           </div>
@@ -307,13 +307,13 @@ export default function About() {
               {SITE.closing}
             </Reveal>
             <div className="lg:col-span-4 lg:col-start-9">
-              <p className="text-[11px] font-extrabold uppercase tracking-[0.22em] text-lime-light">{SITE.pillars.join(' • ')}</p>
+              <p className="text-[11px] font-extrabold uppercase tracking-[0.22em] text-gold-light">{SITE.pillars.join(' • ')}</p>
               <SplitText as="h3" text={SITE.invite.replace('Co-create', '*Co-create*')} className="h-display mt-5 text-3xl text-paper md:text-4xl" highlightClassName="italic text-lime-light" />
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link to="/products" className="btn-primary">
                   Shop the collection <FiArrowRight />
                 </Link>
-                <Link to="/tea" className="btn border border-paper/20 text-paper hover:border-lime">
+                <Link to="/tea" className="btn border border-paper/20 text-paper hover:border-gold">
                   SPHOORA teas
                 </Link>
               </div>

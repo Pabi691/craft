@@ -42,7 +42,7 @@ export default function StorySection() {
           <Reveal as="p" delay={0.1} className="mt-8 text-base leading-8 text-ink-600">
             {SITE.about[0]} {SITE.about[1]}
           </Reveal>
-          <Reveal as="blockquote" delay={0.2} className="mt-8 border-l-2 border-lime pl-6 font-display text-2xl italic leading-snug text-ink-800">
+          <Reveal as="blockquote" delay={0.2} className="mt-8 border-l-2 border-gold pl-6 font-display text-2xl italic leading-snug text-ink-800">
             {SITE.promise}
           </Reveal>
           <Reveal delay={0.3} className="mt-10 flex flex-wrap gap-3">

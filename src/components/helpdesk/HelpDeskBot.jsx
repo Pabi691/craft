@@ -296,7 +296,7 @@ export default function HelpDeskBot() {
           whileHover={{ scale: 1.06 }}
           whileTap={{ scale: 0.94 }}
           data-cursor="Help"
-          className="relative grid h-14 w-14 place-items-center rounded-full bg-ink-950 text-paper shadow-lift ring-2 ring-lime/60 ring-offset-2 ring-offset-paper"
+          className="relative grid h-14 w-14 place-items-center rounded-full bg-ink-950 text-paper shadow-lift ring-2 ring-gold/70 ring-offset-2 ring-offset-paper"
         >
           <AnimatePresence mode="wait" initial={false}>
             <motion.span
@@ -336,7 +336,7 @@ export default function HelpDeskBot() {
             <header className="relative overflow-hidden bg-ink-950 px-5 pb-4 pt-5 text-paper">
               <div className="pointer-events-none absolute -right-10 -top-16 h-40 w-40 rounded-full bg-leaf/40 blur-3xl" />
               <div className="relative flex items-center gap-3">
-                <span className="grid h-11 w-11 shrink-0 place-items-center whitespace-nowrap rounded-full bg-paper font-display text-[13px] font-semibold tracking-tight text-ink-900 ring-2 ring-lime/70">
+                <span className="grid h-11 w-11 shrink-0 place-items-center whitespace-nowrap rounded-full bg-paper font-display text-[13px] font-semibold tracking-tight text-ink-900 ring-2 ring-gold/70">
                   C<span className="text-accent">&amp;</span>W
                 </span>
                 <div className="min-w-0 flex-1">

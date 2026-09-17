@@ -37,7 +37,7 @@ export default function CareCTA() {
         <Reveal delay={0.1} className="relative overflow-hidden rounded-[2.25rem] bg-ink-950 p-8 text-paper md:p-12">
           <div className="pointer-events-none absolute -bottom-24 -right-24 h-72 w-72 rounded-full bg-leaf/30 blur-3xl" />
           <div className="relative flex h-full flex-col">
-            <p className="eyebrow text-lime-light">Bulk, gifting & collaborations</p>
+            <p className="eyebrow text-gold-light">Bulk, gifting & collaborations</p>
             <SplitText as="h3" text="Join us. Sip with us. | *Co-create* with us." className="h-display mt-5 text-4xl text-paper md:text-5xl" highlightClassName="italic text-lime-light" />
             <p className="mt-6 max-w-md text-sm leading-7 text-paper/60">
               Festive hampers of textiles and SPHOORA teas, corporate gifting or boutique stock — talk to us directly for bulk pricing and custom runs.

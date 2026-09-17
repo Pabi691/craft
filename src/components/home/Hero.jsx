@@ -40,7 +40,7 @@ function RegionTicker({ start }) {
               {i === active && (
                 <motion.span
                   key={tick}
-                  className="absolute inset-0 origin-left bg-lime-light"
+                  className="absolute inset-0 origin-left bg-gold-light"
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: 1 }}
                   transition={{ duration: REGION_MS / 1000, ease: 'linear', delay: tick === 0 ? start : 0 }}
@@ -210,14 +210,14 @@ export default function Hero() {
               />
               <motion.span
                 aria-hidden
-                className="h-12 w-px origin-top bg-gradient-to-b from-lime/0 via-lime/70 to-lime/0 sm:h-14"
+                className="h-12 w-px origin-top bg-gradient-to-b from-gold/0 via-gold/80 to-gold/0 sm:h-14"
                 initial={{ scaleY: 0 }}
                 animate={{ scaleY: 1 }}
                 transition={{ delay: delay + 0.45, duration: 1, ease: EASE }}
               />
               <div>
                 <p className="text-[11px] font-extrabold uppercase tracking-[0.32em] text-paper/90">{HERO.eyebrow}</p>
-                <p className="mt-1.5 font-display text-[15px] italic text-lime-light/90">{HERO.byline}</p>
+                <p className="mt-1.5 font-display text-[15px] italic text-gold-light/90">{HERO.byline}</p>
               </div>
             </motion.div>
 
