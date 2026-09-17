@@ -35,8 +35,8 @@ export default function Footer() {
     <footer className="relative overflow-hidden bg-ink-950 pb-28 pt-20 text-paper md:pb-28 lg:pt-28">
       <WeavePattern className="absolute inset-0 text-paper" opacity={0.035} size={28} />
       <div className="pointer-events-none absolute -left-40 top-10 h-96 w-96 rounded-full bg-brand-500/10 blur-3xl" />
-      <div className="pointer-events-none absolute -right-40 bottom-40 h-96 w-96 rounded-full bg-violet/20 blur-3xl" />
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/60 to-transparent" />
+      <div className="pointer-events-none absolute -right-40 bottom-40 h-96 w-96 rounded-full bg-leaf/20 blur-3xl" />
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-lime/60 to-transparent" />
 
       <div className="container-x relative">
         <div className="grid gap-14 lg:grid-cols-12">
@@ -46,7 +46,7 @@ export default function Footer() {
               as="h2"
               text="From craft to cup. | From heritage to | everyday *ritual.*"
               className="h-display mt-10 text-[2.4rem] text-paper sm:text-5xl"
-              highlightClassName="italic text-gold-light"
+              highlightClassName="italic text-lime-light"
             />
             <p className="mt-6 max-w-md text-sm leading-7 text-paper/55">{SITE.about[0]}</p>
             <div className="mt-8 flex flex-wrap gap-3">
@@ -70,7 +70,7 @@ export default function Footer() {
                     rel="noreferrer"
                     aria-label={label}
                     title={label}
-                    className="grid h-11 w-11 place-items-center rounded-full border border-paper/15 text-paper/75 transition-colors duration-300 hover:border-gold hover:text-gold-light"
+                    className="grid h-11 w-11 place-items-center rounded-full border border-paper/15 text-paper/75 transition-colors duration-300 hover:border-lime hover:text-lime-light"
                   >
                     <Icon size={16} />
                   </a>
@@ -113,7 +113,7 @@ export default function Footer() {
 
         <div className="mt-16 grid gap-6 border-t border-paper/10 pt-10 sm:grid-cols-3">
           <div className="flex items-start gap-3 text-sm text-paper/70">
-            <FiMapPin className="mt-0.5 shrink-0 text-gold" />
+            <FiMapPin className="mt-0.5 shrink-0 text-lime" />
             <span>
               {SITE.contact.addressLines.map((l) => (
                 <span key={l} className="block">
@@ -123,7 +123,7 @@ export default function Footer() {
             </span>
           </div>
           <div className="flex items-start gap-3 text-sm text-paper/70">
-            <FiPhone className="mt-0.5 shrink-0 text-gold" />
+            <FiPhone className="mt-0.5 shrink-0 text-lime" />
             <span>
               {SITE.contact.phones.map((p) => (
                 <a key={p} href={telLink(p)} className="block hover:text-paper">
@@ -133,7 +133,7 @@ export default function Footer() {
             </span>
           </div>
           <div className="flex items-start gap-3 text-sm text-paper/70">
-            <FiMail className="mt-0.5 shrink-0 text-gold" />
+            <FiMail className="mt-0.5 shrink-0 text-lime" />
             <span className="min-w-0">
               {SITE.contact.emails.map((e) => (
                 <a key={e} href={`mailto:${e}`} className="block break-all hover:text-paper">
@@ -150,7 +150,7 @@ export default function Footer() {
 
         <div className="mt-8 flex flex-col gap-6 border-t border-paper/10 pt-8 md:flex-row md:items-center md:justify-between">
           <CraftCombineMark light />
-          <p className="text-[11px] font-extrabold uppercase tracking-[0.22em] text-gold-light/90">{SITE.pillars.join(' • ')}</p>
+          <p className="text-[11px] font-extrabold uppercase tracking-[0.22em] text-lime-light/90">{SITE.pillars.join(' • ')}</p>
         </div>
         <div className="mt-6 flex flex-col gap-2 text-xs text-paper/40 md:flex-row md:items-center md:justify-between">
           <p>© {year} Craft &amp; Weft — an initiative of {SITE.parent}.</p>
@@ -161,7 +161,7 @@ export default function Footer() {
               href="https://kyleinfotech.co.in/"
               target="_blank"
               rel="noopener"
-              className="font-bold text-paper/70 underline decoration-gold/50 underline-offset-4 transition-colors hover:text-gold-light"
+              className="font-bold text-paper/70 underline decoration-lime/50 underline-offset-4 transition-colors hover:text-lime-light"
             >
               Kyle Infotech
             </a>

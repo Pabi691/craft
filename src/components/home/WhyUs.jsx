@@ -23,7 +23,7 @@ export default function WhyUs() {
                 transition={{ duration: 0.8, delay: i * 0.1, ease: EASE }}
                 className="group relative bg-paper-50 p-8 md:p-10"
               >
-                <span className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-gold transition-transform duration-700 ease-silk group-hover:scale-x-100" />
+                <span className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-lime transition-transform duration-700 ease-silk group-hover:scale-x-100" />
                 <span className="font-display text-sm italic text-ink-400">0{i + 1}</span>
                 <span className="mt-6 grid h-14 w-14 place-items-center rounded-2xl bg-brand-100 text-brand-800 transition-transform duration-500 ease-silk group-hover:-rotate-6 group-hover:scale-110">
                   <Icon size={22} />

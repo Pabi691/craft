@@ -8,8 +8,8 @@ import { EASE } from '../../lib/motion';
 
 export default function CategoryShowcase() {
   const { categoryTree, categoriesLoading } = useGlobal();
-  // Top-level collections only, in the order the CRM lists them.
-  const tiles = categoryTree.slice(0, 4);
+  // Top-level collections in the CRM's order, except tea always leads.
+  const tiles = [...categoryTree].sort((a, b) => (b.slug === 'tea') - (a.slug === 'tea')).slice(0, 4);
   // Big lead tile, two tall tiles, then a wide one to close the grid.
   const span = (i) => (i === 0 ? 'sm:col-span-2 lg:col-span-6 lg:row-span-2' : i === 3 ? 'sm:col-span-2 lg:col-span-6' : 'lg:col-span-3');
   const aspect = (i) =>
@@ -58,7 +58,7 @@ export default function CategoryShowcase() {
                       <div className="absolute inset-0 bg-gradient-to-t from-ink-950/80 via-ink-950/10 to-transparent" />
                       <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-6 md:p-8">
                         <div>
-                          <p className="text-[10px] font-extrabold uppercase tracking-[0.25em] text-gold-light">
+                          <p className="text-[10px] font-extrabold uppercase tracking-[0.25em] text-lime-light">
                             {cat.product_count ? `${cat.product_count} piece${cat.product_count > 1 ? 's' : ''}` : 'Coming soon'}
                           </p>
                           <h3 className={`mt-2 font-display leading-none text-paper ${big ? 'text-4xl md:text-6xl' : 'text-2xl md:text-3xl'}`}>{cat.category_name}</h3>

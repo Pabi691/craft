@@ -4,14 +4,14 @@ import api from './api';
 // a full 50–950 scale plus a readable "on" colour and writes them as CSS
 // custom properties that tailwind.config.js maps to `brand-*` utilities.
 
-export const DEFAULT_BRAND = '#87A96B'; // sage leaf
+export const DEFAULT_BRAND = '#87AE73'; // sage
 
 const HEX = /^#[0-9A-Fa-f]{6}$/;
 const VARS_KEY = 'cw_brand_vars';
 const HEX_KEY = 'cw_brand_color';
 
 const WHITE = { r: 255, g: 255, b: 255 };
-const INK = { r: 24, g: 17, b: 12 }; // espresso keeps dark shades earthy
+const INK = { r: 26, g: 16, b: 8 }; // cocoa keeps dark shades earthy
 
 // [target, amount] — the chosen colour is shade 500.
 const STEPS = {
@@ -49,10 +49,10 @@ export function buildBrandVars(hex) {
   });
   // Pick whichever of near-white / deep-ink reads better on the brand colour.
   const L = luminance(base);
-  const inkL = luminance({ r: 38, g: 27, b: 20 });
+  const inkL = luminance({ r: 42, g: 26, b: 11 });
   const onWhite = 1.05 / (L + 0.05);
   const onInk = (L + 0.05) / (inkL + 0.05);
-  vars['--brand-on'] = onInk >= onWhite ? '38 27 20' : '255 255 255';
+  vars['--brand-on'] = onInk >= onWhite ? '42 26 11' : '255 255 255';
   return vars;
 }
 

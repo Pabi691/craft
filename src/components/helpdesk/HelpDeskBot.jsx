@@ -51,7 +51,7 @@ function OrderCard({ order, onNavigate }) {
     <Link
       to={`/myaccount/order/${order.id}`}
       onClick={onNavigate}
-      className="group flex items-center gap-3 rounded-2xl border border-ink-900/5 bg-paper-50 p-3 transition-colors hover:border-gold/60"
+      className="group flex items-center gap-3 rounded-2xl border border-ink-900/5 bg-paper-50 p-3 transition-colors hover:border-lime/60"
     >
       <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-brand-100 text-brand-800">
         <FiPackage size={17} />
@@ -296,7 +296,7 @@ export default function HelpDeskBot() {
           whileHover={{ scale: 1.06 }}
           whileTap={{ scale: 0.94 }}
           data-cursor="Help"
-          className="relative grid h-14 w-14 place-items-center rounded-full bg-ink-950 text-paper shadow-lift ring-2 ring-gold/60 ring-offset-2 ring-offset-paper"
+          className="relative grid h-14 w-14 place-items-center rounded-full bg-ink-950 text-paper shadow-lift ring-2 ring-lime/60 ring-offset-2 ring-offset-paper"
         >
           <AnimatePresence mode="wait" initial={false}>
             <motion.span
@@ -334,9 +334,9 @@ export default function HelpDeskBot() {
             }`}
           >
             <header className="relative overflow-hidden bg-ink-950 px-5 pb-4 pt-5 text-paper">
-              <div className="pointer-events-none absolute -right-10 -top-16 h-40 w-40 rounded-full bg-violet/40 blur-3xl" />
+              <div className="pointer-events-none absolute -right-10 -top-16 h-40 w-40 rounded-full bg-leaf/40 blur-3xl" />
               <div className="relative flex items-center gap-3">
-                <span className="grid h-11 w-11 shrink-0 place-items-center whitespace-nowrap rounded-full bg-paper font-display text-[13px] font-semibold tracking-tight text-ink-900 ring-2 ring-gold/70">
+                <span className="grid h-11 w-11 shrink-0 place-items-center whitespace-nowrap rounded-full bg-paper font-display text-[13px] font-semibold tracking-tight text-ink-900 ring-2 ring-lime/70">
                   C<span className="text-accent">&amp;</span>W
                 </span>
                 <div className="min-w-0 flex-1">
@@ -424,7 +424,7 @@ export default function HelpDeskBot() {
                     type="button"
                     disabled={typing}
                     onClick={() => (q.faq ? send(q.label, q.faq) : send(q.text))}
-                    className="shrink-0 rounded-full border border-gold/50 bg-paper-50 px-3 py-1.5 text-[11px] font-extrabold text-ink-800 transition-colors hover:bg-gold-light/40 disabled:opacity-50"
+                    className="shrink-0 rounded-full border border-lime/50 bg-paper-50 px-3 py-1.5 text-[11px] font-extrabold text-ink-800 transition-colors hover:bg-lime-light/40 disabled:opacity-50"
                   >
                     {q.label}
                   </button>

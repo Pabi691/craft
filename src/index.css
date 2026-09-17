@@ -4,26 +4,26 @@
 
 /* ------------------------------------------------------------------ *
  * Theme tokens
- * Brand scale = sage leaf #87A96B (shade 500). src/lib/theme.js
+ * Brand scale = sage #87AE73 (shade 500). src/lib/theme.js
  * overwrites these at runtime with the colour saved in the CRM.
  * ------------------------------------------------------------------ */
 :root {
-  --brand-50: 245 248 243;
-  --brand-100: 233 240 228;
-  --brand-200: 212 224 202;
-  --brand-300: 185 205 169;
-  --brand-400: 159 186 137;
-  --brand-500: 135 169 107;
-  --brand-600: 117 145 92;
-  --brand-700: 97 117 75;
-  --brand-800: 77 90 58;
-  --brand-900: 60 66 42;
-  --brand-950: 46 47 31;
-  --brand-on: 38 27 20;
+  --brand-50: 245 249 244;
+  --brand-100: 233 240 230;
+  --brand-200: 212 226 205;
+  --brand-300: 185 208 174;
+  --brand-400: 159 190 143;
+  --brand-500: 135 174 115;
+  --brand-600: 118 149 98;
+  --brand-700: 98 120 79;
+  --brand-800: 78 92 59;
+  --brand-900: 61 67 42;
+  --brand-950: 48 48 29;
+  --brand-on: 42 26 11;
 
-  /* The pink from the C&W logo. */
-  --accent: 219 75 118;
-  --accent-soft: 251 227 234;
+  /* SPHOORA leaf green — badges, hearts, small calls for attention. */
+  --accent: 1 125 62;
+  --accent-soft: 220 239 217;
 
   --announce-h: 34px;
   --nav-h: 64px;
@@ -92,16 +92,16 @@ html.lenis body {
   }
   .eyebrow::before {
     content: '';
-    @apply h-px w-7 bg-gold;
+    @apply h-px w-7 bg-lime;
   }
-  /* Thin gold rule with a leaf-diamond centre — section dividers. */
-  .rule-gold {
-    @apply relative mx-auto flex max-w-xs items-center gap-3 text-gold;
+  /* Thin lime rule with a leaf-diamond centre — section dividers. */
+  .rule-lime {
+    @apply relative mx-auto flex max-w-xs items-center gap-3 text-lime;
   }
-  .rule-gold::before,
-  .rule-gold::after {
+  .rule-lime::before,
+  .rule-lime::after {
     content: '';
-    @apply h-px flex-1 bg-gradient-to-r from-transparent via-gold/70 to-transparent;
+    @apply h-px flex-1 bg-gradient-to-r from-transparent via-lime/70 to-transparent;
   }
   .h-display {
     @apply font-display font-normal leading-[0.95] tracking-[-0.03em];
@@ -246,12 +246,12 @@ body::after {
   height: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #eee3d2;
+  background: #efe2d7;
 }
 ::-webkit-scrollbar-thumb {
   background: rgb(var(--brand-400));
   border-radius: 999px;
-  border: 3px solid #eee3d2;
+  border: 3px solid #efe2d7;
 }
 
 /* react-toastify */
@@ -279,11 +279,11 @@ body::after {
 .cw-swal .swal2-title {
   font-family: Fraunces, Georgia, serif;
   font-weight: 500;
-  color: #261b14;
+  color: #2a1a0b;
   font-size: 1.65rem;
 }
 .cw-swal .swal2-html-container {
-  color: #624b3b;
+  color: #6e4725;
   font-size: 0.95rem;
 }
 .cw-swal .swal2-actions {
@@ -303,6 +303,39 @@ body::after {
 .cw-swal .swal2-icon.swal2-warning {
   border-color: rgb(var(--accent));
   color: rgb(var(--accent));
+}
+
+/* ------------------------------------------------------------------ *
+ * Home hero — cinematic tea scene (src/components/home/Hero.jsx)
+ * ------------------------------------------------------------------ */
+.hero-scene {
+  container-type: size;
+}
+/* object-fit: cover, but as a box: anything placed inside it in % (the live
+   steam, the pour glint) stays pinned to the same spot in the photo.
+   --ratio = photo width / height, --fx/--fy = focal point (0–1). */
+.hero-frame {
+  position: absolute;
+  inset: 0;
+  width: max(100cqw, 100cqh * var(--ratio));
+  height: max(100cqh, 100cqw / var(--ratio));
+  left: calc((100cqw - max(100cqw, 100cqh * var(--ratio))) * var(--fx, 0.5));
+  top: calc((100cqh - max(100cqh, 100cqw / var(--ratio))) * var(--fy, 0.5));
+}
+/* Mobile: the copy sits under the photo, so fade the scene into the ground.
+   Desktop: keep the left dark and calm for the headline. */
+.hero-shade {
+  background:
+    linear-gradient(to top, rgb(26 16 8) 0%, rgb(26 16 8 / 0.82) 18%, rgb(26 16 8 / 0) 48%),
+    radial-gradient(130% 90% at 70% 45%, transparent 55%, rgb(12 8 5 / 0.5) 100%);
+}
+@media (min-width: 1024px) {
+  .hero-shade {
+    background:
+      linear-gradient(90deg, rgb(22 13 6 / 0.9) 0%, rgb(22 13 6 / 0.72) 24%, rgb(22 13 6 / 0.26) 44%, rgb(22 13 6 / 0) 60%),
+      linear-gradient(to top, rgb(14 9 6 / 0.6) 0%, rgb(14 9 6 / 0) 26%),
+      radial-gradient(120% 100% at 68% 45%, transparent 52%, rgb(10 6 4 / 0.5) 100%);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

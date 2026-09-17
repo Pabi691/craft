@@ -8,7 +8,7 @@ const filled = (v) => (v && v !== 'null' ? v : '');
 // categories carry one, edited in the CRM) and wins over the defaults.
 export default function Seo({ title, description, image, seo, type = 'website' }) {
   const metaTitle = filled(seo?.meta_title) || (title ? `${title} — ${SITE.name}` : `${SITE.name} — ${SITE.tagline}`);
-  const metaDesc = filled(seo?.meta_description) || description || SITE.heroCopy;
+  const metaDesc = filled(seo?.meta_description) || description || SITE.description;
   const ogImage = mediaUrl(filled(seo?.og_image) || image);
   return (
     <Helmet>

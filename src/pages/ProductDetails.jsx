@@ -297,7 +297,7 @@ export default function ProductDetails() {
   const recent = recentlyViewed.list().filter((p) => p.slug !== slug).slice(0, 8);
 
   const celebrate = () =>
-    confetti({ particleCount: 90, spread: 72, origin: { y: 0.62 }, scalar: 0.9, colors: [getBrandColor(), '#DB4B76', '#C69C4B', '#8F1265'] });
+    confetti({ particleCount: 90, spread: 72, origin: { y: 0.62 }, scalar: 0.9, colors: [getBrandColor(), '#017D3E', '#84C243', '#603814'] });
 
   const handleAdd = async () => {
     const needsSelection = (!distributor && hasSizes) || (distributor && packVariations.length > 0);

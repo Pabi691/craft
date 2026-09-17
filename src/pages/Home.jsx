@@ -11,19 +11,27 @@ import Testimonials from '../components/home/Testimonials';
 import GalleryTeaser from '../components/home/GalleryTeaser';
 import CareCTA from '../components/home/CareCTA';
 import TeaSection from '../components/home/TeaSection';
+import SphooraIntro from '../components/home/SphooraIntro';
+import { SITE } from '../config/site';
 
+const TEA_WORDS = [...SITE.tea.regions, ...SITE.tea.ranges.find((r) => r.slug === 'signature-blends').items.map((b) => b.name)];
+const CRAFT_WORDS = SITE.crafts.filter((c) => !SITE.tea.regions.includes(c));
+
+// Tea leads the page; the story bridges into the heritage crafts below.
 export default function Home() {
   return (
     <>
       <Seo />
       <Hero />
-      <CraftMarquee />
-      <CategoryShowcase />
-      <FeaturedScroll />
+      <SphooraIntro />
+      <CraftMarquee items={TEA_WORDS} label="SPHOORA teas" />
       <TeaSection />
       <StorySection />
-      <StatsBand />
+      <CraftMarquee items={CRAFT_WORDS} />
+      <CategoryShowcase />
+      <FeaturedScroll />
       <ProcessSection />
+      <StatsBand />
       <WhyUs />
       <Testimonials />
       <GalleryTeaser />

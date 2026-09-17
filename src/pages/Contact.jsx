@@ -69,7 +69,7 @@ export default function Contact() {
                 href={href}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-ink-900/10 bg-white/70 px-4 py-2 text-xs font-bold text-ink-700 transition-colors duration-300 hover:border-gold hover:text-ink-900"
+                className="inline-flex items-center gap-2 rounded-full border border-ink-900/10 bg-white/70 px-4 py-2 text-xs font-bold text-ink-700 transition-colors duration-300 hover:border-lime hover:text-ink-900"
               >
                 <Icon size={13} /> {label}
               </a>

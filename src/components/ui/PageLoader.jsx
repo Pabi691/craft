@@ -4,7 +4,7 @@ export default function PageLoader() {
   return (
     <div className="grid min-h-[60vh] place-items-center">
       <div className="flex flex-col items-center gap-5">
-        <span className="font-display text-3xl italic text-ink-300">
+        <span className="font-display text-3xl text-ink-300">
           C<span className="text-accent">&amp;</span>W
         </span>
         <span className="relative block h-px w-28 overflow-hidden bg-ink-900/10">

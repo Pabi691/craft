@@ -5,18 +5,26 @@ import { useLenis } from '../motion/SmoothScroll';
 import { SITE } from '../../config/site';
 
 const KEY = 'cw_intro_seen';
+const INTRO_MS = 2500;
+const bootedAt = performance.now();
+
+const unseen = () => {
+  try {
+    return !sessionStorage.getItem(KEY);
+  } catch {
+    return false;
+  }
+};
+
+// Seconds until this session's intro curtain lifts (0 once it has), so
+// above-the-fold motion plays as the page is revealed instead of under it.
+export const introDelay = () => (unseen() ? Math.max(0, INTRO_MS - (performance.now() - bootedAt)) / 1000 : 0);
 
 // Once-per-session intro: a thread draws across the dark loom, the wordmark
 // rises, then the whole curtain is pulled up to reveal the site.
 export default function Preloader() {
   const lenis = useLenis();
-  const [show, setShow] = useState(() => {
-    try {
-      return !sessionStorage.getItem(KEY);
-    } catch {
-      return false;
-    }
-  });
+  const [show, setShow] = useState(unseen);
 
   useEffect(() => {
     if (!show) return undefined;
@@ -27,7 +35,7 @@ export default function Preloader() {
       } catch {
         // ignore
       }
-    }, 2500);
+    }, INTRO_MS);
     return () => clearTimeout(timer);
   }, [show]);
 

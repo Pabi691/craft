@@ -7,8 +7,32 @@ export const SITE = {
   parent: 'Craft Combine',
   tagline: 'From Craft to Cup',
   subTagline: 'From Heritage to Everyday Ritual',
-  heroCopy:
-    'Heritage textiles, fabric accessories and home décor made with artisans — and now SPHOORA fine Indian teas, sourced close to small growers.',
+  // Default meta description.
+  description:
+    'Heritage weaves from artisan hands. Honest teas from small gardens in Darjeeling, Dooars, Assam and Kangra.',
+
+  // Home hero — the tea cinemagraph. `map` drives the WebGL motion and is
+  // measured from this exact photo (see components/home/teaSceneShader.js);
+  // `focusX` is the % of the photo kept in view on narrow screens.
+  hero: {
+    eyebrow: 'Premium Indian Teas',
+    byline: 'Fine teas by Craft & Weft',
+    logo: { src: '/brand/sphoora-logo-light.png', alt: 'SPHOORA', width: 218, height: 300 },
+    title: 'From Our Gardens | to Your *Cup.*',
+    tagline: 'Pure. Authentic. Thoughtfully Crafted.',
+    copy: 'Distinctive teas from Darjeeling, Dooars, Assam, Kangra and beyond\u00A0— rooted in provenance, crafted with care.',
+    primary: { label: 'Explore Our Teas', to: '/tea' },
+    secondary: { label: 'Our Tea Collection', to: '/tea#connoisseurs-choice' },
+    image: {
+      src: '/hero/tea-ritual.webp',
+      fallback: '/hero/tea-ritual.jpg',
+      width: 1819,
+      height: 749,
+      alt: 'Amber tea poured from a dark teapot into a handmade ceramic cup, steam rising, loose leaf tea on a wooden table',
+      map: '/hero/tea-ritual-map.png',
+      focusX: 70,
+    },
+  },
   url: 'https://www.craftcombine.org',
 
   // Brand lines, verbatim from the brief.
@@ -23,10 +47,13 @@ export const SITE = {
     'Today, that journey evolves from craft to cup. Through SPHOORA and Kettletales, we bring the same philosophy to fine Indian teas.',
   ],
 
-  // Full "Who we are" story for the About page.
+  // Full "Who we are" story for the About page. `statement` is a line shown
+  // big on its own before the chapter; `quote` is pulled out beside the text.
+  // (*word* = highlighted, | = line break.)
   story: [
     {
       title: 'Where heritage meets markets',
+      statement: 'We worked to create one essential bridge — between the hands that *create* and the people who *value* their work.',
       paragraphs: [
         'Craft & Weft, an initiative of Craft Combine, has always worked where heritage, creativity, livelihoods and markets meet.',
         'Our journey began in the development sector — reviving and reimagining Indian textiles such as Muslin, Silk, Baluchari, Tasar and Khesh, working alongside artisans, government institutions and development partners. From innovative product and design development to research, revival strategies, heritage installations, exhibitions, catalogues and coffee-table books, we worked to create one essential bridge — between the hands that create and the people who value their work.',
@@ -34,12 +61,15 @@ export const SITE = {
     },
     {
       title: 'New life for textile waste',
+      quote: 'To take something authentic and rooted, and make it distinctive, relevant and market-ready.',
       paragraphs: [
         'We also explored new life for textile waste, transforming it into art, artefacts, fashion, accessories and objects of everyday use. Across projects for government, development organizations and corporates, our niche remained constant: to take something authentic and rooted, and make it distinctive, relevant and market-ready.',
       ],
     },
     {
       title: 'From craft to cup',
+      statement: 'Today, that journey evolves | from *craft* to *cup.*',
+      quote: 'Pure premium teas, select single-origin offerings and signature blends.',
       paragraphs: [
         'Today, that journey evolves from craft to cup.',
         'Through SPHOORA and Kettletales, we bring the same philosophy to fine Indian teas — working close to small tea growers and farming communities and discovering distinctive teas from Darjeeling, Dooars, Assam, Kangra and beyond.',
@@ -48,6 +78,7 @@ export const SITE = {
     },
     {
       title: 'Tea as a ritual',
+      quote: 'Tea is more than a beverage. It is a ritual — a moment to pause, ground and reconnect.',
       paragraphs: [
         'For us, tea is more than a beverage. It is a ritual — a moment to pause, ground and reconnect. A small alchemy of leaf, aroma, taste and time that brings clarity and calm into an ordinary day.',
         'And this is just the beginning. From tea, we continue to evolve into signature blends, wellness-led infusions and conscious everyday creations — staying true to what has always defined us: craft, creativity, purity, sustainability and people.',
@@ -55,11 +86,51 @@ export const SITE = {
     },
     {
       title: 'A human story in every choice',
+      quote: 'Every choice you make with us carries a human story.',
       paragraphs: [
         'Every choice you make with us carries a human story — a small grower, farmer, artisan or maker whose work is valued along the way. As we grow, we hope to keep nurturing this connection, creating a more harmonious chain from source to you.',
       ],
     },
   ],
+  // SPHOORA brand story — the About page's tea section.
+  sphoora: {
+    // Home page launch note — "we do it again", from the client.
+    launch: {
+      eyebrow: 'Introducing SPHOORA',
+      title: 'From artisans to farmers — | and now, *small* *tea* *growers.*',
+      kicker: 'We’ve done it before. We’re doing it again.',
+      text: 'SPHOORA is our tea from small tea growers, rooted in the same mission that started it all: a bridge between the hands that grow and the people who value their work.',
+      journey: [
+        { label: 'Artisan livelihoods', text: 'Muslin, Silk, Baluchari, Tasar and Khesh, revived with the hands that weave them.' },
+        { label: 'Farmers', text: 'Working close to farming communities, where every harvest begins.' },
+        { label: 'Small tea growers', text: 'SPHOORA — tea from small gardens, curated with the same care.', now: true },
+      ],
+      tagline: ['Grown from the soil.', 'Curated cup by cup.'],
+      logo: { src: '/brand/sphoora-logo.png', alt: 'SPHOORA', width: 218, height: 300 },
+    },
+    title: 'Where real hands | make real *tea.*',
+    lead:
+      'From the small gardens of the Dooars to the high slopes of Darjeeling or the valleys of Assam or Kangra, we seek out growers whose finest harvests are shaped by hand, season and soil.',
+    quote: 'From known hands to your cup.',
+    statement: 'SPHOORA stays small enough to know where *every* *leaf* comes from — yet exacting enough to belong *anywhere* in the world.',
+    points: [
+      {
+        title: 'Carefully chosen leaves',
+        text: 'From growers whose finest harvests are shaped by hand, season and soil.',
+      },
+      {
+        title: 'Honest craft',
+        text: 'We keep things simple. No unnecessary shortcuts.',
+      },
+      {
+        title: 'Time to let tea be tea',
+        text: 'Each brew is allowed to unfurl naturally — releasing its aroma, character and life.',
+      },
+    ],
+    closing: 'From soil to steep, an unbroken story.',
+    signOff: 'That is SPHOORA.',
+  },
+
   closing:
     'Because Craft & Weft isn’t simply about what we make. It is about how we evolve together — nurturing people, honoring provenance and bringing a little more beauty, harmony and meaning into everyday life.',
   values: ['Craft', 'Creativity', 'Purity', 'Sustainability', 'People'],

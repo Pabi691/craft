@@ -1,5 +1,5 @@
-import { useMemo, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect, useMemo, useRef } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { FiArrowRight, FiClock, FiDroplet, FiThermometer } from 'react-icons/fi';
 import { FaWhatsapp } from 'react-icons/fa';
@@ -15,6 +15,7 @@ import SmartImage from '../components/ui/SmartImage';
 import WeavePattern from '../components/ui/WeavePattern';
 import LeafPattern from '../components/ui/LeafPattern';
 import Magnetic from '../components/ui/Magnetic';
+import { useLenis } from '../components/motion/SmoothScroll';
 
 const TEA = SITE.tea;
 const story = SITE.story.filter((c) => /cup|ritual/i.test(c.title)).flatMap((c) => c.paragraphs);
@@ -38,7 +39,7 @@ function TeaCard({ item, range, product, index }) {
         <span className="pointer-events-none absolute left-3 top-3 chip bg-paper/90 text-ink-800 backdrop-blur">{TEA.packs.join(' · ')}</span>
       </div>
       <div className="px-1 pt-4">
-        <p className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-gold-dark">{range.name}</p>
+        <p className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-lime-dark">{range.name}</p>
         <h3 className="mt-1 font-display text-2xl leading-tight text-ink-900">{name}</h3>
         {item.notes && <p className="mt-1 font-display text-[15px] italic text-ink-600">{item.notes}</p>}
         {item.origin && <p className="mt-2 text-xs font-semibold text-ink-400">{item.origin}</p>}
@@ -97,6 +98,21 @@ export default function Tea() {
   // Active products only come back from the API, so a match means it's live.
   const bySlug = useMemo(() => new Map(products.map((p) => [p.slug, p])), [products]);
 
+  // Deep links such as /tea#signature-blends glide to their range once the
+  // page curtain has lifted.
+  const { hash } = useLocation();
+  const lenis = useLenis();
+  useEffect(() => {
+    if (!hash) return undefined;
+    const timer = setTimeout(() => {
+      const target = document.getElementById(decodeURIComponent(hash.slice(1)));
+      if (!target) return;
+      if (lenis) lenis.scrollTo(target, { offset: -110 });
+      else target.scrollIntoView({ behavior: 'smooth' });
+    }, 900);
+    return () => clearTimeout(timer);
+  }, [hash, lenis]);
+
   return (
     <>
       <Seo
@@ -107,13 +123,13 @@ export default function Tea() {
 
       {/* Hero */}
       <section ref={heroRef} className="relative overflow-hidden bg-ink-950 pb-20 pt-12 text-paper md:pb-28 md:pt-16">
-        <LeafPattern className="mask-soft-left pointer-events-none absolute inset-0 text-gold" opacity={0.11} size={150} />
+        <LeafPattern className="mask-soft-left pointer-events-none absolute inset-0 text-lime" opacity={0.11} size={150} />
         <div className="pointer-events-none absolute -left-40 top-10 h-[30rem] w-[30rem] rounded-full bg-brand-500/15 blur-[130px]" />
-        <div className="pointer-events-none absolute -right-32 bottom-0 h-96 w-96 rounded-full bg-violet/25 blur-[120px]" />
+        <div className="pointer-events-none absolute -right-32 bottom-0 h-96 w-96 rounded-full bg-leaf/25 blur-[120px]" />
 
         <div className="container-x relative grid items-center gap-14 lg:grid-cols-12">
           <div className="lg:col-span-6">
-            <p className="eyebrow text-gold-light">
+            <p className="eyebrow text-lime-light">
               {TEA.brand} · {TEA.sister}
             </p>
             <SplitText
@@ -122,7 +138,7 @@ export default function Tea() {
               delay={0.15}
               text="From craft | to *cup.*"
               className="h-display mt-6 text-[3.4rem] text-paper sm:text-7xl xl:text-8xl"
-              highlightClassName="italic text-gold-light"
+              highlightClassName="italic text-lime-light"
             />
             <motion.p
               initial={{ opacity: 0, y: 16 }}
@@ -139,7 +155,7 @@ export default function Tea() {
               className="mt-8 flex flex-wrap gap-2"
             >
               {TEA.regions.map((r) => (
-                <span key={r} className="rounded-full border border-gold/40 px-4 py-1.5 text-xs font-bold tracking-wide text-gold-light">
+                <span key={r} className="rounded-full border border-lime/40 px-4 py-1.5 text-xs font-bold tracking-wide text-lime-light">
                   {r}
                 </span>
               ))}
@@ -159,7 +175,7 @@ export default function Tea() {
                 href={whatsappLink('Hello Craft & Weft, I would like to order SPHOORA tea.')}
                 target="_blank"
                 rel="noreferrer"
-                className="btn border border-paper/20 text-paper hover:border-gold"
+                className="btn border border-paper/20 text-paper hover:border-lime"
               >
                 <FaWhatsapp size={16} /> Order on WhatsApp
               </a>
@@ -173,7 +189,7 @@ export default function Tea() {
                 initial={{ clipPath: 'inset(100% 0% 0% 0%)' }}
                 animate={{ clipPath: 'inset(0% 0% 0% 0%)' }}
                 transition={{ duration: 1.3, ease: EASE, delay: 0.2 }}
-                className="absolute left-0 top-[8%] w-[78%] overflow-hidden rounded-[2rem] shadow-lift ring-1 ring-gold/30"
+                className="absolute left-0 top-[8%] w-[78%] overflow-hidden rounded-[2rem] shadow-lift ring-1 ring-lime/30"
               >
                 <SmartImage src="/product-images/sphoora-prabha.jpg" alt="SPHOORA Prabha tea" className="aspect-[3/2]" loading="eager" />
               </motion.div>
@@ -249,15 +265,15 @@ export default function Tea() {
                     <h3 className="font-display text-xl text-ink-900">{b.name}</h3>
                     <dl className="mt-5 space-y-3 text-sm text-ink-700">
                       <div className="flex items-center gap-3">
-                        <FiDroplet className="text-gold-dark" /> <dt className="sr-only">Leaf</dt>
+                        <FiDroplet className="text-lime-dark" /> <dt className="sr-only">Leaf</dt>
                         <dd>{b.grams} leaf</dd>
                       </div>
                       <div className="flex items-center gap-3">
-                        <FiThermometer className="text-gold-dark" /> <dt className="sr-only">Water</dt>
+                        <FiThermometer className="text-lime-dark" /> <dt className="sr-only">Water</dt>
                         <dd>{b.temp}</dd>
                       </div>
                       <div className="flex items-center gap-3">
-                        <FiClock className="text-gold-dark" /> <dt className="sr-only">Steep</dt>
+                        <FiClock className="text-lime-dark" /> <dt className="sr-only">Steep</dt>
                         <dd>{b.time}</dd>
                       </div>
                     </dl>
@@ -272,7 +288,7 @@ export default function Tea() {
       {/* Invite */}
       <section className="pb-24 text-center md:pb-32">
         <div className="container-x max-w-3xl">
-          <p className="text-[11px] font-extrabold uppercase tracking-[0.24em] text-gold-dark">{SITE.pillars.join(' • ')}</p>
+          <p className="text-[11px] font-extrabold uppercase tracking-[0.24em] text-lime-dark">{SITE.pillars.join(' • ')}</p>
           <SplitText as="h2" text="Join us. Sip with us. | *Co-create* with us." className="h-display mt-6 text-4xl text-ink-900 md:text-6xl" />
           <p className="mx-auto mt-6 max-w-xl text-[15px] leading-8 text-ink-500">{SITE.story[SITE.story.length - 1].paragraphs[0]}</p>
         </div>
