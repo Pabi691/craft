@@ -6,6 +6,8 @@ export const SITE = {
   short: 'C&W',
   parent: 'Craft Combine',
   tagline: 'From Craft to Cup',
+  // Written out in script on the intro loader (paths: components/ui/introTagline.js).
+  introLine: 'Where Hands, Harvests and Stories meet…',
   subTagline: 'From Heritage to Everyday Ritual',
   // Default meta description.
   description:
@@ -42,7 +44,7 @@ export const SITE = {
 
   // "Who we are" — short version for the home page and footer.
   about: [
-    'Craft & Weft, an initiative of Craft Combine, has always worked where heritage, creativity, livelihoods and markets meet.',
+    'Craft & Weft, an initiative of Craft Combine, always work where heritage, creativity, livelihoods and markets meet.',
     'Our journey began in the development sector — reviving and reimagining Indian textiles such as Muslin, Silk, Baluchari, Tasar and Khesh, working alongside artisans, government institutions and development partners.',
     'Today, that journey evolves from craft to cup. Through SPHOORA and Kettletales, we bring the same philosophy to fine Indian teas.',
   ],
@@ -55,15 +57,15 @@ export const SITE = {
       title: 'Where heritage meets markets',
       statement: 'We worked to create one essential bridge — between the hands that *create* and the people who *value* their work.',
       paragraphs: [
-        'Craft & Weft, an initiative of Craft Combine, has always worked where heritage, creativity, livelihoods and markets meet.',
-        'Our journey began in the development sector — reviving and reimagining Indian textiles such as Muslin, Silk, Baluchari, Tasar and Khesh, working alongside artisans, government institutions and development partners. From innovative product and design development to research, revival strategies, heritage installations, exhibitions, catalogues and coffee-table books, we worked to create one essential bridge — between the hands that create and the people who value their work.',
+        'Craft & Weft, an initiative of Craft Combine, always work where heritage, creativity, livelihoods and markets meet.',
+        'Our journey began in the development sector - reviving and reimagining Indian textiles such as Muslin, Silk, Baluchar. Tussar, Kantha and Khesh, working alongside artisans, government institutions and development partners. From innovative product and design development to research, revival strategies, heritage installations, exhibitions, catalogues and coffee-table books. We use textile wastes and extensively work on recycled textile to create various lifestyle products. Developing corporate gifts and décor have also been our expertise. We work to create one essential bridge - between the hands that create and the people who value their work.',
       ],
     },
     {
       title: 'New life for textile waste',
       quote: 'To take something authentic and rooted, and make it distinctive, relevant and market-ready.',
       paragraphs: [
-        'We also explored new life for textile waste, transforming it into art, artefacts, fashion, accessories and objects of everyday use. Across projects for government, development organizations and corporates, our niche remained constant: to take something authentic and rooted, and make it distinctive, relevant and market-ready.',
+        'We also explore new life for textile waste, transforming it into art, artefacts, fashion, accessories and objects of everyday use. Across projects for government, development organizations and corporates, our niche remained constant: to take something authentic and rooted and make it distinctive, relevant and market-ready.',
       ],
     },
     {
@@ -201,14 +203,22 @@ export const SITE = {
         slug: 'signature-blends',
         intro: 'Each SPHOORA blend is named for a feeling.',
         items: [
-          { name: 'Udaya', slug: 'sphoora-udaya', notes: 'Sunrise, awakening, vigor', origin: 'Darjeeling × Assam', image: 'sphoora-udaya.jpg' },
-          { name: 'Aabha', slug: 'sphoora-aabha', notes: 'Glow, radiance, freshness', origin: 'Dooars × Kangra', image: 'sphoora-aabha.jpg' },
-          { name: 'Prabha', slug: 'sphoora-prabha', notes: 'First light, brilliance', origin: 'Darjeeling 2nd flush & CTC', image: 'sphoora-prabha.jpg' },
-          { name: 'Tejas', slug: 'sphoora-tejas', notes: 'Vitality, energy, fire', origin: 'Strong Assam-forward tea' },
-          { name: 'Ira', slug: 'sphoora-ira', notes: 'Graceful, fresh, refined', origin: 'Delicate floral tea' },
-          { name: 'Arka', slug: 'sphoora-arka', notes: 'Warmth, radiance, sun', origin: 'Roasted / deeper tea' },
-          { name: 'Urja', slug: 'sphoora-urja', notes: 'Wellness infusion' },
-          { name: 'Kiran', slug: 'sphoora-kiran', notes: 'Classic premium blend', origin: 'Assam Orthodox' },
+          { name: 'Udaya', slug: 'sphoora-udaya', notes: 'Darjeeling Blend', image: 'sphoora-udaya.jpg' },
+          { name: 'Aabha', slug: 'sphoora-aabha', notes: 'Himalayan Blend', image: 'sphoora-aabha.jpg' },
+          { name: 'Prabha', slug: 'sphoora-prabha', notes: 'Darjeeling Premium Blend', image: 'sphoora-prabha.jpg' },
+          { name: 'Tejas', slug: 'sphoora-tejas', notes: 'Assam Blend, Strong Assam Forward tea', image: 'sphoora-tejas.jpg' },
+          { name: 'Ira', slug: 'sphoora-ira', notes: 'Floral Blend', image: 'sphoora-ira.jpg' },
+          { name: 'Arka', slug: 'sphoora-arka', notes: 'Premium Roasted Blend', image: 'sphoora-arka.jpg' },
+          { name: 'Urja', slug: 'sphoora-urja', notes: 'Wellness Blend', image: 'sphoora-urja.jpg' },
+          { name: 'Kiran', slug: 'sphoora-kiran', notes: 'Premium Blend', origin: 'Assam Orthodox', image: 'sphoora-kiran.jpg' },
+          // { name: 'Udaya', slug: 'sphoora-udaya', notes: 'Sunrise, awakening, vigor', origin: 'Darjeeling × Assam', image: 'sphoora-udaya.jpg' },
+          // { name: 'Aabha', slug: 'sphoora-aabha', notes: 'Glow, radiance, freshness', origin: 'Dooars × Kangra', image: 'sphoora-aabha.jpg' },
+          // { name: 'Prabha', slug: 'sphoora-prabha', notes: 'First light, brilliance', origin: 'Darjeeling 2nd flush & CTC', image: 'sphoora-prabha.jpg' },
+          // { name: 'Tejas', slug: 'sphoora-tejas', notes: 'Vitality, energy, fire', origin: 'Strong Assam-forward tea' },
+          // { name: 'Ira', slug: 'sphoora-ira', notes: 'Graceful, fresh, refined', origin: 'Delicate floral tea' },
+          // { name: 'Arka', slug: 'sphoora-arka', notes: 'Warmth, radiance, sun', origin: 'Roasted / deeper tea' },
+          // { name: 'Urja', slug: 'sphoora-urja', notes: 'Wellness infusion' },
+          // { name: 'Kiran', slug: 'sphoora-kiran', notes: 'Classic premium blend', origin: 'Assam Orthodox' },
         ],
       },
     ],
@@ -220,7 +230,7 @@ export const SITE = {
     phones: ['+91 98306 40086', '+91 90516 26156', '+91 70036 78472'],
     whatsapp: '919051626156',
     email: 'craftcombine.ac@gmail.com',
-    emails: ['craftcombine.ac@gmail.com', 'craftcombine@gmail.com'],
+    emails: ['craftcombine.ac@gmail.com', 'craftcombine@gmail.com', 'craftnweft@gmail.com'],
     mapQuery: '54/1 Bipin Ganguly Road, Seth Bagan, Kolkata 700030',
   },
 

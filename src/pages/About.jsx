@@ -88,13 +88,13 @@ export default function About() {
         flush(i);
         blocks.push(
           <section key={`turn-${i}`} className="relative overflow-hidden bg-ink-950 py-28 text-paper md:py-40">
-            <LeafPattern className="pointer-events-none absolute inset-0 text-lime" opacity={0.05} size={150} />
+            <LeafPattern className="pointer-events-none absolute inset-0 text-gold" opacity={0.05} size={150} />
             <div className="pointer-events-none absolute left-1/2 top-1/2 h-[32rem] w-[32rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-leaf/20 blur-[140px]" />
             <div className="container-x relative flex flex-col items-center text-center">
               <ScrollHighlight
                 text={chapter.statement}
                 className="h-display max-w-5xl text-[2.6rem] leading-[1.05] sm:text-6xl lg:text-[5.5rem]"
-                highlightClassName="italic text-lime-light"
+                highlightClassName="italic text-gold-foil"
               />
               <Reveal delay={0.2} className="mt-12 flex items-center gap-5">
                 <img src={SITE.hero.logo.src} alt={SITE.hero.logo.alt} width={SITE.hero.logo.width} height={SITE.hero.logo.height} loading="lazy" className="h-20 w-auto md:h-24" />
@@ -184,7 +184,7 @@ export default function About() {
 
       {/* SPHOORA */}
       <section className="relative overflow-hidden bg-ink-950 py-24 text-paper md:py-32">
-        <LeafPattern className="mask-soft-left pointer-events-none absolute inset-0 text-lime" opacity={0.1} size={150} />
+        <LeafPattern className="mask-soft-left pointer-events-none absolute inset-0 text-gold" opacity={0.1} size={150} />
         <div className="pointer-events-none absolute -right-32 top-10 h-96 w-96 rounded-full bg-leaf/25 blur-[120px]" />
         <div className="pointer-events-none absolute -left-40 bottom-0 h-[26rem] w-[26rem] rounded-full bg-brand-500/15 blur-[130px]" />
 
@@ -194,14 +194,14 @@ export default function About() {
               <Reveal y={14}>
                 <img src={SITE.hero.logo.src} alt={SITE.hero.logo.alt} width={SITE.hero.logo.width} height={SITE.hero.logo.height} loading="lazy" className="h-24 w-auto md:h-28" />
               </Reveal>
-              <Reveal as="p" y={14} className="eyebrow mt-8 text-lime-light">
+              <Reveal as="p" y={14} className="eyebrow mt-8 text-gold-light">
                 SPHOORA · Fine Indian teas
               </Reveal>
-              <SplitText as="h2" text={SPHOORA.title} className="h-display mt-5 text-[2.6rem] text-paper sm:text-6xl lg:text-7xl" highlightClassName="italic text-lime-light" />
+              <SplitText as="h2" text={SPHOORA.title} className="h-display mt-5 text-[2.6rem] text-paper sm:text-6xl lg:text-7xl" highlightClassName="italic text-gold-foil" />
               <Reveal as="p" delay={0.1} className="mt-8 max-w-xl text-base leading-8 text-paper/70 md:text-lg">
                 {SPHOORA.lead}
               </Reveal>
-              <Reveal as="blockquote" delay={0.2} className="mt-10 border-l-2 border-gold pl-6 font-display text-3xl italic leading-snug text-lime-light md:text-4xl">
+              <Reveal as="blockquote" delay={0.2} className="mt-10 border-l-2 border-gold pl-6 font-display text-3xl italic leading-snug text-gold-light md:text-4xl">
                 {SPHOORA.quote}
               </Reveal>
             </div>
@@ -213,7 +213,7 @@ export default function About() {
           <ScrollHighlight
             text={SPHOORA.statement}
             className="h-display mx-auto mt-24 max-w-4xl text-balance text-center text-[2rem] leading-[1.15] text-paper sm:text-4xl md:mt-32 lg:text-5xl"
-            highlightClassName="italic text-lime-light"
+            highlightClassName="italic text-gold-foil"
           />
 
           <div className="isolate mt-16 grid gap-px overflow-hidden rounded-[1.75rem] bg-paper/10 md:mt-24 md:grid-cols-3">
@@ -296,7 +296,7 @@ export default function About() {
           <div className="mt-8 flex flex-wrap items-baseline gap-x-6 gap-y-2">
             {SITE.values.map((v, i) => (
               <Reveal key={v} as="span" delay={i * 0.08} className="flex items-baseline gap-6 font-display text-4xl font-light text-paper md:text-6xl">
-                <span className={i % 2 ? 'italic text-lime-light' : ''}>{v}</span>
+                <span className={i % 2 ? 'italic text-gold-foil' : ''}>{v}</span>
                 {i < SITE.values.length - 1 && <span className="text-2xl text-gold/70">✦</span>}
               </Reveal>
             ))}
@@ -308,7 +308,7 @@ export default function About() {
             </Reveal>
             <div className="lg:col-span-4 lg:col-start-9">
               <p className="text-[11px] font-extrabold uppercase tracking-[0.22em] text-gold-light">{SITE.pillars.join(' • ')}</p>
-              <SplitText as="h3" text={SITE.invite.replace('Co-create', '*Co-create*')} className="h-display mt-5 text-3xl text-paper md:text-4xl" highlightClassName="italic text-lime-light" />
+              <SplitText as="h3" text={SITE.invite.replace('Co-create', '*Co-create*')} className="h-display mt-5 text-3xl text-paper md:text-4xl" highlightClassName="italic text-gold-foil" />
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link to="/products" className="btn-primary">
                   Shop the collection <FiArrowRight />

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { FiArrowUpRight, FiHeart, FiSearch, FiUser, FiX } from 'react-icons/fi';
 import { FaWhatsapp } from 'react-icons/fa';
-import Logo from '../ui/Logo';
+import Logo, { CraftCombineMark } from '../ui/Logo';
 import { useGlobal } from '../../context/GlobalContext';
 import { useAuth } from '../../context/AuthContext';
 import { useLenis } from '../motion/SmoothScroll';
@@ -90,7 +90,10 @@ export default function MobileMenu({ open, onClose, onSearch }) {
             <a href={whatsappLink('Hello Craft & Weft, ')} target="_blank" rel="noreferrer" className="btn-primary mt-4 w-full">
               <FaWhatsapp size={18} /> Chat with us on WhatsApp
             </a>
-            <p className="mt-5 text-center text-xs text-paper/45">{SITE.contact.address}</p>
+            <div className="mt-6 flex justify-center">
+              <CraftCombineMark light />
+            </div>
+            <p className="mt-4 text-center text-xs text-paper/45">{SITE.contact.address}</p>
           </motion.div>
         </motion.div>
       )}

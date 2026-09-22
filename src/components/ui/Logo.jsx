@@ -25,17 +25,22 @@ export default function Logo({ light = false, className = '', onClick, compact =
   );
 }
 
-// "An initiative of Craft Combine" lock-up used in the footer and About page.
-export function CraftCombineMark({ light = false, className = '' }) {
+// "An initiative of Craft Combine" lock-up used in the header, footer and About
+// page. `compact` stacks the label over the logo so it fits the header bar.
+export function CraftCombineMark({ light = false, compact = false, className = '' }) {
   return (
     <a
       href="https://www.craftcombine.org/"
       target="_blank"
       rel="noreferrer"
-      className={`inline-flex items-center gap-3 ${className}`}
+      className={`inline-flex transition-opacity duration-300 hover:opacity-80 ${compact ? 'flex-col items-start gap-1' : 'items-center gap-3'} ${className}`}
       aria-label="Craft Combine — visit craftcombine.org"
     >
-      <span className={`text-[10px] font-extrabold uppercase tracking-[0.22em] ${light ? 'text-paper/55' : 'text-ink-400'}`}>
+      <span
+        className={`font-extrabold uppercase ${compact ? 'text-[8px] leading-none tracking-[0.16em]' : 'text-[10px] tracking-[0.22em]'} ${
+          light ? 'text-paper/55' : 'text-ink-400'
+        }`}
+      >
         An initiative of
       </span>
       <img

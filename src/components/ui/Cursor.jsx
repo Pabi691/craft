@@ -59,7 +59,7 @@ export default function Cursor() {
         </div>
       </motion.div>
       <motion.div aria-hidden className="pointer-events-none fixed left-0 top-0 z-[130]" style={{ x, y, opacity: visible && !state.label ? 1 : 0 }}>
-        <div className="h-1.5 w-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent" />
+        <div className="h-1.5 w-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold" />
       </motion.div>
     </>
   );

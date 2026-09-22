@@ -23,7 +23,7 @@ export default function Testimonials() {
 
   return (
     <section className="relative overflow-hidden py-24 md:py-36" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
-      <span aria-hidden className="pointer-events-none absolute left-1/2 top-4 -translate-x-1/2 select-none font-display text-[16rem] leading-none text-brand-200/70 md:text-[24rem]">
+      <span aria-hidden className="pointer-events-none absolute left-1/2 top-4 -translate-x-1/2 select-none font-display text-[16rem] leading-none text-gold/25 md:text-[24rem]">
         “
       </span>
       <div className="container-x relative text-center">

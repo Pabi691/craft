@@ -33,7 +33,7 @@ export default function TeaSection() {
         style={{ y: yLeaves }}
         className="mask-soft-left pointer-events-none absolute inset-x-0 -inset-y-16"
       >
-        <LeafPattern className="h-full w-full text-lime" opacity={0.11} size={150} />
+        <LeafPattern className="h-full w-full text-gold" opacity={0.11} size={150} />
       </motion.div>
       <div className="pointer-events-none absolute -left-40 top-20 h-[30rem] w-[30rem] rounded-full bg-brand-500/15 blur-[130px]" />
       <div className="pointer-events-none absolute -right-32 bottom-10 h-96 w-96 rounded-full bg-leaf/25 blur-[120px]" />
@@ -41,21 +41,21 @@ export default function TeaSection() {
       <div className="container-x relative">
         <div className="grid items-center gap-16 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <Reveal as="p" y={14} className="eyebrow text-lime-light">
+            <Reveal as="p" y={14} className="eyebrow text-gold-light">
               {TEA.brand} · Fine Indian teas
             </Reveal>
             <SplitText
               as="h2"
               text="Tea is a | *ritual.*"
               className="h-display mt-5 text-[3rem] text-paper sm:text-6xl lg:text-7xl"
-              highlightClassName="italic text-lime-light"
+              highlightClassName="italic text-gold-foil"
             />
             <Reveal as="p" delay={0.1} className="mt-7 max-w-md text-base leading-8 text-paper/70">
               {TEA.intro}
             </Reveal>
             <Reveal delay={0.18} className="mt-8 flex flex-wrap gap-2">
               {TEA.regions.map((r) => (
-                <span key={r} className="rounded-full border border-lime/40 px-4 py-1.5 text-xs font-bold tracking-wide text-lime-light">
+                <span key={r} className="rounded-full border border-gold/40 px-4 py-1.5 text-xs font-bold tracking-wide text-gold-light">
                   {r}
                 </span>
               ))}
@@ -70,7 +70,7 @@ export default function TeaSection() {
                 href={whatsappLink('Hello Craft & Weft, I would like to know more about SPHOORA teas and pack sizes.')}
                 target="_blank"
                 rel="noreferrer"
-                className="btn border border-paper/20 text-paper hover:border-gold"
+                className="btn border border-gold/40 text-paper hover:border-gold hover:bg-gold/10"
               >
                 <FaWhatsapp size={16} /> Ask about packs
               </a>
@@ -120,7 +120,7 @@ export default function TeaSection() {
         <div className="mt-24 border-t border-paper/10 pt-14 md:mt-32">
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div>
-              <p className="eyebrow text-lime-light">{blends.name}</p>
+              <p className="eyebrow text-gold-light">{blends.name}</p>
               <p className="mt-3 max-w-md text-sm leading-7 text-paper/60">{blends.intro}</p>
             </div>
             <Link to="/signature-blends" className="link-underline self-start text-sm font-extrabold text-paper md:self-auto">
@@ -139,7 +139,7 @@ export default function TeaSection() {
                 className="group relative bg-ink-950 p-6 transition-colors duration-500 hover:bg-ink-900 md:p-7"
               >
                 <span className="text-[11px] font-extrabold tracking-[0.2em] text-gold/80">{String(i + 1).padStart(2, '0')}</span>
-                <h3 className="mt-3 font-display text-3xl text-paper transition-colors duration-500 group-hover:text-lime-light">{b.name}</h3>
+                <h3 className="mt-3 font-display text-3xl text-paper transition-colors duration-500 group-hover:text-gold-light">{b.name}</h3>
                 <p className="mt-2 font-display text-[15px] italic text-paper/70">{b.notes}</p>
                 {b.origin && <p className="mt-4 text-xs font-semibold text-paper/45">{b.origin}</p>}
                 <span className="absolute inset-x-6 bottom-0 h-px origin-left scale-x-0 bg-gold transition-transform duration-700 ease-silk group-hover:scale-x-100" />

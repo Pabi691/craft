@@ -6,16 +6,16 @@ import { SITE } from '../../config/site';
 export default function StatsBand() {
   return (
     <section className="relative overflow-hidden bg-ink-950 py-20 text-paper md:py-28">
-      <WeavePattern className="absolute inset-0 text-paper" opacity={0.04} size={28} />
+      <WeavePattern className="absolute inset-0 text-gold" opacity={0.05} size={28} />
       <div className="pointer-events-none absolute -right-40 -top-40 h-[30rem] w-[30rem] rounded-full bg-brand-500/15 blur-3xl" />
       <div className="container-x relative">
-        <Reveal as="p" className="eyebrow text-paper/50">
+        <Reveal as="p" className="eyebrow text-gold-light/80">
           Craft Combine in numbers
         </Reveal>
         <div className="mt-10 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           {SITE.stats.map((s, i) => (
-            <Reveal key={s.label} delay={i * 0.1} className="border-t border-paper/15 pt-6">
-              <p className="font-display text-6xl font-light text-paper md:text-7xl">
+            <Reveal key={s.label} delay={i * 0.1} className="border-t border-gold/30 pt-6">
+              <p className="text-gold-foil font-display text-6xl font-light md:text-7xl">
                 <Counter value={s.value} suffix={s.suffix} />
               </p>
               <p className="mt-3 max-w-[15rem] text-sm leading-6 text-paper/60">{s.label}</p>

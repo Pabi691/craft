@@ -123,13 +123,13 @@ export default function Tea() {
 
       {/* Hero */}
       <section ref={heroRef} className="relative overflow-hidden bg-ink-950 pb-20 pt-12 text-paper md:pb-28 md:pt-16">
-        <LeafPattern className="mask-soft-left pointer-events-none absolute inset-0 text-lime" opacity={0.11} size={150} />
+        <LeafPattern className="mask-soft-left pointer-events-none absolute inset-0 text-gold" opacity={0.11} size={150} />
         <div className="pointer-events-none absolute -left-40 top-10 h-[30rem] w-[30rem] rounded-full bg-brand-500/15 blur-[130px]" />
         <div className="pointer-events-none absolute -right-32 bottom-0 h-96 w-96 rounded-full bg-leaf/25 blur-[120px]" />
 
         <div className="container-x relative grid items-center gap-14 lg:grid-cols-12">
           <div className="lg:col-span-6">
-            <p className="eyebrow text-lime-light">
+            <p className="eyebrow text-gold-light">
               {TEA.brand} · {TEA.sister}
             </p>
             <SplitText
@@ -138,7 +138,7 @@ export default function Tea() {
               delay={0.15}
               text="From craft | to *cup.*"
               className="h-display mt-6 text-[3.4rem] text-paper sm:text-7xl xl:text-8xl"
-              highlightClassName="italic text-lime-light"
+              highlightClassName="italic text-gold-foil"
             />
             <motion.p
               initial={{ opacity: 0, y: 16 }}
@@ -155,7 +155,7 @@ export default function Tea() {
               className="mt-8 flex flex-wrap gap-2"
             >
               {TEA.regions.map((r) => (
-                <span key={r} className="rounded-full border border-lime/40 px-4 py-1.5 text-xs font-bold tracking-wide text-lime-light">
+                <span key={r} className="rounded-full border border-gold/40 px-4 py-1.5 text-xs font-bold tracking-wide text-gold-light">
                   {r}
                 </span>
               ))}
@@ -175,7 +175,7 @@ export default function Tea() {
                 href={whatsappLink('Hello Craft & Weft, I would like to order SPHOORA tea.')}
                 target="_blank"
                 rel="noreferrer"
-                className="btn border border-paper/20 text-paper hover:border-gold"
+                className="btn border border-gold/40 text-paper hover:border-gold hover:bg-gold/10"
               >
                 <FaWhatsapp size={16} /> Order on WhatsApp
               </a>

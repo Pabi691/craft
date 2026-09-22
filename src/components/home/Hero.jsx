@@ -228,7 +228,7 @@ export default function Hero() {
               stagger={0.08}
               text={HERO.title}
               className="h-display mt-6 text-[2.85rem] leading-[1] text-paper [text-shadow:0_2px_30px_rgb(0_0_0/0.35)] sm:mt-7 sm:text-6xl lg:text-[4.4rem] xl:text-[5.2rem] short:mt-5 short:text-[3.9rem]"
-              highlightClassName="italic text-lime-light"
+              highlightClassName="italic text-gold-foil"
             />
 
             <motion.p {...rise(1.05)} className="mt-5 font-display text-xl italic text-paper/90 sm:mt-7 sm:text-2xl xl:text-[1.75rem] short:mt-5 short:text-2xl">

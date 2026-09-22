@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-motion';
 import { FiArrowUpRight, FiHeart, FiMenu, FiSearch, FiShoppingBag, FiUser } from 'react-icons/fi';
-import Logo from '../ui/Logo';
+import Logo, { CraftCombineMark } from '../ui/Logo';
 import Marquee from '../ui/Marquee';
 import SmartImage from '../ui/SmartImage';
 import MobileMenu from './MobileMenu';
@@ -193,11 +193,13 @@ export default function Header() {
           }`}
         >
           <div className="container-x flex h-[var(--nav-h)] items-center justify-between gap-4">
-            <div className="flex items-center gap-1">
+            {/* Both sides flex-1 so the nav stays centred however wide the logo lock-up is. */}
+            <div className="flex flex-1 items-center gap-1">
               <button className="icon-btn -ml-2 lg:hidden" aria-label="Open menu" onClick={() => setMenuOpen(true)}>
                 <FiMenu size={21} />
               </button>
               <Logo />
+              <CraftCombineMark compact className="ml-5 hidden border-l border-ink-900/15 py-1 pl-5 xl:inline-flex" />
             </div>
 
             <nav className="hidden items-center gap-10 lg:flex" aria-label="Main">
@@ -216,7 +218,7 @@ export default function Header() {
               )}
             </nav>
 
-            <div className="flex items-center gap-0.5 sm:gap-1">
+            <div className="flex flex-1 items-center justify-end gap-0.5 sm:gap-1">
               <button className="icon-btn" aria-label="Search" onClick={() => setSearchOpen(true)}>
                 <FiSearch size={19} />
               </button>

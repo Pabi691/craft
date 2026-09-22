@@ -46,7 +46,7 @@ export default function Footer() {
               as="h2"
               text="From craft to cup. | From heritage to | everyday *ritual.*"
               className="h-display mt-10 text-[2.4rem] text-paper sm:text-5xl"
-              highlightClassName="italic text-lime-light"
+              highlightClassName="italic text-gold-foil"
             />
             <p className="mt-6 max-w-md text-sm leading-7 text-paper/55">{SITE.about[0]}</p>
             <div className="mt-8 flex flex-wrap gap-3">

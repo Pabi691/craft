@@ -21,7 +21,7 @@ export default function SectionHeading({ eyebrow, title, text, align = 'left', a
           as={as}
           text={title}
           className={`h-display mt-4 text-balance ${SIZES[size] || SIZES.lg} ${light ? 'text-paper' : 'text-ink-900'}`}
-          highlightClassName={light ? 'italic text-brand-300' : 'italic text-brand-700'}
+          highlightClassName={light ? 'italic text-gold-foil' : 'italic text-brand-700'}
         />
         {text && (
           <Reveal as="p" y={18} delay={0.15} className={`mt-5 max-w-xl text-[15px] leading-7 ${light ? 'text-paper/65' : 'text-ink-500'} ${centered ? 'mx-auto' : ''}`}>

@@ -81,11 +81,11 @@ export default function FeaturedScroll() {
             <p className="text-[10px] font-extrabold uppercase tracking-[0.3em] text-paper/50">The edit</p>
             <div>
               <p className="font-display text-4xl leading-tight">
-                Made slowly, <span className="italic text-lime-light">by hand.</span>
+                Made slowly, <span className="italic text-gold-foil">by hand.</span>
               </p>
               <p className="mt-4 text-sm leading-6 text-paper/60">Every stripe, stitch and fold carries a maker’s story — scroll to meet the collection.</p>
             </div>
-            <span className="text-5xl text-brand-400">→</span>
+            <span className="text-5xl text-gold">→</span>
           </div>
 
           {productsLoading && !list.length

@@ -25,7 +25,7 @@ export default function WhyUs() {
               >
                 <span className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-gold transition-transform duration-700 ease-silk group-hover:scale-x-100" />
                 <span className="font-display text-sm italic text-ink-400">0{i + 1}</span>
-                <span className="mt-6 grid h-14 w-14 place-items-center rounded-2xl bg-brand-100 text-brand-800 transition-transform duration-500 ease-silk group-hover:-rotate-6 group-hover:scale-110">
+                <span className="mt-6 grid h-14 w-14 place-items-center rounded-2xl bg-gold/15 text-gold-dark ring-1 ring-gold/30 transition-transform duration-500 ease-silk group-hover:-rotate-6 group-hover:scale-110">
                   <Icon size={22} />
                 </span>
                 <h3 className="mt-8 font-display text-2xl text-ink-900">{item.title}</h3>

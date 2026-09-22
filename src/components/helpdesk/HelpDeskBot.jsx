@@ -51,7 +51,7 @@ function OrderCard({ order, onNavigate }) {
     <Link
       to={`/myaccount/order/${order.id}`}
       onClick={onNavigate}
-      className="group flex items-center gap-3 rounded-2xl border border-ink-900/5 bg-paper-50 p-3 transition-colors hover:border-lime/60"
+      className="group flex items-center gap-3 rounded-2xl border border-ink-900/5 bg-paper-50 p-3 transition-colors hover:border-gold/60"
     >
       <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-brand-100 text-brand-800">
         <FiPackage size={17} />
@@ -424,7 +424,7 @@ export default function HelpDeskBot() {
                     type="button"
                     disabled={typing}
                     onClick={() => (q.faq ? send(q.label, q.faq) : send(q.text))}
-                    className="shrink-0 rounded-full border border-lime/50 bg-paper-50 px-3 py-1.5 text-[11px] font-extrabold text-ink-800 transition-colors hover:bg-lime-light/40 disabled:opacity-50"
+                    className="shrink-0 rounded-full border border-gold/50 bg-paper-50 px-3 py-1.5 text-[11px] font-extrabold text-ink-800 transition-colors hover:bg-gold/15 disabled:opacity-50"
                   >
                     {q.label}
                   </button>
