@@ -19,7 +19,7 @@ const ANNOUNCEMENTS = [
   'Cash on delivery available',
   'Orders & enquiries — +91 98306 40086',
   'Muslin · Silk · Baluchari · Tasar · Khesh',
-  'Every order hugs a small farmer or an artisan’s family',
+  'Every order hugs a small farmer or an artisan family',
 ];
 
 function CountBadge({ count, pulse = 0 }) {

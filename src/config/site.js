@@ -170,7 +170,7 @@ export const SITE = {
     { title: 'Crafted with wisdom', text: 'Heritage techniques, reimagined with designers and artisans.' },
     { title: 'Sourced with care', text: 'Close to small tea growers, farmers and artisan families.' },
     { title: 'Made in India', text: 'Rooted in people. Crafted differently.' },
-    { title: 'Every order hugs a family', text: 'Shop with heart — each order supports a small farmer or an artisan’s family.' },
+    { title: 'Every order hugs a family', text: 'Shop with heart — each order supports a small farmer or an artisan family.' },
   ],
 
   care: 'Please hand wash all our textile products with light detergent. Wash only when necessary, avoid frequent washing. Dry in shade.',
@@ -203,13 +203,13 @@ export const SITE = {
         slug: 'signature-blends',
         intro: 'Each SPHOORA blend is named for a feeling.',
         items: [
-          { name: 'Udaya', slug: 'sphoora-udaya', notes: 'Darjeeling Blend', image: 'sphoora-udaya.jpg' },
-          { name: 'Aabha', slug: 'sphoora-aabha', notes: 'Himalayan Blend', image: 'sphoora-aabha.jpg' },
-          { name: 'Prabha', slug: 'sphoora-prabha', notes: 'Darjeeling Premium Blend', image: 'sphoora-prabha.jpg' },
-          { name: 'Tejas', slug: 'sphoora-tejas', notes: 'Assam Blend, Strong Assam Forward tea', image: 'sphoora-tejas.jpg' },
-          { name: 'Ira', slug: 'sphoora-ira', notes: 'Floral Blend', image: 'sphoora-ira.jpg' },
-          { name: 'Arka', slug: 'sphoora-arka', notes: 'Premium Roasted Blend', image: 'sphoora-arka.jpg' },
-          { name: 'Urja', slug: 'sphoora-urja', notes: 'Wellness Blend', image: 'sphoora-urja.jpg' },
+          { name: 'Udaya', slug: 'sphoora-udaya', notes: 'Darjeeling Blend', origin: 'Darjeeling × Assam', image: 'sphoora-udaya.jpg' },
+          { name: 'Aabha', slug: 'sphoora-aabha', notes: 'Himalayan Blend', origin: 'Dooars × Kangra', image: 'sphoora-aabha.jpg' },
+          { name: 'Prabha', slug: 'sphoora-prabha', notes: 'Darjeeling Premium Blend', origin: 'Darjeeling 2nd flush & CTC', image: 'sphoora-prabha.jpg' },
+          { name: 'Tejas', slug: 'sphoora-tejas', notes: 'Assam Blend, Strong Assam Forward tea', origin: 'Strong Assam-forward tea', image: 'sphoora-tejas.jpg' },
+          { name: 'Ira', slug: 'sphoora-ira', notes: 'Floral Blend', origin: 'Delicate floral tea', image: 'sphoora-ira.jpg' },
+          { name: 'Arka', slug: 'sphoora-arka', notes: 'Premium Roasted Blend', origin: 'Roasted / deeper tea', image: 'sphoora-arka.jpg' },
+          { name: 'Urja', slug: 'sphoora-urja', notes: 'Wellness Blend', origin: 'Energy awakened naturally', image: 'sphoora-urja.jpg' },
           { name: 'Kiran', slug: 'sphoora-kiran', notes: 'Premium Blend', origin: 'Assam Orthodox', image: 'sphoora-kiran.jpg' },
           // { name: 'Udaya', slug: 'sphoora-udaya', notes: 'Sunrise, awakening, vigor', origin: 'Darjeeling × Assam', image: 'sphoora-udaya.jpg' },
           // { name: 'Aabha', slug: 'sphoora-aabha', notes: 'Glow, radiance, freshness', origin: 'Dooars × Kangra', image: 'sphoora-aabha.jpg' },
@@ -256,7 +256,7 @@ export const SITE = {
     status: 'Your order is set to roll',
     onTheWay: 'Your essentials are on the way to put a big smile on your face.',
     signOff: 'Shop with heart.',
-    impact: 'Every order hugs a small farmer or an artisan’s family.',
+    impact: 'Every order hugs a small farmer or an artisan family.',
   },
 
   // Order-support WhatsApp message prefix (MyOrders).
