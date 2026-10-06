@@ -21,6 +21,7 @@ import { FaWhatsapp } from 'react-icons/fa';
 import api from '../lib/api';
 import { useGlobal } from '../context/GlobalContext';
 import { categoryPath } from '../lib/links';
+import { minQtyFor, minQtyNote } from '../lib/tea';
 import { recentlyViewed } from '../lib/cache';
 import { isDistributor } from '../lib/userRole';
 import { getDefaultVariationId } from '../lib/cart';
@@ -272,7 +273,9 @@ export default function ProductDetails() {
   // Drafts sit at ₹0 until priced in the CRM: browsable, enquire-only.
   const priced = isPriced(product);
   const priceText = price > 0 ? inr(price) : priceLabel(product);
-  const maxQty = Math.max(1, Math.min(10, stock > 0 ? stock : 10));
+  // Tea sells in a minimum of 100 g, so a 50 g pouch is bought in twos.
+  const minQty = minQtyFor(product, selectedVariation);
+  const maxQty = Math.max(minQty, Math.min(10, stock > 0 ? stock : 10));
 
   const images = useMemo(() => {
     if (!product) return [];
@@ -300,6 +303,10 @@ export default function ProductDetails() {
   const celebrate = () =>
     confetti({ particleCount: 90, spread: 72, origin: { y: 0.62 }, scalar: 0.9, colors: [getBrandColor(), '#017D3E', '#84C243', '#603814'] });
 
+  useEffect(() => {
+    setQty((q) => Math.max(q, minQty));
+  }, [minQty]);
+
   const handleAdd = async () => {
     const needsSelection = (!distributor && hasSizes) || (distributor && packVariations.length > 0);
     if (needsSelection && !selectedSize) {
@@ -307,7 +314,7 @@ export default function ProductDetails() {
       setTimeout(() => setSizeError(false), 3500);
       return false;
     }
-    const quantity = distributor ? Number(packQtyChoice) || Number(activePack?.pack_qty) || 1 : qty;
+    const quantity = distributor ? Number(packQtyChoice) || Number(activePack?.pack_qty) || 1 : Math.max(qty, minQty);
     const res = await addToCart(product, selectedSize, quantity);
     if (res.ok) {
       setAdded(true);
@@ -540,9 +547,13 @@ export default function ProductDetails() {
           {!distributor && !soldOut && priced && (
             <div className="mt-8 flex items-center gap-4 border-t border-ink-900/10 pt-6">
               <span className="label mb-0">Quantity</span>
-              <QuantityStepper value={qty} onChange={setQty} min={1} max={maxQty} />
+              <QuantityStepper value={qty} onChange={setQty} min={minQty} max={maxQty} />
               {stock > 0 && stock < 5 && <span className="text-xs font-bold text-rose-500">Only {stock} left</span>}
             </div>
+          )}
+
+          {!distributor && !soldOut && priced && minQtyNote(selectedVariation, minQty) && (
+            <p className="mt-3 text-xs font-semibold text-ink-500">{minQtyNote(selectedVariation, minQty)}</p>
           )}
 
           <div ref={actionsRef} className="mt-8 flex flex-wrap items-center gap-3">

@@ -14,10 +14,12 @@ import {
   lineKey,
   lineName,
   linePackInfo,
+  lineProduct,
   lineSize,
   lineSlug,
   lineTotal,
   lineUnitPrice,
+  lineVariation,
 } from '../lib/cart';
 import { inr } from '../lib/format';
 import { EASE } from '../lib/motion';
@@ -34,6 +36,7 @@ import SmartImage from '../components/ui/SmartImage';
 import ProductRail from '../components/product/ProductRail';
 import SizeSelectionPopup from '../components/product/SizeSelectionPopup';
 import DistributorQuantityPopup from '../components/product/DistributorQuantityPopup';
+import { minQtyFor, minQtyNote } from '../lib/tea';
 
 function CartLine({ item, onQuantity, onRemove, busy, removing }) {
   const distributor = isDistributor();
@@ -43,8 +46,12 @@ function CartLine({ item, onQuantity, onRemove, busy, removing }) {
   const unit = lineUnitPrice(item);
   const total = lineTotal(item);
   const step = distributor && packQty > 0 ? packQty : 1;
-  const min = step;
-  const max = step * 10;
+  // A 50 g tea pouch cannot go below two here either, or the 100 g minimum
+  // could be undone after adding to the bag.
+  const teaMin = minQtyFor(lineProduct(item), lineVariation(item));
+  const min = Math.max(step, teaMin);
+  const max = Math.max(min, step * 10);
+  const minNote = minQtyNote(lineVariation(item), teaMin);
 
   return (
     <motion.div
@@ -97,13 +104,15 @@ function CartLine({ item, onQuantity, onRemove, busy, removing }) {
             max={max}
             step={step}
             disabled={busy}
-            onChange={(q) => onQuantity(item, q)}
+            onChange={(q) => onQuantity(item, Math.max(q, min))}
           />
           <div className="text-right">
             <p className="font-display text-xl text-ink-900">{inr(total)}</p>
             {Number(item.quantity) > 1 && <p className="text-[11px] font-semibold text-ink-400">{inr(unit)} each</p>}
           </div>
         </div>
+
+        {minNote && <p className="mt-2 text-[11px] font-semibold text-ink-400">{minNote}</p>}
       </div>
     </motion.div>
   );
