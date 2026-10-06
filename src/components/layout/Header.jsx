@@ -11,6 +11,7 @@ import { useGlobal } from '../../context/GlobalContext';
 import { useAuth } from '../../context/AuthContext';
 import { NAV } from '../../config/site';
 import { EASE } from '../../lib/motion';
+import { categoryPath } from '../../lib/links';
 import { priceLabel } from '../../lib/format';
 
 const ANNOUNCEMENTS = [
@@ -19,6 +20,7 @@ const ANNOUNCEMENTS = [
   'Cash on delivery available',
   'Orders & enquiries — +91 98306 40086',
   'Muslin · Silk · Baluchari · Tasar · Khesh',
+  'Darjeeling · Dooars · Assam · Kangra — SPHOORA teas',
   'Every order hugs a small farmer or an artisan family',
 ];
 
@@ -61,7 +63,7 @@ function MegaMenu({ open, tree, products, onClose }) {
                   {tree.map((cat, i) => (
                     <li key={cat.id}>
                       <Link
-                        to={`/${cat.slug}`}
+                        to={categoryPath(cat.slug)}
                         onMouseEnter={() => setActive(i)}
                         onFocus={() => setActive(i)}
                         onClick={onClose}
@@ -86,7 +88,7 @@ function MegaMenu({ open, tree, products, onClose }) {
                   <ul className="space-y-3">
                     {current.children.map((ch) => (
                       <li key={ch.id}>
-                        <Link to={`/${ch.slug}`} onClick={onClose} className="link-underline text-[15px] font-semibold text-ink-700 hover:text-ink-900">
+                        <Link to={categoryPath(ch.slug)} onClick={onClose} className="link-underline text-[15px] font-semibold text-ink-700 hover:text-ink-900">
                           {ch.category_name}
                         </Link>
                       </li>

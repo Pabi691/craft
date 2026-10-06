@@ -108,6 +108,9 @@ function Shell() {
 
           <Route path="/404" element={page(<NotFound />)} />
           {/* Category landing pages resolve by slug, like the reference: /bags, /accessories … */}
+          {/* Slugs that collide with a page above (e.g. the Tea category vs the
+              SPHOORA story page at /tea) — see lib/links.js */}
+          <Route path="/shop/:categorySlug" element={page(<Shop />)} />
           <Route path="/:categorySlug" element={page(<Shop />)} />
           <Route path="*" element={page(<NotFound />)} />
         </Routes>

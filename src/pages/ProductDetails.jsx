@@ -20,6 +20,7 @@ import {
 import { FaWhatsapp } from 'react-icons/fa';
 import api from '../lib/api';
 import { useGlobal } from '../context/GlobalContext';
+import { categoryPath } from '../lib/links';
 import { recentlyViewed } from '../lib/cache';
 import { isDistributor } from '../lib/userRole';
 import { getDefaultVariationId } from '../lib/cart';
@@ -362,7 +363,7 @@ export default function ProductDetails() {
         <Breadcrumbs
           items={[
             { label: 'Shop', to: '/products' },
-            ...(category ? [{ label: category.category_name, to: `/${category.slug}` }] : []),
+            ...(category ? [{ label: category.category_name, to: categoryPath(category.slug) }] : []),
             { label: product.prod_name },
           ]}
         />

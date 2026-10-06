@@ -5,6 +5,8 @@ import { FiCheck, FiChevronDown, FiFeather, FiSliders, FiX } from 'react-icons/f
 import { FaWhatsapp } from 'react-icons/fa';
 import api from '../lib/api';
 import { useGlobal } from '../context/GlobalContext';
+import { categoryPath } from '../lib/links';
+import { TEA_SLUGS, teaFirst } from '../lib/categories';
 import { isDistributor } from '../lib/userRole';
 import { inr } from '../lib/format';
 import { EASE } from '../lib/motion';
@@ -18,7 +20,6 @@ import EmptyState from '../components/ui/EmptyState';
 import SmartImage from '../components/ui/SmartImage';
 import ProductCard, { ProductCardSkeleton } from '../components/product/ProductCard';
 
-const TEA_SLUGS = ['tea', 'connoisseurs-choice', 'signature-blends'];
 
 const SORTS = [
   { value: 'popularity', label: 'Popularity' },
@@ -231,12 +232,12 @@ export default function Shop({ showAll = false }) {
   // Sub-navigation: children of this category, else its siblings, else top level.
   const parent = meta?.id ? categoryTree.find((t) => t.children?.some((c) => c.id === meta.id)) : null;
   const chips = showAll
-    ? categoryTree.flatMap((c) => [c, ...(c.children || [])])
+    ? teaFirst(categoryTree).flatMap((c) => [c, ...(c.children || [])])
     : meta?.children?.length
       ? meta.children
       : parent
         ? [parent, ...parent.children]
-        : categoryTree;
+        : teaFirst(categoryTree);
   const countFor = (id) => categoryTree.flatMap((c) => [c, ...(c.children || [])]).find((c) => c.id === id)?.product_count;
 
   const title = showAll ? 'The *Collection*' : meta?.name || '';
@@ -251,7 +252,7 @@ export default function Shop({ showAll = false }) {
       <section className="relative overflow-hidden">
         <div className="pointer-events-none absolute -right-40 -top-40 h-[28rem] w-[28rem] rounded-full bg-brand-200/60 blur-[120px]" />
         <div className="container-x relative pb-10 pt-10 md:pt-14">
-          <Breadcrumbs items={showAll ? [{ label: 'Shop' }] : [{ label: 'Shop', to: '/products' }, ...(parent ? [{ label: parent.category_name, to: `/${parent.slug}` }] : []), { label: meta?.name || '…' }]} />
+          <Breadcrumbs items={showAll ? [{ label: 'Shop' }] : [{ label: 'Shop', to: '/products' }, ...(parent ? [{ label: parent.category_name, to: categoryPath(parent.slug) }] : []), { label: meta?.name || '…' }]} />
           <div className="mt-8 grid gap-8 lg:grid-cols-12 lg:items-end">
             <div className="lg:col-span-8">
               {title ? (
@@ -293,7 +294,7 @@ export default function Shop({ showAll = false }) {
                 return (
                   <Link
                     key={c.id}
-                    to={`/${c.slug}`}
+                    to={categoryPath(c.slug)}
                     className={`shrink-0 rounded-full border px-5 py-2.5 text-sm font-bold transition-colors ${active ? 'border-ink-900 bg-ink-900 text-paper' : 'border-ink-900/10 bg-white text-ink-700 hover:border-ink-900/40'}`}
                   >
                     {c.category_name}

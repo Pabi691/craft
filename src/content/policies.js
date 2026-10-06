@@ -5,7 +5,7 @@
 // and refunds go to the bank account the customer adds (up to 14 business days).
 // Please have them reviewed before going live.
 
-const contact = `<p>Craft &amp; Weft, 54/1, Bipin Ganguly Road, Kolkata 700030 · +91 90516 26156 / 98306 40086 · <a href="mailto:craftcombine.ac@gmail.com">craftcombine.ac@gmail.com</a></p>`;
+const contact = `<p>Craft &amp; Weft, 54/1, Bipin Ganguly Road, Kolkata 700030 · +91 90516 26156 / 98306 40086 · <a href="mailto:craftnweft@gmail.com">craftnweft@gmail.com</a></p>`;
 
 export const POLICIES = {
   'return-policy': {

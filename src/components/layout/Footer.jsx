@@ -6,6 +6,7 @@ import SplitText from '../ui/SplitText';
 import WeavePattern from '../ui/WeavePattern';
 import Magnetic from '../ui/Magnetic';
 import { useGlobal } from '../../context/GlobalContext';
+import { categoryPath } from '../../lib/links';
 import { SITE, telLink, whatsappLink } from '../../config/site';
 
 const SOCIAL_ICONS = { instagram: FaInstagram, facebook: FaFacebookF, blog: FaBloggerB, website: FiGlobe };
@@ -84,7 +85,7 @@ export default function Footer() {
               title="Shop"
               links={[
                 { label: 'All products', to: '/products' },
-                ...categoryTree.flatMap((c) => [c, ...(c.children || [])]).map((c) => ({ label: c.category_name, to: `/${c.slug}` })),
+                ...categoryTree.flatMap((c) => [c, ...(c.children || [])]).map((c) => ({ label: c.category_name, to: categoryPath(c.slug) })),
               ]}
             />
             <FooterColumn

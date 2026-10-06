@@ -4,6 +4,7 @@ import { FiArrowUpRight } from 'react-icons/fi';
 import SectionHeading from '../ui/SectionHeading';
 import SmartImage from '../ui/SmartImage';
 import { useGlobal } from '../../context/GlobalContext';
+import { categoryPath } from '../../lib/links';
 import { EASE } from '../../lib/motion';
 
 export default function CategoryShowcase() {
@@ -48,7 +49,7 @@ export default function CategoryShowcase() {
                     transition={{ duration: 0.9, delay: i * 0.08, ease: EASE }}
                     className={span(i)}
                   >
-                    <Link to={`/${cat.slug}`} data-cursor="Shop" className="group relative block h-full overflow-hidden rounded-[2rem] bg-paper-300">
+                    <Link to={categoryPath(cat.slug)} data-cursor="Shop" className="group relative block h-full overflow-hidden rounded-[2rem] bg-paper-300">
                       <SmartImage
                         src={cat.cat_img}
                         alt={cat.category_name}

@@ -19,8 +19,8 @@ export const SITE = {
   hero: {
     eyebrow: 'Premium Indian Teas',
     byline: 'Fine teas by Craft & Weft',
-    logo: { src: '/brand/sphoora-logo-light.png', alt: 'SPHOORA', width: 218, height: 300 },
-    title: 'From Our Gardens | to Your *Cup.*',
+    logo: { src: '/brand/sphoora-logo-light.png', alt: 'SPHOORA', width: 504, height: 600 },
+    title: 'From the Gardens | to Your *Cup.*',
     tagline: 'Pure. Authentic. Thoughtfully Crafted.',
     copy: 'Distinctive teas from Darjeeling, Dooars, Assam, Kangra and beyond\u00A0— rooted in provenance, crafted with care.',
     primary: { label: 'Explore Our Teas', to: '/tea' },
@@ -108,7 +108,7 @@ export const SITE = {
         { label: 'Small tea growers', text: 'SPHOORA — tea from small gardens, curated with the same care.', now: true },
       ],
       tagline: ['Grown from the soil.', 'Curated cup by cup.'],
-      logo: { src: '/brand/sphoora-logo.png', alt: 'SPHOORA', width: 218, height: 300 },
+      logo: { src: '/brand/sphoora-logo.png', alt: 'SPHOORA', width: 504, height: 600 },
     },
     title: 'Where real hands | make real *tea.*',
     lead:
@@ -157,6 +157,10 @@ export const SITE = {
     { name: 'Tasar', text: 'Wild silk with a soft natural sheen, reeled and woven by hand.' },
     { name: 'Khesh', text: 'Old cotton saris torn into strips and re-woven into bold, colourful fabric.' },
     { name: 'Upcycled textiles', text: 'Textile waste given new life as art, accessories and objects of everyday use.' },
+    // The teas belong beside the weaves — the About grid names both.
+    { name: 'Darjeeling', text: 'High on Himalayan slopes, where thin air and slow growth make a delicate, aromatic cup — our Udaya and Prabha.' },
+    { name: 'Assam', text: 'Deep valley soils and heavy rain give a full-bodied, malty tea — the strength behind Tejas and Kiran.' },
+    { name: 'Dooars & Kangra', text: 'Foothill gardens below the Himalaya and the quieter valleys of Himachal — brisk everyday cups and rarer small-garden lots.' },
   ],
 
   process: [
@@ -203,14 +207,14 @@ export const SITE = {
         slug: 'signature-blends',
         intro: 'Each SPHOORA blend is named for a feeling.',
         items: [
-          { name: 'Udaya', slug: 'sphoora-udaya', notes: 'Darjeeling Blend', origin: 'Darjeeling × Assam', image: 'sphoora-udaya.jpg' },
-          { name: 'Aabha', slug: 'sphoora-aabha', notes: 'Himalayan Blend', origin: 'Dooars × Kangra', image: 'sphoora-aabha.jpg' },
-          { name: 'Prabha', slug: 'sphoora-prabha', notes: 'Darjeeling Premium Blend', origin: 'Darjeeling 2nd flush & CTC', image: 'sphoora-prabha.jpg' },
-          { name: 'Tejas', slug: 'sphoora-tejas', notes: 'Assam Blend, Strong Assam Forward tea', origin: 'Strong Assam-forward tea', image: 'sphoora-tejas.jpg' },
-          { name: 'Ira', slug: 'sphoora-ira', notes: 'Floral Blend', origin: 'Delicate floral tea', image: 'sphoora-ira.jpg' },
-          { name: 'Arka', slug: 'sphoora-arka', notes: 'Premium Roasted Blend', origin: 'Roasted / deeper tea', image: 'sphoora-arka.jpg' },
-          { name: 'Urja', slug: 'sphoora-urja', notes: 'Wellness Blend', origin: 'Energy awakened naturally', image: 'sphoora-urja.jpg' },
-          { name: 'Kiran', slug: 'sphoora-kiran', notes: 'Premium Blend', origin: 'Assam Orthodox', image: 'sphoora-kiran.jpg' },
+          { name: 'Udaya', slug: 'sphoora-udaya', notes: 'Darjeeling', origin: 'Darjeeling × Assam', image: 'sphoora-udaya.jpg' },
+          { name: 'Aabha', slug: 'sphoora-aabha', notes: 'Himalayan', origin: 'Dooars × Kangra', image: 'sphoora-aabha.jpg' },
+          { name: 'Prabha', slug: 'sphoora-prabha', notes: 'Darjeeling Premium', origin: 'Darjeeling 2nd flush & CTC', image: 'sphoora-prabha.jpg' },
+          { name: 'Tejas', slug: 'sphoora-tejas', notes: 'Assam', origin: 'Strong Assam-forward tea', image: 'sphoora-tejas.jpg' },
+          { name: 'Ira', slug: 'sphoora-ira', notes: 'Floral', origin: 'Delicate floral tea', image: 'sphoora-ira.jpg' },
+          { name: 'Arka', slug: 'sphoora-arka', notes: 'Premium Roasted', origin: 'Roasted / deeper tea', image: 'sphoora-arka.jpg' },
+          { name: 'Urja', slug: 'sphoora-urja', notes: 'Wellness', origin: 'Energy awakened naturally', image: 'sphoora-urja.jpg' },
+          { name: 'Kiran', slug: 'sphoora-kiran', notes: 'Premium', origin: 'Assam Orthodox', image: 'sphoora-kiran.jpg' },
           // { name: 'Udaya', slug: 'sphoora-udaya', notes: 'Sunrise, awakening, vigor', origin: 'Darjeeling × Assam', image: 'sphoora-udaya.jpg' },
           // { name: 'Aabha', slug: 'sphoora-aabha', notes: 'Glow, radiance, freshness', origin: 'Dooars × Kangra', image: 'sphoora-aabha.jpg' },
           // { name: 'Prabha', slug: 'sphoora-prabha', notes: 'First light, brilliance', origin: 'Darjeeling 2nd flush & CTC', image: 'sphoora-prabha.jpg' },
@@ -229,8 +233,10 @@ export const SITE = {
     addressLines: ['54/1, Bipin Ganguly Road', 'Seth Bagan', 'Kolkata 700 030'],
     phones: ['+91 98306 40086', '+91 90516 26156', '+91 70036 78472'],
     whatsapp: '919051626156',
-    email: 'craftcombine.ac@gmail.com',
-    emails: ['craftcombine.ac@gmail.com', 'craftcombine@gmail.com', 'craftnweft@gmail.com'],
+    // "Email us" everywhere on the site writes to the first address.
+    email: 'craftnweft@gmail.com',
+    // Listed in the client's order; the first is the one every mailto uses.
+    emails: ['craftnweft@gmail.com', 'craftweft888@gmail.com', 'craftcombine.ac@gmail.com', 'craftcombine@gmail.com'],
     mapQuery: '54/1 Bipin Ganguly Road, Seth Bagan, Kolkata 700030',
   },
 

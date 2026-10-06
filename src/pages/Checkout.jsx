@@ -159,10 +159,29 @@ export default function Checkout() {
       return;
     }
 
+    // The gateway order is opened server-side, which is also where the amount
+    // comes from. Without its id Razorpay would accept whatever this page asked
+    // for, and nothing could be verified afterwards.
+    let gateway;
+    try {
+      const { data } = await api.post('/api/v1/razorpay/create_order', { order_id: orderId });
+      if (!data?.order_id) throw new Error(apiError(data, 'Could not start the payment.'));
+      gateway = data;
+    } catch (err) {
+      await cancelOrder(orderId);
+      await alertDialog({
+        title: 'Payment could not be started',
+        text: apiError(err?.response?.data, 'Your order has been cancelled. Please try again.'),
+        icon: 'error',
+      });
+      return;
+    }
+
     const rzp = new window.Razorpay({
-      key: ENV.RAZORPAY_KEY,
-      amount: Math.round(payAmt * 100),
-      currency: 'INR',
+      key: gateway.key || ENV.RAZORPAY_KEY,
+      order_id: gateway.order_id,
+      amount: gateway.amount,
+      currency: gateway.currency || 'INR',
       name: 'Craft & Weft',
       description: `Order #CW${orderId}`,
       prefill: {
@@ -177,13 +196,24 @@ export default function Checkout() {
           await alertDialog({ title: 'Payment failed', text: 'Your order has been cancelled.', icon: 'warning' });
           return;
         }
-        await recordPayment(orderId, {
-          payment_method: 'razorpay',
-          payment_status: 'completed',
-          payment_amount: payAmt,
-          payment_reference: response.razorpay_payment_id,
-          payment_details: JSON.stringify(response),
-        });
+        // The server checks Razorpay's signature and records the payment
+        // itself; the order only counts as paid once that comes back true.
+        try {
+          const { data } = await api.post('/api/v1/razorpay/verify_payment', {
+            order_id: orderId,
+            razorpay_order_id: response.razorpay_order_id,
+            razorpay_payment_id: response.razorpay_payment_id,
+            razorpay_signature: response.razorpay_signature,
+          });
+          if (!data?.status) throw new Error('unverified');
+        } catch (err) {
+          await alertDialog({
+            title: 'Payment could not be verified',
+            text: 'If money has left your account it will be refunded. Please contact us with your payment id ' + response.razorpay_payment_id + '.',
+            icon: 'error',
+          });
+          return;
+        }
         await fetchCart();
         navigate('/thank-you', { replace: true, state: { orderId } });
       },

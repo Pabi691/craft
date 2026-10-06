@@ -9,6 +9,7 @@ import { useAuth } from '../../context/AuthContext';
 import { useLenis } from '../motion/SmoothScroll';
 import { NAV, SITE, whatsappLink } from '../../config/site';
 import { EASE } from '../../lib/motion';
+import { categoryPath } from '../../lib/links';
 
 const ORIGIN = 'at 30px 70px';
 
@@ -67,7 +68,7 @@ export default function MobileMenu({ open, onClose, onSearch }) {
               <p className="text-[10px] font-extrabold uppercase tracking-[0.3em] text-paper/45">Collections</p>
               <div className="mt-4 flex flex-wrap gap-2">
                 {categoryTree.flatMap((c) => [c, ...(c.children || [])]).map((c) => (
-                  <Link key={c.id} to={`/${c.slug}`} onClick={onClose} className="rounded-full border border-paper/15 px-4 py-2 text-sm font-semibold text-paper/85">
+                  <Link key={c.id} to={categoryPath(c.slug)} onClick={onClose} className="rounded-full border border-paper/15 px-4 py-2 text-sm font-semibold text-paper/85">
                     {c.category_name}
                   </Link>
                 ))}

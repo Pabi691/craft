@@ -93,7 +93,7 @@ export default function TeaSection() {
                   transition={{ duration: 1.3, ease: EASE }}
                   className="overflow-hidden rounded-[1.75rem] shadow-lift ring-1 ring-gold/40"
                 >
-                  <SmartImage src="/product-images/sphoora-udaya.jpg" alt="SPHOORA Udaya tea" className="aspect-[3/2]" />
+                  <SmartImage src="/product-images/golden-pack.jpeg" alt="SPHOORA Signature Blend in the gold pack, front and back" className="aspect-[3/2]" />
                 </motion.div>
               </motion.div>
               <motion.div

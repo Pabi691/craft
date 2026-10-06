@@ -16,6 +16,7 @@ import WeavePattern from '../components/ui/WeavePattern';
 import LeafPattern from '../components/ui/LeafPattern';
 import Magnetic from '../components/ui/Magnetic';
 import { useLenis } from '../components/motion/SmoothScroll';
+import { mediaUrl } from '../lib/media';
 
 const TEA = SITE.tea;
 const story = SITE.story.filter((c) => /cup|ritual/i.test(c.title)).flatMap((c) => c.paragraphs);
@@ -118,7 +119,7 @@ export default function Tea() {
       <Seo
         title="SPHOORA teas"
         description="SPHOORA fine Indian teas from Craft & Weft — Connoisseur’s Choice and Signature Blends from Darjeeling, Dooars, Assam and Kangra, in 50 g, 100 g and 200 g packs."
-        image="/product-images/sphoora-udaya.jpg"
+        image="/product-images/golden-pack.jpeg"
       />
 
       {/* Hero */}
@@ -191,7 +192,7 @@ export default function Tea() {
                 transition={{ duration: 1.3, ease: EASE, delay: 0.2 }}
                 className="absolute left-0 top-[8%] w-[78%] overflow-hidden rounded-[2rem] shadow-lift ring-1 ring-gold/40"
               >
-                <SmartImage src="/product-images/sphoora-prabha.jpg" alt="SPHOORA Prabha tea" className="aspect-[3/2]" loading="eager" />
+                <SmartImage src="/product-images/golden-pack.jpeg" alt="SPHOORA Signature Blend in the gold pack, front and back" className="aspect-[3/2]" loading="eager" />
               </motion.div>
               <motion.div
                 style={{ y: yB }}
@@ -200,7 +201,7 @@ export default function Tea() {
                 transition={{ duration: 1.1, ease: EASE, delay: 0.6 }}
                 className="absolute bottom-[6%] right-0 w-[62%] overflow-hidden rounded-[1.5rem] border-[5px] border-ink-950 shadow-lift"
               >
-                <SmartImage src="/product-images/sphoora-udaya.jpg" alt="SPHOORA Udaya tea" className="aspect-[3/2]" loading="eager" />
+                <SmartImage src="/product-images/green-pack.jpeg" alt="SPHOORA Signature Blend in the green pack, front and back" className="aspect-[3/2]" loading="eager" />
               </motion.div>
             </div>
           </div>
@@ -217,6 +218,67 @@ export default function Tea() {
             {story.slice(2).map((p, i) => (
               <Reveal key={i} as="p" delay={i * 0.08} className={i === 0 ? 'text-lg leading-9 text-ink-700' : 'text-[15px] leading-8 text-ink-500'}>
                 {p}
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* From the garden — the growers behind the leaf. The video is 12 MB, so
+          it only downloads once someone presses play; the poster carries the
+          section until then. object-contain keeps whatever aspect it was shot in. */}
+      <section className="bg-paper-50 py-20 md:py-28">
+        <div className="container-x">
+          <div className="grid gap-10 lg:grid-cols-12">
+            <div className="lg:col-span-5">
+              <SectionHeading eyebrow="From the garden" title="Known hands, | *real* tea." size="md" />
+            </div>
+            <Reveal as="p" delay={0.1} className="text-[15px] leading-8 text-ink-600 lg:col-span-6 lg:col-start-7">
+              Our teas come from small growers who pluck, wither and fire their own leaf — the same hands from
+              the garden to the pan. This is a day of that work.
+            </Reveal>
+          </div>
+
+          <Reveal className="mt-12">
+            <figure>
+              {/* The file is 848x480, so the frame is fixed at 16:9 (no letterboxing,
+                  no layout shift while preload="none" holds the download back) and
+                  capped at its native width so it never upscales into mush. */}
+              <div className="mx-auto aspect-video w-full max-w-3xl overflow-hidden rounded-[2rem] bg-ink-950 shadow-lift">
+                {/* Plain <video>, so the API origin has to be applied by hand —
+                    SmartImage does this for the photos below. */}
+                <video
+                  className="h-full w-full object-cover"
+                  src={mediaUrl('/product-images/teamaking.mp4')}
+                  poster={mediaUrl('/product-images/tea3.jpeg')}
+                  controls
+                  preload="none"
+                  playsInline
+                  aria-label="Making tea by hand at the garden"
+                />
+              </div>
+              <figcaption className="mt-3 text-center text-xs font-semibold uppercase tracking-[0.18em] text-ink-400">
+                Watch the leaf become tea
+              </figcaption>
+            </figure>
+          </Reveal>
+
+          <div className="mt-12 grid gap-5 sm:grid-cols-3">
+            {[
+              { src: '/product-images/tea1.jpeg', alt: 'Tea growers plucking fresh leaf into baskets', caption: 'Plucked by hand, basket by basket' },
+              { src: '/product-images/tea3.jpeg', alt: 'Fresh green leaf in a pan before firing', caption: 'The day’s leaf, ready for the pan' },
+              { src: '/product-images/tea2.jpeg', alt: 'Growers with trays of withered and finished tea', caption: 'Fired, sorted and finished by the same hands' },
+            ].map((shot, i) => (
+              <Reveal key={shot.src} delay={i * 0.08}>
+                <figure className="group">
+                  <SmartImage
+                    src={shot.src}
+                    alt={shot.alt}
+                    className="aspect-[4/3] rounded-[1.5rem]"
+                    imgClassName="duration-[1300ms] group-hover:scale-[1.05]"
+                  />
+                  <figcaption className="mt-3 px-1 text-[13px] leading-6 text-ink-500">{shot.caption}</figcaption>
+                </figure>
               </Reveal>
             ))}
           </div>

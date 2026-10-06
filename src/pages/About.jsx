@@ -245,7 +245,11 @@ export default function About() {
       {/* Textiles */}
       <section className="py-24 md:py-32">
         <div className="container-x">
-          <SectionHeading eyebrow="What we weave" title="Threads we work *with*" text="Each fabric carries its own history, its own hands, and its own way of catching the light." />
+          <SectionHeading
+            eyebrow="What we make"
+            title="Threads and *leaves*"
+            text="Each fabric carries its own history, its own hands, and its own way of catching the light — and each tea its own garden, season and altitude."
+          />
           <div className="mt-14 grid gap-px overflow-hidden rounded-[2rem] bg-ink-900/10 sm:grid-cols-2 lg:grid-cols-3">
             {SITE.techniques.map((t, i) => (
               <Reveal key={t.name} delay={(i % 3) * 0.08} className="bg-paper-50 p-8">

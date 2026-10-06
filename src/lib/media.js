@@ -7,11 +7,16 @@ import { ENV } from '../config/env';
 // API origin so the picture still loads, and expand root-relative paths too.
 const LOCAL_ORIGIN = /^https?:\/\/(localhost|127\.0\.0\.1|0\.0\.0\.0)(:\d+)?/i;
 
+// Folders that ship inside this site's own public/ build. The API knows
+// nothing about them, so their paths stay exactly as written.
+const SITE_ASSETS = /^\/(brand|hero|tea)\//i;
+
 export const mediaUrl = (src) => {
   if (!src || typeof src !== 'string') return src;
   const value = src.trim();
   if (!value || value === 'null') return '';
   if (LOCAL_ORIGIN.test(value)) return value.replace(LOCAL_ORIGIN, ENV.API_URL);
+  if (SITE_ASSETS.test(value)) return value;
   if (value.startsWith('/')) return `${ENV.API_URL}${value}`;
   return value;
 };
