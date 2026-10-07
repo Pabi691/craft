@@ -92,7 +92,7 @@ function CartLine({ item, onQuantity, onRemove, busy, removing }) {
             </span>
           )}
           <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-ink-500">
-            <FiTruck size={13} className="text-brand-700" /> Ships in 2–3 days
+            <FiTruck size={13} className="text-brand-700" /> Dispatched in 5–6 days
           </span>
         </div>
 

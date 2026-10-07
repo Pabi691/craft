@@ -1,7 +1,11 @@
 import { useState } from 'react';
+import { toast } from 'react-toastify';
 import { FiGlobe, FiMail, FiMapPin, FiPhone, FiSend } from 'react-icons/fi';
 import { FaBloggerB, FaFacebookF, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 import { SITE, telLink, whatsappLink } from '../config/site';
+import api from '../lib/api';
+import { apiError } from '../lib/cart';
+import Spinner from '../components/ui/Spinner';
 import { CONTACT_FAQ_IDS, FAQS } from '../content/faqs';
 import Seo from '../components/Seo';
 import SplitText from '../components/ui/SplitText';
@@ -14,8 +18,35 @@ const SOCIAL_ICONS = { instagram: FaInstagram, facebook: FaFacebookF, blog: FaBl
 const WHATSAPP_DISPLAY = `+91 ${SITE.contact.whatsapp.slice(2, 7)} ${SITE.contact.whatsapp.slice(7)}`;
 
 export default function Contact() {
-  const [form, setForm] = useState({ name: '', phone: '', topic: TOPICS[0], message: '' });
+  const [form, setForm] = useState({ name: '', email: '', phone: '', topic: TOPICS[0], message: '', website: '' });
+  const [sending, setSending] = useState(false);
+  const [sent, setSent] = useState(false);
   const set = (key) => (e) => setForm((f) => ({ ...f, [key]: e.target.value }));
+
+  // The message is posted to the shop's inbox. WhatsApp stays as a second
+  // route for anyone who prefers it.
+  const sendEnquiry = async (e) => {
+    e.preventDefault();
+    if (sending) return;
+    if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
+      toast.error('Please add your name, email and a message.');
+      return;
+    }
+    setSending(true);
+    try {
+      const { data } = await api.post('/api/v1/contact_enquiry', form);
+      if (data?.status) {
+        setSent(true);
+        setForm((f) => ({ ...f, name: '', email: '', phone: '', message: '' }));
+        toast.success(data.message || 'Thank you — we have your message.');
+      } else {
+        toast.error(apiError(data, 'Could not send your message.'));
+      }
+    } catch (err) {
+      toast.error(apiError(err?.response?.data, 'Could not send your message. Please WhatsApp us instead.'));
+    }
+    setSending(false);
+  };
 
   const composed = `Hello Craft & Weft,%0A%0AName: ${form.name}%0APhone: ${form.phone}%0ATopic: ${form.topic}%0A%0A${form.message}`;
   const waHref = `https://wa.me/${SITE.contact.whatsapp}?text=${composed}`;
@@ -112,12 +143,27 @@ export default function Contact() {
           <Reveal className="lg:col-span-5">
             <div className="rounded-[2rem] border border-ink-900/5 bg-white/85 p-7 shadow-soft md:p-8">
               <h2 className="font-display text-3xl text-ink-900">Send us a message</h2>
-              <p className="mt-2 text-sm leading-7 text-ink-500">Fill this in and it opens WhatsApp (or your email) with everything ready to send.</p>
+              <p className="mt-2 text-sm leading-7 text-ink-500">Write to us here and it reaches our inbox — we usually reply within a working day. Prefer WhatsApp? That button sends the same details.</p>
 
-              <div className="mt-6 space-y-4">
+              <form onSubmit={sendEnquiry} className="mt-6 space-y-4">
+                {/* Honeypot — hidden from people, catches bots. */}
+                <input
+                  type="text"
+                  name="website"
+                  value={form.website}
+                  onChange={set('website')}
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  className="hidden"
+                />
                 <div>
                   <label className="label">Your name</label>
-                  <input value={form.name} onChange={set('name')} className="input" placeholder="Your name" />
+                  <input value={form.name} onChange={set('name')} className="input" placeholder="Your name" required />
+                </div>
+                <div>
+                  <label className="label">Email</label>
+                  <input type="email" value={form.email} onChange={set('email')} className="input" placeholder="you@example.com" required />
                 </div>
                 <div>
                   <label className="label">Phone</label>
@@ -140,20 +186,27 @@ export default function Contact() {
                 </div>
                 <div>
                   <label className="label">Message</label>
-                  <textarea rows={4} value={form.message} onChange={set('message')} className="input resize-none" placeholder="Tell us what you need…" />
+                  <textarea rows={4} value={form.message} onChange={set('message')} className="input resize-none" placeholder="Tell us what you need…" required />
                 </div>
-              </div>
 
-              <div className="mt-6 flex flex-wrap gap-3">
-                <Magnetic>
-                  <a href={waHref} target="_blank" rel="noreferrer" className="btn-primary">
-                    <FaWhatsapp size={17} /> Send on WhatsApp
-                  </a>
-                </Magnetic>
-                <a href={mailHref} className="btn-outline">
-                  <FiSend size={15} /> Send as email
-                </a>
-              </div>
+                <div className="flex flex-wrap items-center gap-3 pt-2">
+                  <button type="submit" disabled={sending} className="btn-dark disabled:opacity-60">
+                    {sending ? <Spinner className="h-4 w-4" /> : <FiSend size={15} />}
+                    {sending ? 'Sending…' : 'Send message'}
+                  </button>
+                  <Magnetic>
+                    <a href={waHref} target="_blank" rel="noreferrer" className="btn-outline">
+                      <FaWhatsapp size={17} /> Send on WhatsApp
+                    </a>
+                  </Magnetic>
+                </div>
+
+                {sent && (
+                  <p className="rounded-2xl bg-brand-100 px-4 py-3 text-sm font-semibold text-brand-900">
+                    Thank you — your message is with us. We will reply to the email you gave.
+                  </p>
+                )}
+              </form>
             </div>
           </Reveal>
 

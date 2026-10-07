@@ -1,7 +1,8 @@
 // Default policy copy, shown until the page is filled in from the CRM
 // (Pages → privacy-policy / return-policy / terms-and-conditions).
 // Figures mirror how the store actually works: orders can be cancelled
-// within 24 hours, COD carries a ₹20 collection charge, shipping is free,
+// within 24 hours, COD carries a ₹20 collection charge, delivery is free in
+// West Bengal and over ₹999 (₹40 otherwise),
 // and refunds go to the bank account the customer adds (up to 14 business days).
 // Please have them reviewed before going live.
 
@@ -23,12 +24,21 @@ export const POLICIES = {
         <li>Products marked <em>Not Returnable</em> on their page cannot be returned.</li>
       </ul>
 
+      <h2>Tea</h2>
+      <p>Tea is perishable, so it follows a shorter window than our textiles. Every pack is checked by hand before it is sent.</p>
+      <ul>
+        <li>Raise a tea return within <strong>3 days</strong> of delivery.</li>
+        <li>Send authentic proof with the request — a photo or short video of the damp or damaged pack, with the batch details on the label visible.</li>
+        <li>Sealed packs opened and partly used cannot be returned, unless the tea itself is damp or damaged.</li>
+      </ul>
+      <p>We are always eager to help and to solve your grievances — message us and we will sort it out.</p>
+
       <h2>Refunds</h2>
       <p>When your return is accepted you will be asked to add a bank account for the refund from the order page. Refunds are issued after the returned product is verified and can take up to 14 business days to reach your account.</p>
       <p>We reserve the right to decline a refund if the return conditions above are not met.</p>
 
       <h2>Shipping &amp; COD</h2>
-      <p>Shipping is free across India. Cash on Delivery orders carry an additional collection charge of ₹20, which is not refundable once the order has been delivered.</p>
+      <p>Orders are dispatched within 5 to 6 working days. Delivery is free within West Bengal and on orders over ₹999; elsewhere in India a flat ₹40 delivery charge applies. Cash on Delivery orders carry an additional collection charge of ₹20, which is not refundable once the order has been delivered.</p>
 
       <h2>Need help?</h2>
       ${contact}

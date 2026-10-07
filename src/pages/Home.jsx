@@ -2,6 +2,7 @@ import Seo from '../components/Seo';
 import Hero from '../components/home/Hero';
 import CraftMarquee from '../components/home/CraftMarquee';
 import CategoryShowcase from '../components/home/CategoryShowcase';
+import HeritageCampaign from '../components/home/HeritageCampaign';
 import FeaturedScroll from '../components/home/FeaturedScroll';
 import StorySection from '../components/home/StorySection';
 import StatsBand from '../components/home/StatsBand';
@@ -14,7 +15,7 @@ import TeaSection from '../components/home/TeaSection';
 import SphooraIntro from '../components/home/SphooraIntro';
 import { SITE } from '../config/site';
 
-const TEA_WORDS = [...SITE.tea.regions, ...SITE.tea.ranges.find((r) => r.slug === 'signature-blends').items.map((b) => b.name)];
+const TEA_WORDS = [...SITE.tea.regions, ...SITE.tea.ranges.find((r) => r.slug === 'signature-collection').items.map((b) => b.name)];
 const CRAFT_WORDS = SITE.crafts.filter((c) => !SITE.tea.regions.includes(c));
 
 // Tea leads the page; the story bridges into the heritage crafts below.
@@ -29,6 +30,7 @@ export default function Home() {
       <StorySection />
       <CraftMarquee items={CRAFT_WORDS} />
       <CategoryShowcase />
+      <HeritageCampaign />
       <FeaturedScroll />
       <ProcessSection />
       <StatsBand />

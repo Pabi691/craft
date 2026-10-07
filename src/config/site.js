@@ -177,6 +177,23 @@ export const SITE = {
     { title: 'Every order hugs a family', text: 'Shop with heart — each order supports a small farmer or an artisan family.' },
   ],
 
+  // Limited-edition saree drop. The poster is the client's own artwork, so the
+  // words here stay short; the claims are theirs, from the poster itself.
+  // These pieces are not listed as products, hence the WhatsApp enquiry.
+  campaign: {
+    eyebrow: 'Limited edition',
+    title: 'A piece of *heritage.*',
+    text:
+      'Exquisite handwoven silk sarees carrying a rare and striking Buddha motif — created through tedious human labour, exceptional skill and a lifetime of craftsmanship. The artisan who wove these masterpieces is no more, and this design will never be repeated.',
+    note: 'Only 4 left',
+    image: '/product-images/heritage.jpeg',
+    alt: 'A Piece of Heritage — limited edition handwoven silk sarees with a Buddha motif',
+    cta: 'Enquire on WhatsApp',
+    enquiry: 'Hello Craft & Weft, I’d like to know more about the limited edition Buddha motif silk sarees.',
+    secondary: 'See all sarees',
+    to: '/sarees',
+  },
+
   care: 'Please hand wash all our textile products with light detergent. Wash only when necessary, avoid frequent washing. Dry in shade.',
 
   // SPHOORA teas — shown on the home page and /tea even before the products
@@ -188,6 +205,18 @@ export const SITE = {
     intro:
       'A moment to pause, ground and reconnect. A small alchemy of leaf, aroma, taste and time that brings clarity and calm into an ordinary day.',
     regions: ['Darjeeling', 'Dooars', 'Assam', 'Kangra'],
+
+    // The client's tea copy, used word for word and in the order written. Do
+    // not split a line into a label plus a heading, or change its casing —
+    // they asked for this exact text on the page.
+    sourcing: [
+      'Rooted in the gardens. Curated with care. Priced with honesty.',
+      'From the Dooars, Darjeeling, Assam and Kangra, we bring you garden-fresh green and white teas, premium long-leaf orthodox teas and select second-flush black teas — each with the distinctive taste and character of its region.',
+      'Working closely with small tea growers and consulting tea experts and connoisseurs, we explore, taste and thoughtfully curate our selection, reaching even remote gardens to discover teas worth sharing.',
+      'From the growers’ hands to homes and corporate tables, we bring together traditional craft and fresh ideas, giving recognition to the people behind every leaf.',
+      'Premium tea. Distinctive flavour. Honest prices. For every generation and every walk of life.',
+      'With a vibrant Gen Z collection and new specialty teas coming soon, we are creating more ways for everyone to discover their favourite cup.',
+    ],
     packs: ['50 g', '100 g', '200 g'],
     ranges: [
       {
@@ -195,6 +224,8 @@ export const SITE = {
         slug: 'connoisseurs-choice',
         intro: 'Pure premium teas and select single-origin offerings.',
         items: [
+          { name: 'Indu', slug: 'sphoora-indu', notes: 'White Tea', origin: 'A whisper of delicate flavour, a moment of quiet elegance.', image: 'indu-white-tea.jpeg' },
+          { name: 'Harit', slug: 'sphoora-harit', notes: 'Green Tea', origin: 'Fresh, gentle flavour — a little pause, a greener perspective.', image: 'harit-green-tea.jpeg' },
           { name: 'Darjeeling 2nd Flush', slug: 'darjeeling-second-flush', origin: 'Darjeeling' },
           { name: 'Darjeeling Long Leaf', slug: 'darjeeling-long-leaf', origin: 'Darjeeling' },
           { name: 'Green Tea', slug: 'green-tea' },
@@ -204,17 +235,17 @@ export const SITE = {
       },
       {
         name: 'Signature Blends',
-        slug: 'signature-blends',
+        slug: 'signature-collection',
         intro: 'Each SPHOORA blend is named for a feeling.',
         items: [
-          { name: 'Udaya', slug: 'sphoora-udaya', notes: 'Darjeeling', origin: 'Darjeeling × Assam', image: 'sphoora-udaya.jpg' },
-          { name: 'Aabha', slug: 'sphoora-aabha', notes: 'Himalayan', origin: 'Dooars × Kangra', image: 'sphoora-aabha.jpg' },
-          { name: 'Prabha', slug: 'sphoora-prabha', notes: 'Darjeeling Premium', origin: 'Darjeeling 2nd flush & CTC', image: 'sphoora-prabha.jpg' },
-          { name: 'Tejas', slug: 'sphoora-tejas', notes: 'Assam', origin: 'Strong Assam-forward tea', image: 'sphoora-tejas.jpg' },
-          { name: 'Ira', slug: 'sphoora-ira', notes: 'Floral', origin: 'Delicate floral tea', image: 'sphoora-ira.jpg' },
-          { name: 'Arka', slug: 'sphoora-arka', notes: 'Premium Roasted', origin: 'Roasted / deeper tea', image: 'sphoora-arka.jpg' },
-          { name: 'Urja', slug: 'sphoora-urja', notes: 'Wellness', origin: 'Energy awakened naturally', image: 'sphoora-urja.jpg' },
-          { name: 'Kiran', slug: 'sphoora-kiran', notes: 'Premium', origin: 'Assam Orthodox', image: 'sphoora-kiran.jpg' },
+          { name: 'Udaya', slug: 'sphoora-udaya', notes: 'Darjeeling Selection', origin: 'Delicate aroma meets rich depth — a graceful cup to greet the day.', image: 'golden-pack.jpeg' },
+          { name: 'Aabha', slug: 'sphoora-aabha', notes: 'Himalayan Signature', origin: 'A little mountain magic in every cup.', image: 'green-pack.jpeg' },
+          { name: 'Prabha', slug: 'sphoora-prabha', notes: 'Himalayan Symphony — 20% long leaf', origin: 'A harmonious cup with 20% long leaf, bringing depth to every sip.', image: 'golden-pack.jpeg' },
+          { name: 'Tejas', slug: 'sphoora-tejas', notes: 'Assam Bold', origin: 'Bold Assam character with a lively aroma — made to brighten your everyday chai.', image: 'green-pack.jpeg' },
+          { name: 'Ira', slug: 'sphoora-ira', notes: 'Floral Signature', origin: 'Delicate floral tea', image: 'sphoora-ira.jpg' },
+          { name: 'Arka', slug: 'sphoora-arka', notes: 'Roasted Karak Selection', origin: 'Full-bodied Assam strength for your comforting cup of kadak chai.', image: 'golden-pack.jpeg' },
+          { name: 'Urja', slug: 'sphoora-urja', notes: 'Botanical Signature', origin: 'Energy awakened naturally', image: 'sphoora-urja.jpg' },
+          { name: 'Kiran', slug: 'sphoora-kiran', notes: 'Assam Leaf Selection', origin: 'Assam Orthodox', image: 'sphoora-kiran.jpg' },
           // { name: 'Udaya', slug: 'sphoora-udaya', notes: 'Sunrise, awakening, vigor', origin: 'Darjeeling × Assam', image: 'sphoora-udaya.jpg' },
           // { name: 'Aabha', slug: 'sphoora-aabha', notes: 'Glow, radiance, freshness', origin: 'Dooars × Kangra', image: 'sphoora-aabha.jpg' },
           // { name: 'Prabha', slug: 'sphoora-prabha', notes: 'First light, brilliance', origin: 'Darjeeling 2nd flush & CTC', image: 'sphoora-prabha.jpg' },

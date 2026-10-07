@@ -12,7 +12,7 @@ import { SITE, whatsappLink } from '../../config/site';
 import { EASE } from '../../lib/motion';
 
 const TEA = SITE.tea;
-const blends = TEA.ranges.find((r) => r.slug === 'signature-blends');
+const blends = TEA.ranges.find((r) => r.slug === 'signature-collection');
 const choice = TEA.ranges.find((r) => r.slug === 'connoisseurs-choice');
 
 // Home-page SPHOORA band. Reads from config, so it shows the ranges even
@@ -123,7 +123,7 @@ export default function TeaSection() {
               <p className="eyebrow text-gold-light">{blends.name}</p>
               <p className="mt-3 max-w-md text-sm leading-7 text-paper/60">{blends.intro}</p>
             </div>
-            <Link to="/signature-blends" className="link-underline self-start text-sm font-extrabold text-paper md:self-auto">
+            <Link to="/signature-collection" className="link-underline self-start text-sm font-extrabold text-paper md:self-auto">
               See all blends
             </Link>
           </div>

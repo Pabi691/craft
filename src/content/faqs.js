@@ -11,7 +11,7 @@ export const FAQS = [
     id: 'delivery',
     title: 'How long does delivery take?',
     content:
-      'Orders are usually dispatched in 2–3 working days and delivered across India within 3–5 days after that. Shipping is free.',
+      'Orders are dispatched within 5–6 working days and delivered within 3–5 days after that. Delivery is free within West Bengal and on orders over ₹999; elsewhere in India a flat ₹40 applies.',
     keywords: ['deliver', 'shipping', 'ship', 'dispatch', 'arrive', 'how many days', 'when will', 'courier', 'pincode', 'pin code'],
   },
   {

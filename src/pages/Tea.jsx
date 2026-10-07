@@ -30,7 +30,7 @@ const BREW = [
 function TeaCard({ item, range, product, index }) {
   const live = Boolean(product);
   const priced = live && isPriced(product);
-  const name = range.slug === 'signature-blends' ? `${TEA.brand} ${item.name}` : item.name;
+  const name = range.slug === 'signature-collection' ? `${TEA.brand} ${item.name}` : item.name;
   const image = product?.primary_img || `/product-images/${item.slug}.jpg`;
 
   const body = (
@@ -99,7 +99,7 @@ export default function Tea() {
   // Active products only come back from the API, so a match means it's live.
   const bySlug = useMemo(() => new Map(products.map((p) => [p.slug, p])), [products]);
 
-  // Deep links such as /tea#signature-blends glide to their range once the
+  // Deep links such as /tea#signature-collection glide to their range once the
   // page curtain has lifted.
   const { hash } = useLocation();
   const lenis = useLenis();
@@ -168,7 +168,7 @@ export default function Tea() {
               className="mt-10 flex flex-wrap gap-3"
             >
               <Magnetic>
-                <a href="#signature-blends" className="btn-primary">
+                <a href="#signature-collection" className="btn-primary">
                   Meet the blends <FiArrowRight />
                 </a>
               </Magnetic>
@@ -220,6 +220,36 @@ export default function Tea() {
                 {p}
               </Reveal>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* The client's tea copy, exactly as written: the six lines in order,
+          nothing split, relabelled or re-cased. */}
+      <section className="py-20 md:py-28">
+        <div className="container-x">
+          <div className="mx-auto max-w-3xl text-center">
+            <SplitText
+              as="h2"
+              text={TEA.sourcing[0]}
+              className="h-display text-balance text-3xl text-ink-900 sm:text-4xl lg:text-[2.75rem]"
+            />
+
+            <div className="mt-8 space-y-6">
+              {TEA.sourcing.slice(1, 4).map((line, i) => (
+                <Reveal key={i} as="p" delay={i * 0.08} className={i === 0 ? 'text-lg leading-9 text-ink-700' : 'text-[15px] leading-8 text-ink-500'}>
+                  {line}
+                </Reveal>
+              ))}
+            </div>
+
+            <Reveal delay={0.24} as="p" className="mt-10 font-display text-2xl italic leading-snug text-brand-700 md:text-[1.75rem]">
+              {TEA.sourcing[4]}
+            </Reveal>
+
+            <Reveal delay={0.3} as="p" className="mt-6 text-[15px] leading-8 text-ink-500">
+              {TEA.sourcing[5]}
+            </Reveal>
           </div>
         </div>
       </section>
@@ -291,7 +321,7 @@ export default function Tea() {
           <div className="container-x">
             <SectionHeading
               eyebrow={range.name}
-              title={range.slug === 'signature-blends' ? 'Each blend, | a *feeling.*' : 'Pure, premium, | single *origin.*'}
+              title={range.slug === 'signature-collection' ? 'Each blend, | a *feeling.*' : 'Pure, premium, | single *origin.*'}
               text={range.intro}
               action={
                 <Link to={`/${range.slug}`} className="btn-outline">

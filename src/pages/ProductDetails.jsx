@@ -175,7 +175,7 @@ function Gallery({ images, name }) {
 }
 
 
-const TEA_SLUGS = ['tea', 'connoisseurs-choice', 'signature-blends'];
+const TEA_SLUGS = ['tea', 'connoisseurs-choice', 'signature-collection', 'signature-blends'];
 
 export default function ProductDetails() {
   const { slug } = useParams();
@@ -633,7 +633,7 @@ export default function ProductDetails() {
               {Number(product.is_cod) === 1 ? 'Cash on delivery' : 'Prepaid only'}
             </span>
             <span className="flex items-center gap-2.5 text-sm font-semibold text-ink-700">
-              <FiTruck className="text-brand-700" /> Free shipping in India
+              <FiTruck className="text-brand-700" /> Free delivery in West Bengal
             </span>
             <span className="flex items-center gap-2.5 text-sm font-semibold text-ink-700">
               <FiFeather className="text-brand-700" /> {isTea ? 'Sourced close to small growers' : 'Made in India, with artisans'}
@@ -675,7 +675,7 @@ export default function ProductDetails() {
                 title: 'Shipping & returns',
                 content: (
                   <p>
-                    Free shipping across India, usually dispatched in 2–3 working days. Cash on delivery carries a ₹20 collection charge. See our{' '}
+                    Delivery is free within West Bengal and on orders over ₹999; elsewhere in India a flat ₹40 applies. Orders are dispatched in 5–6 working days. Cash on delivery carries a ₹20 collection charge. See our{' '}
                     <Link to="/return-policy">return policy</Link> for how returns and refunds work.
                   </p>
                 ),

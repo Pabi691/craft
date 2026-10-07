@@ -21,6 +21,7 @@ import { useGlobal } from '../context/GlobalContext';
 import { useAuth } from '../context/AuthContext';
 import { isDistributor } from '../lib/userRole';
 import { COD_FEE, apiError, lineImage, lineIsCod, lineName, lineTotal, lineUnitPrice, summarize } from '../lib/cart';
+import { amountToFreeDelivery, deliveryCharge } from '../lib/shipping';
 import { inr } from '../lib/format';
 import { getBrandColor } from '../lib/theme';
 import { EASE } from '../lib/motion';
@@ -131,7 +132,12 @@ export default function Checkout() {
 
   const isCod = method === 'cod';
   const net = Math.max(0, subtotal - discount);
-  const shipping = isCod ? COD_FEE : 0;
+  // Free within West Bengal and on bigger orders; a flat charge otherwise.
+  const delivery = deliveryCharge(selectedAddress?.state, net);
+  const toFreeDelivery = amountToFreeDelivery(selectedAddress?.state, net);
+  // shipping_total carries both the delivery charge and the COD fee, which is
+  // how the backend and the invoice have always read it.
+  const shipping = delivery + (isCod ? COD_FEE : 0);
   const payable = net + shipping;
   const payAmt = Math.round(payable);
   const roundOff = Number(Math.abs(payAmt - payable).toFixed(2));
@@ -515,8 +521,13 @@ export default function Checkout() {
                 )}
                 <div className="flex justify-between text-ink-600">
                   <dt>Delivery</dt>
-                  <dd className="font-semibold text-brand-800">Free</dd>
+                  <dd className={delivery > 0 ? 'font-semibold text-ink-900' : 'font-semibold text-brand-800'}>
+                    {delivery > 0 ? `+${inr(delivery)}` : 'Free'}
+                  </dd>
                 </div>
+                {toFreeDelivery !== null && (
+                  <p className="!mt-2 text-xs font-semibold text-gold-dark">Add {inr(toFreeDelivery)} more for free delivery.</p>
+                )}
                 {isCod && (
                   <div className="flex justify-between text-ink-600">
                     <dt>COD collection charge</dt>
