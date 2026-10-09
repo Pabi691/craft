@@ -116,7 +116,7 @@ export default function TeaSection() {
           </div>
         </div>
 
-        {/* Signature blends */}
+        {/* Signature Collection */}
         <div className="mt-24 border-t border-paper/10 pt-14 md:mt-32">
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div>
@@ -124,7 +124,7 @@ export default function TeaSection() {
               <p className="mt-3 max-w-md text-sm leading-7 text-paper/60">{blends.intro}</p>
             </div>
             <Link to="/signature-collection" className="link-underline self-start text-sm font-extrabold text-paper md:self-auto">
-              See all blends
+              See all collections <FiArrowRight className="inline-block" />
             </Link>
           </div>
 

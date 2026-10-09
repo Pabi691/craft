@@ -20,7 +20,7 @@ const ANNOUNCEMENTS = [
   'Cash on delivery available',
   'Bulk & corporate enquiries — +91 98306 40086 · +91 90516 26156 · +91 70036 78472',
   'Muslin · Silk · Baluchari · Tasar · Khesh',
-  'Darjeeling · Dooars · Assam · Kangra — SPHOORA teas',
+  'HIMALAYAN TEA & BEYOND',
   'Every order hugs a small farmer or an artisan family',
 ];
 

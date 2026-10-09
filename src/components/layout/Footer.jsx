@@ -7,6 +7,7 @@ import WeavePattern from '../ui/WeavePattern';
 import Magnetic from '../ui/Magnetic';
 import { useGlobal } from '../../context/GlobalContext';
 import { categoryPath } from '../../lib/links';
+import { teaFirst } from '../../lib/categories';
 import { SITE, telLink, whatsappLink } from '../../config/site';
 
 const SOCIAL_ICONS = { instagram: FaInstagram, facebook: FaFacebookF, blog: FaBloggerB, website: FiGlobe };
@@ -85,7 +86,8 @@ export default function Footer() {
               title="Shop"
               links={[
                 { label: 'All products', to: '/products' },
-                ...categoryTree.flatMap((c) => [c, ...(c.children || [])]).map((c) => ({ label: c.category_name, to: categoryPath(c.slug) })),
+                // Tea leads here too, the same order the shop page uses.
+                ...teaFirst(categoryTree).flatMap((c) => [c, ...(c.children || [])]).map((c) => ({ label: c.category_name, to: categoryPath(c.slug) })),
               ]}
             />
             <FooterColumn

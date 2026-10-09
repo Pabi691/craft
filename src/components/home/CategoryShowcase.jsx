@@ -23,7 +23,7 @@ export default function CategoryShowcase() {
       <div className="container-x">
         <SectionHeading
           eyebrow="Our collections"
-          title="From the *loom* | to the leaf."
+          title="Discover the *tea* and *treasure* curuated to savour crafted to cherish."
           action={
             <Link to="/products" className="btn-outline">
               View all products <FiArrowUpRight />

@@ -12,6 +12,7 @@ import SplitText from '../components/ui/SplitText';
 import SectionHeading from '../components/ui/SectionHeading';
 import Reveal from '../components/ui/Reveal';
 import SmartImage from '../components/ui/SmartImage';
+import AutoplayVideo from '../components/ui/AutoplayVideo';
 import WeavePattern from '../components/ui/WeavePattern';
 import LeafPattern from '../components/ui/LeafPattern';
 import Magnetic from '../components/ui/Magnetic';
@@ -118,7 +119,7 @@ export default function Tea() {
     <>
       <Seo
         title="SPHOORA teas"
-        description="SPHOORA fine Indian teas from Craft & Weft — Connoisseur’s Choice and Signature Blends from Darjeeling, Dooars, Assam and Kangra, in 50 g, 100 g and 200 g packs."
+        description="SPHOORA fine Indian teas from Craft & Weft — Connoisseur’s Choice and Signature Collections from Darjeeling, Dooars, Assam and Kangra, in 50 g, 100 g and 200 g packs."
         image="/product-images/golden-pack.jpeg"
       />
 
@@ -276,14 +277,12 @@ export default function Tea() {
                   capped at its native width so it never upscales into mush. */}
               <div className="mx-auto aspect-video w-full max-w-3xl overflow-hidden rounded-[2rem] bg-ink-950 shadow-lift">
                 {/* Plain <video>, so the API origin has to be applied by hand —
-                    SmartImage does this for the photos below. */}
-                <video
+                    SmartImage does this for the photos below. Plays muted on a
+                    loop once it scrolls into view. */}
+                <AutoplayVideo
                   className="h-full w-full object-cover"
                   src={mediaUrl('/product-images/teamaking.mp4')}
                   poster={mediaUrl('/product-images/tea3.jpeg')}
-                  controls
-                  preload="none"
-                  playsInline
                   aria-label="Making tea by hand at the garden"
                 />
               </div>

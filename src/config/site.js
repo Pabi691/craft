@@ -18,11 +18,11 @@ export const SITE = {
   // `focusX` is the % of the photo kept in view on narrow screens.
   hero: {
     eyebrow: 'Premium Indian Teas',
-    byline: 'Fine teas by Craft & Weft',
+    byline: 'SPHOORA teas by Craft & Weft',
     logo: { src: '/brand/sphoora-logo-light.png', alt: 'SPHOORA', width: 504, height: 600 },
     title: 'From the Gardens | to Your *Cup.*',
     tagline: 'Pure. Authentic. Thoughtfully Crafted.',
-    copy: 'Distinctive teas from Darjeeling, Dooars, Assam, Kangra and beyond\u00A0— rooted in provenance, crafted with care.',
+    copy: 'Distinctive teas from Himalayan Hills, Himalayan Foothills, North Eastern Plains, Himachal Hills and beyond\u00A0— rooted in provenance, crafted with care.',
     primary: { label: 'Explore Our Teas', to: '/tea' },
     secondary: { label: 'Our Tea Collection', to: '/tea#connoisseurs-choice' },
     image: {
@@ -44,7 +44,7 @@ export const SITE = {
 
   // "Who we are" — short version for the home page and footer.
   about: [
-    'Craft & Weft, an initiative of Craft Combine, always work where heritage, creativity, livelihoods and markets meet.',
+    'Craft & Weft, an initiative of Craft Combine, always works where heritage, creativity, livelihoods and markets meet.',
     'Our journey began in the development sector — reviving and reimagining Indian textiles such as Muslin, Silk, Baluchari, Tasar and Khesh, working alongside artisans, government institutions and development partners.',
     'Today, that journey evolves from craft to cup. Through SPHOORA and Kettletales, we bring the same philosophy to fine Indian teas.',
   ],
@@ -57,7 +57,7 @@ export const SITE = {
       title: 'Where heritage meets markets',
       statement: 'We worked to create one essential bridge — between the hands that *create* and the people who *value* their work.',
       paragraphs: [
-        'Craft & Weft, an initiative of Craft Combine, always work where heritage, creativity, livelihoods and markets meet.',
+        'Craft & Weft, an initiative of Craft Combine, always works where heritage, creativity, livelihoods and markets meet.',
         'Our journey began in the development sector - reviving and reimagining Indian textiles such as Muslin, Silk, Baluchar. Tussar, Kantha and Khesh, working alongside artisans, government institutions and development partners. From innovative product and design development to research, revival strategies, heritage installations, exhibitions, catalogues and coffee-table books. We use textile wastes and extensively work on recycled textile to create various lifestyle products. Developing corporate gifts and décor have also been our expertise. We work to create one essential bridge - between the hands that create and the people who value their work.',
       ],
     },
@@ -71,11 +71,11 @@ export const SITE = {
     {
       title: 'From craft to cup',
       statement: 'Today, that journey evolves | from *craft* to *cup.*',
-      quote: 'Pure premium teas, select single-origin offerings and signature blends.',
+      quote: 'Pure premium teas, select single-origin offerings and signature collections.',
       paragraphs: [
         'Today, that journey evolves from craft to cup.',
         'Through SPHOORA and Kettletales, we bring the same philosophy to fine Indian teas — working close to small tea growers and farming communities and discovering distinctive teas from Darjeeling, Dooars, Assam, Kangra and beyond.',
-        'Expect pure premium teas, select single-origin offerings and signature blends — thoughtfully crafted around provenance, taste, aroma and experience.',
+        'Expect pure premium teas, select single-origin offerings and signature collections — thoughtfully crafted around provenance, taste, aroma and experience.',
       ],
     },
     {
@@ -83,7 +83,7 @@ export const SITE = {
       quote: 'Tea is more than a beverage. It is a ritual — a moment to pause, ground and reconnect.',
       paragraphs: [
         'For us, tea is more than a beverage. It is a ritual — a moment to pause, ground and reconnect. A small alchemy of leaf, aroma, taste and time that brings clarity and calm into an ordinary day.',
-        'And this is just the beginning. From tea, we continue to evolve into signature blends, wellness-led infusions and conscious everyday creations — staying true to what has always defined us: craft, creativity, purity, sustainability and people.',
+        'And this is just the beginning. From tea, we continue to evolve into signature collections, wellness-led infusions and conscious everyday creations — staying true to what has always defined us: craft, creativity, purity, sustainability and people.',
       ],
     },
     {
@@ -149,7 +149,7 @@ export const SITE = {
     { value: 4, suffix: '', label: 'Tea regions — Darjeeling, Dooars, Assam & Kangra' },
   ],
 
-  crafts: ['Muslin', 'Silk', 'Baluchari', 'Tasar', 'Khesh', 'Darjeeling', 'Dooars', 'Assam', 'Kangra'],
+  crafts: ['Muslin', 'Silk', 'Baluchari', 'Tasar', 'Khesh', 'Refreshing Flush teas', 'Assam - Bramhaputra varieties with aroma, Strength and Colour', 'Bold Terrai', 'Mild Palampur'],
 
   techniques: [
     { name: 'Muslin', text: 'Bengal’s legendary fine weave — airy, soft and revived with master weavers.' },
@@ -204,7 +204,8 @@ export const SITE = {
     title: 'Tea is a *ritual*',
     intro:
       'A moment to pause, ground and reconnect. A small alchemy of leaf, aroma, taste and time that brings clarity and calm into an ordinary day.',
-    regions: ['Darjeeling', 'Dooars', 'Assam', 'Kangra'],
+    regions: ['Himalayan Hills', 'Himalayan Foothills', 'North Eastern Plains', 'Himachal Hills'],
+    scrollwords: ['Refreshing Flush teas', 'Assam - Bramhaputra varieties with aroma, Strength and Colour', 'Bold Terrai', 'Mild Palampur'],
 
     // The client's tea copy, used word for word and in the order written. Do
     // not split a line into a label plus a heading, or change its casing —
@@ -217,7 +218,7 @@ export const SITE = {
       'Premium tea. Distinctive flavour. Honest prices. For every generation and every walk of life.',
       'With a vibrant Gen Z collection and new specialty teas coming soon, we are creating more ways for everyone to discover their favourite cup.',
     ],
-    packs: ['50 g', '100 g', '200 g'],
+    packs: ['50 g', '100 g', '200 g', '250 g'],
     ranges: [
       {
         name: 'Connoisseur’s Choice',
@@ -226,22 +227,22 @@ export const SITE = {
         items: [
           { name: 'Indu', slug: 'sphoora-indu', notes: 'White Tea', origin: 'A whisper of delicate flavour, a moment of quiet elegance.', image: 'indu-white-tea.jpeg' },
           { name: 'Harit', slug: 'sphoora-harit', notes: 'Green Tea', origin: 'Fresh, gentle flavour — a little pause, a greener perspective.', image: 'harit-green-tea.jpeg' },
-          { name: 'Darjeeling 2nd Flush', slug: 'darjeeling-second-flush', origin: 'Darjeeling' },
-          { name: 'Darjeeling Long Leaf', slug: 'darjeeling-long-leaf', origin: 'Darjeeling' },
+          { name: 'Premium 2nd Flush', slug: 'sphoora-premium-second-flush', origin: 'Darjeeling' },
+          { name: 'Premium Long Leaf', slug: 'sphoora-premium-long-leaf', origin: 'Darjeeling' },
           { name: 'Green Tea', slug: 'green-tea' },
-          { name: 'Dooars Broken Leaf', slug: 'dooars-broken-leaf', origin: 'Dooars' },
+          { name: 'Premium Broken Leaf', slug: 'dooars-broken-leaf', origin: 'Dooars' },
           { name: 'Oolong', slug: 'oolong-tea' },
         ],
       },
       {
-        name: 'Signature Blends',
+        name: 'Signature Collections',
         slug: 'signature-collection',
-        intro: 'Each SPHOORA blend is named for a feeling.',
+        intro: 'Each SPHOORA collection is named for a feeling.',
         items: [
-          { name: 'Udaya', slug: 'sphoora-udaya', notes: 'Darjeeling Selection', origin: 'Delicate aroma meets rich depth — a graceful cup to greet the day.', image: 'golden-pack.jpeg' },
+          { name: 'Udaya', slug: 'sphoora-udaya', notes: 'Refreshing Flush teas', origin: 'Delicate aroma meets rich depth — a graceful cup to greet the day.', image: 'golden-pack.jpeg' },
           { name: 'Aabha', slug: 'sphoora-aabha', notes: 'Himalayan Signature', origin: 'A little mountain magic in every cup.', image: 'green-pack.jpeg' },
           { name: 'Prabha', slug: 'sphoora-prabha', notes: 'Himalayan Symphony — 20% long leaf', origin: 'A harmonious cup with 20% long leaf, bringing depth to every sip.', image: 'golden-pack.jpeg' },
-          { name: 'Tejas', slug: 'sphoora-tejas', notes: 'Assam Bold', origin: 'Bold Assam character with a lively aroma — made to brighten your everyday chai.', image: 'green-pack.jpeg' },
+          { name: 'Tejas', slug: 'sphoora-tejas', notes: 'Assam - Bramhaputra varieties with aroma, Strength and Colour', origin: 'Bold Assam character with a lively aroma — made to brighten your everyday chai.', image: 'green-pack.jpeg' },
           { name: 'Ira', slug: 'sphoora-ira', notes: 'Floral Signature', origin: 'Delicate floral tea', image: 'sphoora-ira.jpg' },
           { name: 'Arka', slug: 'sphoora-arka', notes: 'Roasted Karak Selection', origin: 'Full-bodied Assam strength for your comforting cup of kadak chai.', image: 'golden-pack.jpeg' },
           { name: 'Urja', slug: 'sphoora-urja', notes: 'Botanical Signature', origin: 'Energy awakened naturally', image: 'sphoora-urja.jpg' },

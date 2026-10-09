@@ -20,7 +20,7 @@ export default function CareCTA() {
           <WeavePattern className="absolute inset-0 text-brand-800" opacity={0.08} />
           <div className="relative">
             <p className="eyebrow text-brand-900/70">Care for your textiles</p>
-            <SplitText as="h3" text="Handmade pieces love a *gentle* touch." className="h-display mt-5 text-4xl text-ink-900 md:text-5xl" highlightClassName="italic text-brand-800" />
+            <SplitText as="h3" text="Handmade pieces with love and a *gentle* touch." className="h-display mt-5 text-4xl text-ink-900 md:text-5xl" highlightClassName="italic text-brand-800" />
             <ul className="mt-10 space-y-4">
               {CARE.map(({ icon: Icon, text }) => (
                 <li key={text} className="flex items-center gap-4 text-[15px] font-semibold text-ink-800">

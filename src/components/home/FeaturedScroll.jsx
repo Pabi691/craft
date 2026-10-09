@@ -8,7 +8,7 @@ import SplitText from '../ui/SplitText';
 import useMediaQuery from '../../hooks/useMediaQuery';
 import { useGlobal } from '../../context/GlobalContext';
 
-const TITLE = 'Fresh off the *loom*';
+const TITLE = 'Timeless *Traditions*.';
 
 /**
  * Desktop: the section pins while vertical scrolling drives the product row
@@ -49,7 +49,7 @@ export default function FeaturedScroll() {
   if (!isDesktop) {
     return (
       <ProductRail
-        eyebrow="New from the looms"
+        eyebrow="Fresh Finds"
         title={TITLE}
         text="Handcrafted in small batches — once a weave is gone, it may not return in quite the same way."
         products={list}
@@ -63,7 +63,7 @@ export default function FeaturedScroll() {
       <div className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden">
         <div className="container-x mb-10 flex items-end justify-between gap-10">
           <div>
-            <p className="eyebrow">New from the looms</p>
+            <p className="eyebrow">Fresh Finds</p>
             <SplitText as="h2" text={TITLE} className="h-display mt-4 text-6xl text-ink-900 xl:text-7xl" />
           </div>
           <div className="flex w-72 items-center gap-4">
@@ -71,7 +71,7 @@ export default function FeaturedScroll() {
               <motion.span className="absolute inset-0 origin-left bg-ink-900" style={{ scaleX: progress }} />
             </span>
             <Link to="/products" className="btn-dark btn-sm">
-              Shop all <FiArrowRight />
+              Explore our teas & textiles <FiArrowRight />
             </Link>
           </div>
         </div>

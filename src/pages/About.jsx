@@ -271,7 +271,7 @@ export default function About() {
       {/* Process */}
       <section className="pb-24 md:pb-32">
         <div className="container-x">
-          <SectionHeading eyebrow="How it comes together" title="From the loom | to your *cup*" />
+          <SectionHeading eyebrow="How it comes together" title="From loom and garden | to your *home*" />
           <div className="mt-14 space-y-6">
             {SITE.process.map((step, i) => (
               <Reveal key={step.step} delay={(i % 2) * 0.08} className="grid items-center gap-6 rounded-[2rem] border border-ink-900/5 bg-white/70 p-5 md:grid-cols-12 md:p-6">

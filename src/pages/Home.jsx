@@ -15,7 +15,7 @@ import TeaSection from '../components/home/TeaSection';
 import SphooraIntro from '../components/home/SphooraIntro';
 import { SITE } from '../config/site';
 
-const TEA_WORDS = [...SITE.tea.regions, ...SITE.tea.ranges.find((r) => r.slug === 'signature-collection').items.map((b) => b.name)];
+const TEA_WORDS = [...SITE.tea.scrollwords, ...SITE.tea.ranges.find((r) => r.slug === 'signature-collection').items.map((b) => b.name)];
 const CRAFT_WORDS = SITE.crafts.filter((c) => !SITE.tea.regions.includes(c));
 
 // Tea leads the page; the story bridges into the heritage crafts below.
@@ -30,7 +30,7 @@ export default function Home() {
       <StorySection />
       <CraftMarquee items={CRAFT_WORDS} />
       <CategoryShowcase />
-      <HeritageCampaign />
+      {/* <HeritageCampaign /> */}
       <FeaturedScroll />
       <ProcessSection />
       <StatsBand />

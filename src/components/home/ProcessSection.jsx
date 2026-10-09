@@ -21,7 +21,7 @@ export default function ProcessSection() {
       <div className="container-x">
         <SectionHeading
           eyebrow="How it comes together"
-          title="From the loom | to your *cup.*"
+          title="From loom and garden | to your *home.*"
           text="Heritage weaves revived with artisans, shaped by designers and makers — and the same care carried from craft to cup."
         />
 
