@@ -20,4 +20,4 @@ export function searchProducts(products, query) {
     .map((r) => r.p);
 }
 
-export const POPULAR_SEARCHES = ['Khesh', 'Darjeeling', 'Bags', 'Green tea', 'Purse', 'Botua', 'Assam', 'Cushion'];
+export const POPULAR_SEARCHES = ['Khesh', 'Udaya', 'Bags', 'Green tea', 'Purse', 'Botua', 'Kiran', 'Cushion'];

@@ -119,7 +119,7 @@ export default function Tea() {
     <>
       <Seo
         title="SPHOORA teas"
-        description="SPHOORA fine Indian teas from Craft & Weft — Connoisseur’s Choice and Signature Collections from Darjeeling, Dooars, Assam and Kangra, in 50 g, 100 g and 200 g packs."
+        description="SPHOORA fine Indian teas from Craft & Weft — Connoisseur’s Choice and Signature Collections from the Himalayan Hills, Himalayan Foothills, North Eastern Plains and Himachal Hills, in 50 g, 100 g and 200 g packs."
         image="/product-images/golden-pack.jpeg"
       />
 
@@ -270,7 +270,8 @@ export default function Tea() {
             </Reveal>
           </div>
 
-          <Reveal className="mt-12">
+          <div className="mt-12 grid gap-5 sm:grid-cols-[2fr_1fr_1fr]">
+            <Reveal>
             <figure>
               {/* The file is 848x480, so the frame is fixed at 16:9 (no letterboxing,
                   no layout shift while preload="none" holds the download back) and
@@ -291,11 +292,8 @@ export default function Tea() {
               </figcaption>
             </figure>
           </Reveal>
-
-          <div className="mt-12 grid gap-5 sm:grid-cols-3">
             {[
               { src: '/product-images/tea1.jpeg', alt: 'Tea growers plucking fresh leaf into baskets', caption: 'Plucked by hand, basket by basket' },
-              { src: '/product-images/tea3.jpeg', alt: 'Fresh green leaf in a pan before firing', caption: 'The day’s leaf, ready for the pan' },
               { src: '/product-images/tea2.jpeg', alt: 'Growers with trays of withered and finished tea', caption: 'Fired, sorted and finished by the same hands' },
             ].map((shot, i) => (
               <Reveal key={shot.src} delay={i * 0.08}>
@@ -303,7 +301,7 @@ export default function Tea() {
                   <SmartImage
                     src={shot.src}
                     alt={shot.alt}
-                    className="aspect-[4/3] rounded-[1.5rem]"
+                    className="aspect-[8/9] rounded-[1.5rem]"
                     imgClassName="duration-[1300ms] group-hover:scale-[1.05]"
                   />
                   <figcaption className="mt-3 px-1 text-[13px] leading-6 text-ink-500">{shot.caption}</figcaption>

@@ -58,7 +58,7 @@ export const FAQS = [
     id: 'tea-packs',
     title: 'Which pack sizes do the teas come in?',
     content: `SPHOORA teas come in ${SITE.tea.packs.join(', ')} packs. Store them airtight, away from light, moisture and strong aromas.`,
-    keywords: ['pack', 'size', '50 g', '100 g', '200 g', 'gram', 'sphoora', ' tea', 'darjeeling', 'assam', 'oolong', 'green tea', 'blend', 'udaya', 'aabha', 'prabha', 'tejas', ' ira', 'arka', 'urja', 'kiran', 'dooars', 'kangra', 'kettletales'],
+    keywords: ['pack', 'size', '50 g', '100 g', '200 g', 'gram', 'sphoora', ' tea', 'himalayan hills', 'himalayan foothills', 'oolong', 'green tea', 'blend', 'udaya', 'aabha', 'prabha', 'tejas', ' ira', 'arka', 'urja', 'kiran', 'dooars', 'kangra', 'kettletales'],
   },
   {
     id: 'availability',

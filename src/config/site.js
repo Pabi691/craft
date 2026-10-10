@@ -11,7 +11,7 @@ export const SITE = {
   subTagline: 'From Heritage to Everyday Ritual',
   // Default meta description.
   description:
-    'Heritage weaves from artisan hands. Honest teas from small gardens in Darjeeling, Dooars, Assam and Kangra.',
+    'Heritage weaves from artisan hands. Honest teas from small gardens in the Himalayan Hills, Himalayan Foothills, North Eastern Plains and Himachal Hills.',
 
   // Home hero — the tea cinemagraph. `map` drives the WebGL motion and is
   // measured from this exact photo (see components/home/teaSceneShader.js);
@@ -74,7 +74,7 @@ export const SITE = {
       quote: 'Pure premium teas, select single-origin offerings and signature collections.',
       paragraphs: [
         'Today, that journey evolves from craft to cup.',
-        'Through SPHOORA and Kettletales, we bring the same philosophy to fine Indian teas — working close to small tea growers and farming communities and discovering distinctive teas from Darjeeling, Dooars, Assam, Kangra and beyond.',
+        'Through SPHOORA and Kettletales, we bring the same philosophy to fine Indian teas — working close to small tea growers and farming communities and discovering distinctive teas from the Himalayan Hills, Himalayan Foothills, North Eastern Plains, Himachal Hills and beyond.',
         'Expect pure premium teas, select single-origin offerings and signature collections — thoughtfully crafted around provenance, taste, aroma and experience.',
       ],
     },
@@ -98,7 +98,7 @@ export const SITE = {
   sphoora: {
     // Home page launch note — "we do it again", from the client.
     launch: {
-      eyebrow: 'Introducing SPHOORA',
+      eyebrow: 'Introducing SPHOORA Tea',
       title: 'From artisans to farmers — | and now, *small* *tea* *growers.*',
       kicker: 'We’ve done it before. We’re doing it again.',
       text: 'SPHOORA is our tea from small tea growers, rooted in the same mission that started it all: a bridge between the hands that grow and the people who value their work.',
@@ -112,7 +112,7 @@ export const SITE = {
     },
     title: 'Where real hands | make real *tea.*',
     lead:
-      'From the small gardens of the Dooars to the high slopes of Darjeeling or the valleys of Assam or Kangra, we seek out growers whose finest harvests are shaped by hand, season and soil.',
+      'From the small gardens of the Himalayan Foothills to the high Himalayan Hills, or the North Eastern Plains and the Himachal Hills, we seek out growers whose finest harvests are shaped by hand, season and soil.',
     quote: 'From known hands to your cup.',
     statement: 'SPHOORA stays small enough to know where *every* *leaf* comes from — yet exacting enough to belong *anywhere* in the world.',
     points: [
@@ -146,10 +146,10 @@ export const SITE = {
     { value: 4500, suffix: '+', label: 'Artisans trained' },
     { value: 9, suffix: '', label: 'Districts of West Bengal' },
     { value: 5, suffix: '', label: 'Heritage weaves revived' },
-    { value: 4, suffix: '', label: 'Tea regions — Darjeeling, Dooars, Assam & Kangra' },
+    { value: 4, suffix: '', label: 'Tea regions — Himalayan Hills, Foothills, North Eastern Plains & Himachal' },
   ],
 
-  crafts: ['Muslin', 'Silk', 'Baluchari', 'Tasar', 'Khesh', 'Refreshing Flush teas', 'Assam - Bramhaputra varieties with aroma, Strength and Colour', 'Bold Terrai', 'Mild Palampur'],
+  crafts: ['Muslin', 'Silk', 'Baluchari', 'Tasar', 'Khesh', 'Refreshing Flush teas', 'North Eastern Plains - Bramhaputra varieties with aroma, Strength and Colour', 'Bold Terrai', 'Mild Palampur'],
 
   techniques: [
     { name: 'Muslin', text: 'Bengal’s legendary fine weave — airy, soft and revived with master weavers.' },
@@ -158,9 +158,9 @@ export const SITE = {
     { name: 'Khesh', text: 'Old cotton saris torn into strips and re-woven into bold, colourful fabric.' },
     { name: 'Upcycled textiles', text: 'Textile waste given new life as art, accessories and objects of everyday use.' },
     // The teas belong beside the weaves — the About grid names both.
-    { name: 'Darjeeling', text: 'High on Himalayan slopes, where thin air and slow growth make a delicate, aromatic cup — our Udaya and Prabha.' },
-    { name: 'Assam', text: 'Deep valley soils and heavy rain give a full-bodied, malty tea — the strength behind Tejas and Kiran.' },
-    { name: 'Dooars & Kangra', text: 'Foothill gardens below the Himalaya and the quieter valleys of Himachal — brisk everyday cups and rarer small-garden lots.' },
+    { name: 'Himalayan Hills', text: 'High on Himalayan slopes, where thin air and slow growth make a delicate, aromatic cup — our Udaya and Prabha.' },
+    { name: 'North Eastern Plains', text: 'Deep valley soils and heavy rain give a full-bodied, malty tea — the strength behind Tejas and Kiran.' },
+    { name: 'Himalayan Foothills & Himachal Hills', text: 'Foothill gardens below the Himalaya and the quieter valleys of Himachal — brisk everyday cups and rarer small-garden lots.' },
   ],
 
   process: [
@@ -205,14 +205,14 @@ export const SITE = {
     intro:
       'A moment to pause, ground and reconnect. A small alchemy of leaf, aroma, taste and time that brings clarity and calm into an ordinary day.',
     regions: ['Himalayan Hills', 'Himalayan Foothills', 'North Eastern Plains', 'Himachal Hills'],
-    scrollwords: ['Refreshing Flush teas', 'Assam - Bramhaputra varieties with aroma, Strength and Colour', 'Bold Terrai', 'Mild Palampur'],
+    scrollwords: ['Refreshing Flush teas', 'North Eastern Plains - Bramhaputra varieties with aroma, Strength and Colour', 'Bold Terrai', 'Mild Palampur'],
 
     // The client's tea copy, used word for word and in the order written. Do
     // not split a line into a label plus a heading, or change its casing —
     // they asked for this exact text on the page.
     sourcing: [
       'Rooted in the gardens. Curated with care. Priced with honesty.',
-      'From the Dooars, Darjeeling, Assam and Kangra, we bring you garden-fresh green and white teas, premium long-leaf orthodox teas and select second-flush black teas — each with the distinctive taste and character of its region.',
+      'From the Himalayan Foothills, Himalayan Hills, North Eastern Plains and Himachal Hills, we bring you garden-fresh green and white teas, premium long-leaf orthodox teas and select second-flush black teas — each with the distinctive taste and character of its region.',
       'Working closely with small tea growers and consulting tea experts and connoisseurs, we explore, taste and thoughtfully curate our selection, reaching even remote gardens to discover teas worth sharing.',
       'From the growers’ hands to homes and corporate tables, we bring together traditional craft and fresh ideas, giving recognition to the people behind every leaf.',
       'Premium tea. Distinctive flavour. Honest prices. For every generation and every walk of life.',
@@ -227,10 +227,10 @@ export const SITE = {
         items: [
           { name: 'Indu', slug: 'sphoora-indu', notes: 'White Tea', origin: 'A whisper of delicate flavour, a moment of quiet elegance.', image: 'indu-white-tea.jpeg' },
           { name: 'Harit', slug: 'sphoora-harit', notes: 'Green Tea', origin: 'Fresh, gentle flavour — a little pause, a greener perspective.', image: 'harit-green-tea.jpeg' },
-          { name: 'Premium 2nd Flush', slug: 'sphoora-premium-second-flush', origin: 'Darjeeling' },
-          { name: 'Premium Long Leaf', slug: 'sphoora-premium-long-leaf', origin: 'Darjeeling' },
+          { name: 'Premium 2nd Flush', slug: 'sphoora-premium-second-flush', origin: 'Himalayan Hills' },
+          { name: 'Premium Long Leaf', slug: 'sphoora-premium-long-leaf', origin: 'Himalayan Hills' },
           { name: 'Green Tea', slug: 'green-tea' },
-          { name: 'Premium Broken Leaf', slug: 'dooars-broken-leaf', origin: 'Dooars' },
+          { name: 'Premium Broken Leaf', slug: 'dooars-broken-leaf', origin: 'Himalayan Foothills' },
           { name: 'Oolong', slug: 'oolong-tea' },
         ],
       },
@@ -242,11 +242,11 @@ export const SITE = {
           { name: 'Udaya', slug: 'sphoora-udaya', notes: 'Refreshing Flush teas', origin: 'Delicate aroma meets rich depth — a graceful cup to greet the day.', image: 'golden-pack.jpeg' },
           { name: 'Aabha', slug: 'sphoora-aabha', notes: 'Himalayan Signature', origin: 'A little mountain magic in every cup.', image: 'green-pack.jpeg' },
           { name: 'Prabha', slug: 'sphoora-prabha', notes: 'Himalayan Symphony — 20% long leaf', origin: 'A harmonious cup with 20% long leaf, bringing depth to every sip.', image: 'golden-pack.jpeg' },
-          { name: 'Tejas', slug: 'sphoora-tejas', notes: 'Assam - Bramhaputra varieties with aroma, Strength and Colour', origin: 'Bold Assam character with a lively aroma — made to brighten your everyday chai.', image: 'green-pack.jpeg' },
+          { name: 'Tejas', slug: 'sphoora-tejas', notes: 'North Eastern Plains - Bramhaputra varieties with aroma, Strength and Colour', origin: 'Bold Assam character with a lively aroma — made to brighten your everyday chai.', image: 'green-pack.jpeg' },
           { name: 'Ira', slug: 'sphoora-ira', notes: 'Floral Signature', origin: 'Delicate floral tea', image: 'sphoora-ira.jpg' },
-          { name: 'Arka', slug: 'sphoora-arka', notes: 'Roasted Karak Selection', origin: 'Full-bodied Assam strength for your comforting cup of kadak chai.', image: 'golden-pack.jpeg' },
+          { name: 'Arka', slug: 'sphoora-arka', notes: 'Roasted Karak Selection', origin: 'Full-bodied strength for your comforting cup of kadak chai.', image: 'golden-pack.jpeg' },
           { name: 'Urja', slug: 'sphoora-urja', notes: 'Botanical Signature', origin: 'Energy awakened naturally', image: 'sphoora-urja.jpg' },
-          { name: 'Kiran', slug: 'sphoora-kiran', notes: 'Assam Leaf Selection', origin: 'Assam Orthodox', image: 'sphoora-kiran.jpg' },
+          { name: 'Kiran', slug: 'sphoora-kiran', notes: 'North Eastern Plains Leaf Selection', origin: 'Orthodox leaf', image: 'sphoora-kiran.jpg' },
           // { name: 'Udaya', slug: 'sphoora-udaya', notes: 'Sunrise, awakening, vigor', origin: 'Darjeeling × Assam', image: 'sphoora-udaya.jpg' },
           // { name: 'Aabha', slug: 'sphoora-aabha', notes: 'Glow, radiance, freshness', origin: 'Dooars × Kangra', image: 'sphoora-aabha.jpg' },
           // { name: 'Prabha', slug: 'sphoora-prabha', notes: 'First light, brilliance', origin: 'Darjeeling 2nd flush & CTC', image: 'sphoora-prabha.jpg' },

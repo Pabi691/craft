@@ -38,7 +38,7 @@ export default function Search() {
           <input
             value={value}
             onChange={(e) => setValue(e.target.value)}
-            placeholder="Khesh tote, Darjeeling tea, botua…"
+            placeholder="Khesh tote, green tea, botua…"
             className="w-full bg-transparent font-display text-2xl text-ink-900 outline-none placeholder:text-ink-300 md:text-4xl"
           />
           {value && (

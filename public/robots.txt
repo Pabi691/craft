@@ -1,0 +1,19 @@
+# Craft & Weft
+User-agent: *
+Allow: /
+
+# Private or single-use pages — nothing to index, and some carry tokens.
+Disallow: /cart
+Disallow: /checkout
+Disallow: /thank-you
+Disallow: /wishlist
+Disallow: /myaccount
+Disallow: /login
+Disallow: /register
+Disallow: /logout
+Disallow: /reset-password
+Disallow: /email-verification
+Disallow: /review/
+Disallow: /search
+
+Sitemap: https://craftcombine.org/sitemap.xml
